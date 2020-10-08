@@ -1,7 +1,7 @@
 # **⚡Tiago Altstadt⚡** 
 Hola!👋 Mi nombre es Tiago Altstadt y este es mi perfil de GitHub! Un poco de mi 🤔, me gusta aprender, con eso resumo bastante, en particular todo lo relacionado con programacion. Tengo encima unos años de Ingenieria en Sistemas y el titulo de Programador Web Full Stack.
 
-## **Que puedo hacer?**😄
+## **Que puedo hacer?** 😄
 
 - Desarrollo de una aplicación web e-commerce.
 - Uso de HTML para la estructura, CSS para el diseño y Javascript para interacciones y/o validaciones del lado del cliente.
