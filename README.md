@@ -19,7 +19,7 @@ Hola!👋 Mi nombre es Tiago Altstadt y este es mi perfil de GitHub! Un poco de 
 ## **Contribuciones en proyectos Publicos:** :earth_americas:
 
 - ### **Baggu:**
-![GitHub Contributors Image](https://contrib.rocks/image?repo=TiagoAltstadt/Baggu-ecommerce)
+   ![GitHub Contributors Image](https://contrib.rocks/image?repo=TiagoAltstadt/Baggu-ecommerce)
 
 
 
