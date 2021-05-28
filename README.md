@@ -25,8 +25,7 @@ Hola!👋 Mi nombre es Tiago Altstadt y este es mi perfil de GitHub! Un poco de 
 
 ## **Estadisticas:** :chart:
 
-![Your Repository's Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=TiagoAltstadt&theme=radical)  
-![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=TiagoAltstadt&show_icons=true&theme=radical) 
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=TiagoAltstadt&layout=compact)](https://github.com/anuraghazra/github-readme-stats) ![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=TiagoAltstadt&show_icons=true&theme=radical) 
     
 
 
