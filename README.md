@@ -13,3 +13,5 @@ Hola!👋 Mi nombre es Tiago Altstadt y este es mi perfil de GitHub! Un poco de 
 ## **Contacto**📫
 - **e-mail:** (tiagoaltstadt@gmail.com)
 - [Linkedin](https://www.linkedin.com/in/tiago-altstadt-852b8615b/)
+
+![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=TiagoAltstadt&show_icons=true)
