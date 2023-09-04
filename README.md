@@ -1,27 +1,31 @@
-# Tiagoaltstadt
+# **⚡Tiago Altstadt⚡** 
+Hola!👋 Mi nombre es Tiago Altstadt y este es mi perfil de GitHub! Un poco de mi 🤔, me gusta aprender, con eso resumo bastante, en particular todo lo relacionado con programacion. Tengo encima unos años de Ingenieria en Sistemas y el titulo de Programador Web Full Stack.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+![Profile View Counter](https://komarev.com/ghpvc/?username=TiagoAltstadt)
 
-## Development server
+## **Que puedo hacer?** 😄
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Desarrollo de una aplicación web e-commerce.
+- Uso de HTML para la estructura, CSS para el diseño y Javascript para interacciones y/o validaciones del lado del cliente.
+- Diseño y desarrollo del Front-End con las buenas prácticas de hacer sitios responsive.
+- Implementación de un dashboard de backoffice en React.
+- Backend y la API REST desarrollado en Node, con Express como framework de apoyo utilizando buenas prácticas MVC.
+- Diseño y utilizacion un UML para el armado y organización de la base de datos relacional interactuando a través de Sequelize con MySQL.
 
-## Code scaffolding
+## **Contacto** 📫
+- **e-mail:** (tiagoaltstadt@gmail.com)
+- [Linkedin](https://www.linkedin.com/in/tiago-altstadt-852b8615b/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## **Contribuciones en proyectos Publicos:** :earth_americas:
 
-## Build
+- ### **Baggu:**
+   ![GitHub Contributors Image](https://contrib.rocks/image?repo=TiagoAltstadt/Baggu-ecommerce)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## **Proyectos:** :lock:
+- ### **TNTools>:** https://toolstn.herokuapp.com/users/login
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## **Estadisticas:** :chart:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=TiagoAltstadt&layout=compact&theme=radical)](https://github.com/TiagoAltstadt/github-readme-stats) ![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=TiagoAltstadt&show_icons=true&theme=radical) 
+    

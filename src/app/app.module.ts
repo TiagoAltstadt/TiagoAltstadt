@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HederComponent } from './components/core/heder/heder.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HederComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,

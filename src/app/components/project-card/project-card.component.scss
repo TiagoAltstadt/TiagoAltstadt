@@ -1,0 +1,71 @@
+#projects {
+    width: 95%;
+    max-width: 1200px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+
+    .container {
+        padding-top: 16px;
+        width: 100%;
+        height: auto;
+        overflow-x: auto;
+        white-space: nowrap;
+
+        .item {
+            background-color: rgba(212, 212, 212, 0.214);
+            border-radius: 4px;
+            display: inline-block;
+            height: 250px;
+            margin: 5px;
+            width: 80%;
+            min-width: 297px;
+            max-width: 407px;
+            overflow: hidden;
+
+            .title {
+                color: whitesmoke;
+                font-size: 32px;
+                position: relative;
+                top: -60%;
+                left: 2%;
+                background-color: #9ca25997;
+                width: fit-content;
+                border-radius: 8px;
+                transition: 0.5s;
+                padding: 3px;
+            }
+
+            img {
+                object-fit: cover;
+                height: 124%;
+                position: relative;
+                object-position: top;
+                filter: grayscale(0.4);
+            }
+        }
+
+        :hover {
+            .title {
+                font-size: 36px;
+                top: -65%;
+            }
+
+            img {
+                filter: grayscale(0);
+            }
+        }
+
+    }
+
+}
+
+// :hover {
+//     img {
+//         filter: grayscale(0);
+//         width: 520px;
+//         transition: 0.5s;
+//     }
+// }
