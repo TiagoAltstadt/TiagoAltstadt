@@ -5,7 +5,7 @@
     <div id="menu-container">
         <ul>
             <li *ngFor="let option of headerOptions">
-                {{option.tag}}
+               <a href="{{option.link}}"> {{option.tag}}</a>
             </li>
 
         </ul>

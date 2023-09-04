@@ -3,18 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HederComponent } from './components/core/heder/heder.component';
-import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { RouterModule } from '@angular/router';
+import { ExperienceComponent } from './pages/experience/experience.component';
+import { ComponentsModule } from './components/components.module';
+import { LayoutsModule } from './layouts/main-layout.module';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HederComponent,
-    ProjectCardComponent
+    ExperienceComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule,
+    AppRoutingModule,
+    LayoutsModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

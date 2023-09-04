@@ -1,25 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    margin: 0px;
-    overflow-x: hidden;
+  margin: 0px;
+  overflow-x: hidden;
+  background-color: #f5f1ec;
 }
-:root{
-    --bottom-shadow: 0 4px 6px -6px #222;
-    transition: 2s;
+
+:root {
+  --bottom-shadow: 0 4px 6px -6px #222;
+  transition: 2s;
 }
+
 * {
-    ::-webkit-scrollbar {
-      width: 5px;
-      height: 5px;
-    }
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgb(201, 201, 201);
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgb(141, 141, 141);
-    }
+  a {
+    text-decoration: none ;
+    color: inherit;
   }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(201, 201, 201);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(141, 141, 141);
+  }
+}
