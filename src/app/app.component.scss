@@ -1,17 +1,98 @@
 #leave1 {
+    opacity: 0.3;
     position: fixed;
-    left: 90vw;
+    right: -75px;
     height: 286px;
-    top: 30px;
-    transform: rotate(155deg);
+    top: 34px;
+    transform: rotate(279deg);
+    z-index: -2;
+    
+}
+#leave2 {
+    opacity: 0.5;
+    position: fixed;
+    right: -52px;
+    height: 237px;
+    top: 36px;
+    transform: rotate(217deg);
+    z-index: -2;
+}
+#leave3 {
+    opacity: 0.2;
+    position: fixed;
+    left: -83px;
+    height: 286px;
+    bottom: -38px;
+    transform: rotate(91deg);
     z-index: -2;
 }
 
-#leave2 {
+#leave4 {
+    opacity: 0.5;
     position: fixed;
-    left: 78vw;
-    height: 219px;
-    top: -25px;
-    transform: rotate(269deg);
+    left: 55px;
+    height: 237px;
+    bottom: -149px;
+    transform: rotate(63deg);
     z-index: -2;
+}
+
+@keyframes windAnimation2 {
+    0% {
+        transform: translateX(0) rotate(259deg);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(254deg);
+        /* Simulate movement to the right */
+    }
+
+    100% {
+        transform: translateX(0) rotate(259deg);
+    }
+}
+
+@keyframes windAnimation3 {
+    0% {
+        transform: translateY(0) rotate(91deg);
+    }
+
+    50% {
+        transform: translateY(5px) rotate(98deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(91deg);
+    }
+}
+@keyframes windAnimation4 {
+    0% {
+        transform: translateY(0) rotate(63deg);
+    }
+
+    50% {
+        transform: translateY(5px) rotate(69deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(63deg);
+    }
+}
+
+.animated-leave1 {
+    animation: windAnimation1 6s ease-in-out infinite;
+    /* Adjust the duration and easing as needed */
+}
+
+.animated-leave2 {
+    animation: windAnimation2 6s ease-in-out infinite;
+    /* Adjust the duration and easing as needed */
+}
+.animated-leave3 {
+    animation: windAnimation3 6s ease-in-out infinite;
+    /* Adjust the duration and easing as needed */
+}
+.animated-leave4 {
+    animation: windAnimation4 6s ease-in-out infinite;
+    /* Adjust the duration and easing as needed */
 }

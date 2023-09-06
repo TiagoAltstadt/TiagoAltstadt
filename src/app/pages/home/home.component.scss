@@ -1,19 +1,46 @@
 #presentation-container {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    padding: 0px 0px 0px 64px;
+    height: 90vh;
+    width: 90%;
+    margin: auto;
+    margin-top: 20%;
 
-    .hello {
+    #hello {
         font-size: 48px;
         margin: 32px 0px 0px 0px;
     }
 
-    .name {
+    #name {
         font-size: 64px;
         margin: 8px 0px 0px 0px;
     }
 
-    .presentation {
+    #presentation {
         font-size: 20px;
+    }
+}
+
+#experience {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 90vh;
+    width: 90%;
+    margin: auto;
+
+    .title {
+        width: fit-content;
+        margin: 0px auto;
+        font-size: 38px;
+    }
+
+    .subtitle {
+        width: fit-content;
+        margin: 0px auto;
+        font-size: 32px;
+        opacity: 0.5;
     }
 
 

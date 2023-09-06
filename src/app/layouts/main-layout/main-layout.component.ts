@@ -7,13 +7,10 @@ import { Component } from '@angular/core';
 })
 export class MainLayoutComponent {
   headerOptions = [
-    { tag: '🌙', link: '#' },
-    { tag: 'Home', link: '' },
-    { tag: 'Projects', link: '/projects' },
+    { tag: 'Experience', link: '/experience' }, // Will have Work, Studies and Projects
     { tag: 'Bio', link: '/bio' },
-    { tag: 'Experience', link: '/experience' },
-    { tag: 'Studies', link: '/studies' },
-    { tag: 'Misc', link: '/misc' },
     { tag: 'Contact', link: '/contact' },
+    { tag: 'Misc', link: '/misc' },
+    { tag: '🌙', link: '#' },
   ]
 }

@@ -1,9 +1,20 @@
 <section id="presentation-container">
-    <p class="hello">Hello World,</p>
-    <p class="name">I'm Tiago Altsatdt</p>
-    <p class="presentation">And I did this page/project, and many more. But this one is special,
+    <p id="hello"></p>
+    <p id="name"> </p>
+    <p id="presentation"></p>
+    <!-- <p class="hello">Hello World,</p>
+    <p class="name">I'm Tiago </p>
+    <p class="presentation">I'm a Full Stack Web Developer, I did this page/project, and many more. But this one is special,
         this one serves two main porposes: your first impression of me, and indexing all my relevant information. But if
-        you stay here long enough, you may find I have some other funny things going around here...</p>
+        you stay here long enough, you may find I have some other funny things going around here...</p> -->
 </section>
 
-<app-project-card [projects]="projects"></app-project-card>
+<!-- Projects -->
+<section id="experience">
+    <p class="title">Experience</p>
+    <p class="subtitle">Work Log</p>
+    <app-project-card [cards]="work"></app-project-card>
+    <p class="subtitle">Projects</p>
+    <app-project-card [cards]="projects"></app-project-card>
+
+</section>

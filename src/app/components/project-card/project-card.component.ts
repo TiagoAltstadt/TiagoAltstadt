@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./project-card.component.scss']
 })
 export class ProjectCardComponent {
-  @Input() projects: any;
+  @Input() cards: any;
 }
