@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { simpleTabInterface } from 'src/app/interfaces/simple-tabs';
 
 @Component({
   selector: 'app-home',
@@ -7,18 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
-  work = [
-    { tag: 'Nybble', link: 'https://www.nybblegroup.com/', image: 'nybble' },
-    { tag: 'Veterinaria Nueva Estrada', link: 'https://veterinarianuevaestrada.com', image: 'veterinaria' },
+  work: simpleTabInterface[] = [
+    { tag: 'Wunderman Thompson', link: 'https://www.wundermanthompson.com/es/argentina', image: 'wunderman' },
+    { tag: 'Q&R Solutions', link: 'https://gestion-ar.qrsolutions.com.ar/login', image: 'qr' },
     { tag: 'Digital House', link: 'https://www.digitalhouse.com/ar', image: 'digital_house' },
     { tag: 'Todo Noticias - Artear', link: 'https://tn.com.ar/?gclid=CjwKCAjwo9unBhBTEiwAipC11yPdNv-NnOkUbIjxoy0pPg17-b0QMN7dma1qzbIXPHwWVw18bXijHhoC46cQAvD_BwE', image: 'tn' },
-    { tag: 'Q&R Solutions', link: 'https://gestion-ar.qrsolutions.com.ar/login', image: 'qr' },
+    { tag: 'Nybble', link: 'https://www.nybblegroup.com/', image: 'nybble' },
+    { tag: 'Veterinaria Nueva Estrada', link: 'http://www.veterinarianuevaestrada.com', image: 'veterinaria' },
   ]
-  projects = [
+  projects: simpleTabInterface[] = [
     { tag: 'Baggu - Ecmmerce', link: 'https://github.com/TiagoAltstadt/Baggu-ecommerce/tree/master', image: 'baggu' },
     { tag: 'Snake (C++)', link: 'https://github.com/TiagoAltstadt/Snake_cpp', image: 'snake' },
     { tag: 'Calculator (JavaScript)', link: 'https://github.com/TiagoAltstadt/Calculator  ', image: 'calculator' },
-
   ]
 
   textToType: string = "";

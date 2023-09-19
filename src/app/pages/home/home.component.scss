@@ -1,11 +1,40 @@
-#presentation-container {
+.container {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    height: 90vh;
+    height: 100vh;
     width: 90%;
     margin: auto;
-    margin-top: 20%;
+    margin-top: 30px;
+
+    .title {
+        margin-top: 30px;
+        width: fit-content;
+        margin: 0px auto;
+        font-size: 38px;
+    }
+
+    .subtitle {
+        width: fit-content;
+        margin: 0px auto;
+        font-size: 32px;
+        opacity: 0.5;
+    }
+
+    .sub-subtitle {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .paragraph {
+        width: fit-content;
+        font-size: 16px;
+    }
+
+}
+
+#presentation-container {
+    height: 85vh;
 
     #hello {
         font-size: 48px;
@@ -20,28 +49,104 @@
     #presentation {
         font-size: 20px;
     }
+
 }
 
-#experience {
+#bio {
+    .row-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        .half-block {
+            width: 40%;
+            min-width: 220px;
+            background-color: rgba(0, 0, 0, 0.178);
+            padding: 12px;
+            border-radius: 4px;
+        }
+    }
+}
+
+#experience {}
+
+#contact {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    height: 90vh;
-    width: 90%;
-    margin: auto;
+    ul {
+        margin: 40px auto;
+        list-style-type: none;
 
-    .title {
-        width: fit-content;
-        margin: 0px auto;
-        font-size: 38px;
+        li {
+            margin: 4px;
+            width: fit-content;
+            font-size: 24px;
+
+            img {
+                margin-right: 8px;
+            }
+        }
     }
 
-    .subtitle {
-        width: fit-content;
-        margin: 0px auto;
-        font-size: 32px;
-        opacity: 0.5;
+}
+
+.arrowsUp {
+    width: fit-content;
+    margin: 5px auto 18px 48%;
+
+    .arrow1 {
+        width: 50px;
     }
 
+    .arrow2 {
+        width: 29px;
+        position: relative;
+        bottom: -9px;
+        left: -39px;
+    }
+}
 
+
+.arrowsDown {
+    width: fit-content;
+    margin: auto auto 18px 48%;
+
+    .arrow1 {
+        width: 50px;
+    }
+
+    .arrow2 {
+        width: 29px;
+        position: relative;
+        bottom: -9px;
+        left: -39px;
+    }
+}
+
+.icon {
+    width: 32px;
+    position: relative;
+    bottom: -12px;
+}
+
+@keyframes downAnimation {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(15px);
+        /* Simulate movement to the right */
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animatedClass {
+    animation: downAnimation 2s ease-in-out infinite;
+    /* Adjust the duration and easing as needed */
 }

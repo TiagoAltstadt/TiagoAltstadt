@@ -9,15 +9,20 @@
 
     .container {
         padding-top: 16px;
+        padding: 4px;
         width: 100%;
         height: auto;
         overflow-x: auto;
         white-space: nowrap;
+        background-color: rgba(0, 0, 0, 0.178);
+        border-radius: 4px;
 
+
+        
         .item {
             background-color: rgba(212, 212, 212, 0.214);
-            border-radius: 4px;
             display: inline-block;
+            border-radius: 4px;
             height: 250px;
             margin: 5px;
             width: 80%;

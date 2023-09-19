@@ -1,20 +1,110 @@
-<section id="presentation-container">
+<!-- Presentation -->
+<section id="presentation-container" class="container">
     <p id="hello"></p>
     <p id="name"> </p>
     <p id="presentation"></p>
-    <!-- <p class="hello">Hello World,</p>
-    <p class="name">I'm Tiago </p>
-    <p class="presentation">I'm a Full Stack Web Developer, I did this page/project, and many more. But this one is special,
-        this one serves two main porposes: your first impression of me, and indexing all my relevant information. But if
-        you stay here long enough, you may find I have some other funny things going around here...</p> -->
+    <a class="arrowsDown" href="#experience">
+        <img class="arrow1 animatedClass " src="/assets/icons/arrow-down.svg">
+        <img class="arrow2 animatedClass" src="/assets/icons/arrow-down.svg">
+    </a>
+
 </section>
 
-<!-- Projects -->
-<section id="experience">
+<!-- Experience -->
+<section id="experience" class="container" #experience>
+    <a class="arrowsUp" href="#header">
+        <img class="arrow1 animatedClass " src="/assets/icons/arrow-up.svg">
+        <img class="arrow2 animatedClass" src="/assets/icons/arrow-up.svg">
+    </a>
     <p class="title">Experience</p>
     <p class="subtitle">Work Log</p>
     <app-project-card [cards]="work"></app-project-card>
     <p class="subtitle">Projects</p>
     <app-project-card [cards]="projects"></app-project-card>
+    <a class="arrowsDown" href="#bio">
+        <img class="arrow1 animatedClass " src="/assets/icons/arrow-down.svg">
+        <img class="arrow2 animatedClass" src="/assets/icons/arrow-down.svg">
+    </a>
+</section>
+
+<!-- Biography -->
+<section id="bio" class="container" #bio>
+    <a class="arrowsUp" href="#experience">
+        <img class="arrow1 animatedClass " src="/assets/icons/arrow-up.svg">
+        <img class="arrow2 animatedClass" src="/assets/icons/arrow-up.svg">
+    </a>
+    <p class="title">Biography</p>
+    <p class="subtitle">My skillset, about me, etc...</p>
+    <div class="row-container">
+        <div class="half-block">
+            <p class="sub-subtitle">About me</p>
+            <p class="paragraph">My name is Tiago Altstadt, and I am a
+                Full Stack Web Developer. I am
+                currently studying Data Science and
+                AI, taking CS50’s Introduction to
+                Computer Science Course, and
+                working on numerous personal
+                projects.
+                I have a deep passion for learning from
+                others, and I take immense pride in
+                reflecting on my achievements from
+                my various experiences.
+                I strongly dislike spaghetti code, and
+                the skill that defines me the most is
+                not knowing everything about
+                anything, but rather, my ability to
+                consistently acquire the knowledge
+                necessary for the task at hand, thereby
+                expanding my skillset.</p>
+        </div>
+        <div class="half-block">
+            <p class="sub-subtitle">Known technologies</p>
+            <ul>
+                <li>Node Js</li>
+                <li>Creation of APIs</li>
+                <li>Sequelize</li>
+                <li>C++</li>
+                <li>Git</li>
+                <li>React</li>
+                <li>Angular</li>
+                <li>Express</li>
+                <li>MVC Architecture</li>
+                <li>OOP</li>
+                <li>Postman</li>
+                <li>Javascript</li>
+                <li>MySQL</li>
+                <li>VSCode</li>
+                <li>Scrum</li>
+                <li>HTML and CSS</li>
+            </ul>
+        </div>
+    </div>
+
+    <a class="arrowsDown" href="#contact">
+        <img class="arrow1 animatedClass " src="/assets/icons/arrow-down.svg">
+        <img class="arrow2 animatedClass" src="/assets/icons/arrow-down.svg">
+    </a>
+</section>
+<!-- Contact -->
+<section id="contact" class="container" #contact>
+    <a class="arrowsUp" href="#bio">
+        <img class="arrow1 animatedClass " src="/assets/icons/arrow-up.svg">
+        <img class="arrow2 animatedClass" src="/assets/icons/arrow-up.svg">
+    </a>
+    <p class="title">Contact Me</p>
+    <p class="subtitle">All my contact info in one place!</p>
+    <ul>
+        <li><img class="icon" src="/assets/icons/map.svg">Werever there's Wi-Fi & Coffee</li>
+        <li><img class="icon" src="/assets/icons/email.svg"> <a
+                href="mailto:tiagoaltstadt@gmail.com">tiagoaltstadt@gmail.com</a></li>
+        <li><img class="icon" src="/assets/icons/phone.svg"> <a href="https://wa.me/2235446119">+54 9 223 544 6119</a>
+        </li>
+        <li><img class="icon" src="/assets/icons/linkedin.svg"> <a
+                href="https://www.linkedin.com/in/tiagoaltstadt">linkedin.com/in/tiagoaltstadt</a></li>
+        <li><img class="icon" src="/assets/icons/github.svg"><a
+                href="https://github.com/TiagoAltstadt">www.github.com/TiagoAltstadt</a></li>
+    </ul>
+
+
 
 </section>
