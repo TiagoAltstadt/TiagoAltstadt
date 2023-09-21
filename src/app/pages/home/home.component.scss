@@ -2,33 +2,33 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    height: 100vh;
+    height: calc(100vh + topBarHeight);
     width: 90%;
     margin: auto;
-    margin-top: 30px;
+    margin-top: var(--space-32px);
 
     .title {
-        margin-top: 30px;
+        margin-top: var(--space-32px);
         width: fit-content;
         margin: 0px auto;
-        font-size: 38px;
+        font-size: var(--font-38px);
     }
 
     .subtitle {
         width: fit-content;
         margin: 0px auto;
-        font-size: 32px;
+        font-size: var(--font-32px);
         opacity: 0.5;
     }
 
     .sub-subtitle {
-        font-size: 24px;
+        font-size: var(--font-24px);
         text-align: center;
     }
 
     .paragraph {
         width: fit-content;
-        font-size: 16px;
+        font-size: var(--font-16px);
     }
 
 }
@@ -37,17 +37,17 @@
     height: 85vh;
 
     #hello {
-        font-size: 48px;
-        margin: 32px 0px 0px 0px;
+        font-size: var(--font-38px);
+        margin: var(--space-32px) 0px 0px 0px;
     }
 
     #name {
-        font-size: 64px;
-        margin: 8px 0px 0px 0px;
+        font-size: var(--font-38px);
+        margin: var(--space-8px) 0px 0px 0px;
     }
 
     #presentation {
-        font-size: 20px;
+        font-size: var(--font-24px);
     }
 
 }
@@ -58,14 +58,14 @@
         flex-direction: row;
         justify-content: space-evenly;
         flex-wrap: wrap;
-        gap: 6px;
+        gap: var(--space-8px);
 
         .half-block {
             width: 40%;
             min-width: 220px;
-            background-color: rgba(0, 0, 0, 0.178);
-            padding: 12px;
-            border-radius: 4px;
+            background-color: var(--background-soft);
+            padding: var(--space-12px);
+            border-radius: var(--border-radius);
         }
     }
 }
@@ -76,16 +76,16 @@
     display: flex;
     flex-direction: column;
     ul {
-        margin: 40px auto;
+        margin: var(--space-40px) auto;
         list-style-type: none;
 
         li {
-            margin: 4px;
+            margin: var(--space-8px);
             width: fit-content;
-            font-size: 24px;
+            font-size: var(--font-24px);
 
             img {
-                margin-right: 8px;
+                margin-right: var(--space-8px);
             }
         }
     }
@@ -97,14 +97,14 @@
     margin: 5px auto 18px 48%;
 
     .arrow1 {
-        width: 50px;
+        width: var(--space-32px);
     }
 
     .arrow2 {
-        width: 29px;
+        width: var(--font-16px);
         position: relative;
         bottom: -9px;
-        left: -39px;
+        left: -24px;
     }
 }
 
@@ -114,21 +114,21 @@
     margin: auto auto 18px 48%;
 
     .arrow1 {
-        width: 50px;
+        width: var(--font-16px);
     }
-
+    
     .arrow2 {
-        width: 29px;
+        width: var(--space-32px);
         position: relative;
-        bottom: -9px;
-        left: -39px;
+        bottom: -25px;
+        left: -24px;
     }
 }
 
 .icon {
-    width: 32px;
+    width: var(--font-24px);
     position: relative;
-    bottom: -12px;
+    bottom: -var(--space-8px);
 }
 
 @keyframes downAnimation {
@@ -149,4 +149,38 @@
 .animatedClass {
     animation: downAnimation 2s ease-in-out infinite;
     /* Adjust the duration and easing as needed */
+}
+
+//------------------------------SCSS MEDIA QUERIES TEMPLATE------------------------------
+
+/* Custom CSS for small screens (max-width: 768px) */
+@media all and (max-width: 425px) {
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+        width: 90%;
+        margin: auto;
+        margin-top: 30px;
+    
+    }
+    #presentation-container {
+    
+        #hello {
+            font-size: 32px;
+            margin: 32px 0px 0px 0px;
+        }
+    
+        #name {
+            font-size: 24px;
+            margin: 8px 0px 0px 0px;
+        }
+    
+        #presentation {
+            font-size: 20px;
+        }
+    
+    }
+    
 }

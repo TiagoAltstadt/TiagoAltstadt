@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
     }, 2900);
 
   }
+
   writeThis(textValue: string, textId: string) {
     this.charIndex = 0;
     this.textToType = textValue;

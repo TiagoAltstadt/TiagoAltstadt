@@ -1,19 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  height: -webkit-fill-available;
+}
+
 body {
+  height: -webkit-fill-available;
   margin: 0px;
   overflow-x: hidden;
-  background-color: #f5f1ec;
+  background-color: var(--background-primary);
 }
 
 :root {
   --bottom-shadow: 0 4px 6px -6px #222;
+  --background-soft: rgba(0, 0, 0, 0.178);
+  --background-primary: #f5f1ec;
   transition: 2s;
+  --border-radius: 4px;
+
+  // Tamaños de fonts
+  --font-42px: 3em;
+  --font-38px: 2.5em;
+  --font-32px: 2em;
+  --font-24px: 1.5em;
+  --font-18px: 1.125em;
+  --font-16px: 1em;
+  --font-14px: 0.875em;
+  --font-12px: 0.75em;
+  // Tamaño de espacios (Margenes y paddings)
+  --space-96px: 96px;
+  --space-88px: 88px;
+  --space-80px: 80px;
+  --space-72px: 72px;
+  --space-64px: 64px;
+  --space-56px: 56px;
+  --space-48px: 48px;
+  --space-40px: 40px;
+  --space-32px: 32px;
+  --space-24px: 24px;
+  --space-16px: 16px;
+  --space-12px: 12px;
+  --space-8px: 8px;
+  // Viewport
+  --heigth-header: 10vh;
+  --heigth-body: 90vh;
 }
+
+@media all and (max-width: 425px) {
+  :root {
+    --heigth-header: 10vh;
+    --heigth-body: 90vh;
+  }
+}
+
 
 * {
   scroll-behavior: smooth;
+
   a {
-    text-decoration: none ;
+    text-decoration: none;
     color: inherit;
   }
 
