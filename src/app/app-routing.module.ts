@@ -16,6 +16,18 @@ const routes: Routes = [
       import('./pages/experience/experience.module').then((m) => m.ExperienceModule),
   },
   {
+    path: 'bio',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/bio/bio.module').then((m) => m.BioModule),
+  },
+  {
+    path: 'contact',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/contact/contact.module').then((m) => m.ContactModule),
+  },
+  {
     path: '**',
     component: MainLayoutComponent,
     loadChildren: () =>

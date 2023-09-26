@@ -1,14 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
-html {
-  height: -webkit-fill-available;
+* {
+  scroll-behavior: smooth;
+
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(201, 201, 201);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(141, 141, 141);
+  }
+
+  html {
+    height: -webkit-fill-available;
+  }
+
+  body {
+    height: -webkit-fill-available;
+    margin: 0px;
+    overflow-x: hidden;
+    background-color: var(--background-primary);
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      height: calc(100vh + topBarHeight);
+      width: 90%;
+      margin: auto;
+      margin-top: var(--space-32px);
+
+      .title {
+        margin-top: var(--space-32px);
+        width: fit-content;
+        margin: 0px auto;
+        font-size: var(--font-38px);
+      }
+
+      .subtitle {
+        width: fit-content;
+        margin: 0px auto;
+        font-size: var(--font-32px);
+        opacity: 0.5;
+      }
+
+      .sub-subtitle {
+        font-size: var(--font-24px);
+        text-align: center;
+      }
+
+      .paragraph {
+        width: fit-content;
+        font-size: var(--font-16px);
+      }
+
+      .icon {
+        width: var(--font-24px);
+        position: relative;
+        bottom: -var(--space-8px);
+      }
+    }
+  }
 }
 
-body {
-  height: -webkit-fill-available;
-  margin: 0px;
-  overflow-x: hidden;
-  background-color: var(--background-primary);
-}
 
 :root {
   --bottom-shadow: 0 4px 6px -6px #222;
@@ -50,32 +119,33 @@ body {
     --heigth-header: 10vh;
     --heigth-body: 90vh;
   }
-}
 
+  body {
+    .container {
+      .title {
+        margin-top: var(--space-32px);
+        width: fit-content;
+        margin: 0px auto;
+        font-size: var(--font-32px);
+      }
 
-* {
-  scroll-behavior: smooth;
+      .subtitle {
+        width: fit-content;
+        margin: 0px auto;
+        font-size: var(--font-24px);
+        opacity: 0.7;
+      }
 
-  a {
-    text-decoration: none;
-    color: inherit;
+      .sub-subtitle {
+        font-size: var(--font-24px);
+        text-align: center;
+      }
+
+      .paragraph {
+        width: fit-content;
+        font-size: var(--font-14px);
+      }
+    }
   }
 
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgb(201, 201, 201);
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(141, 141, 141);
-  }
 }

@@ -8,12 +8,16 @@ import { ExperienceComponent } from './pages/experience/experience.component';
 import { ComponentsModule } from './components/components.module';
 import { LayoutsModule } from './layouts/main-layout.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { BioComponent } from './pages/bio/bio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExperienceComponent,
     NotFoundComponent,
+    ContactComponent,
+    BioComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,17 @@
 <section id="header" #header>
     <div id="logo-container">
-        <a href="/">
-            <div class="logo">
-                <img src="/assets/icons/lightning.svg" alt="">
-            </div>
+        <a href="/" class="logo">
+            <img src="/assets/icons/lightning.svg" alt="">
         </a>
     </div>
     <div id="menu-container">
         <ul>
             <li *ngFor="let option of headerOptions">
-               <a href="{{option.link}}"> {{option.tag}}</a>
+                <a (click)="navigationFunction(option.link)"> {{option.tag}}</a>
             </li>
-
         </ul>
+        <div id="phone-burguer" (click)="hamburguer()">
+            <img class="icon" src="/assets/icons/hamburger-menu.svg">
+        </div>
     </div>
 </section>
