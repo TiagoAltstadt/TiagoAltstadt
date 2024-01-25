@@ -14,21 +14,12 @@ Hola!👋 Mi nombre es Tiago Altstadt y este es mi perfil de GitHub! Un poco de 
 
 ## **Contacto** 📫
 - **e-mail:** (tiagoaltstadt@gmail.com)
-- [Linkedin](https://www.linkedin.com/in/tiago-altstadt-852b8615b/)
-
-## **Contribuciones en proyectos Publicos:** :earth_americas:
-
-- ### **Baggu:**
-   ![GitHub Contributors Image](https://contrib.rocks/image?repo=TiagoAltstadt/Baggu-ecommerce)
-
-## **Proyectos:** :lock:
-- ### **TNTools>:** https://toolstn.herokuapp.com/users/login
+- [Linkedin](https://www.linkedin.com/in/tiagoaltstadt/)
 
 
-## **Estadisticas:** :chart:
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=TiagoAltstadt&layout=compact&theme=radical)](https://github.com/TiagoAltstadt/github-readme-stats) ![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=TiagoAltstadt&show_icons=true&theme=radical) 
-    
+
+
 
 
 
