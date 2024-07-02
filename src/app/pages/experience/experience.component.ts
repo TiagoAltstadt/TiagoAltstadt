@@ -51,6 +51,11 @@ export class ExperienceComponent {
       image: 'snake',
     },
     {
+      tag: 'File Sorter (Python)',
+      link: 'https://github.com/TiagoAltstadt/file-sorter  ',
+      image: 'file-sorter',
+    },
+    {
       tag: 'Calculator (JavaScript)',
       link: 'https://github.com/TiagoAltstadt/Calculator  ',
       image: 'calculator',

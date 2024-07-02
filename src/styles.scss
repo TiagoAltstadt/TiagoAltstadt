@@ -35,6 +35,7 @@
     margin: 0px;
     overflow-x: hidden;
     background-color: var(--background-primary);
+    min-width: 375px;
 
     .container {
       display: flex;
