@@ -6,6 +6,10 @@
     "prebuild": "cd backend && npm run build",
     "build": "cd frontend && npm run build"
   },
+  "engines": {
+    "node": "18.15.0",
+    "npm": "9.6.2"
+  },
   "dependencies": {
     "@angular/common": "^12.0.0",
     "@fullcalendar/angular": "^6.1.9",
