@@ -8,10 +8,6 @@
     "postinstall": "ng build --aot"
   },
   "private": true,
-  "engines": {
-    "node": "18.15.0",
-    "npm": "9.6.2"
-  },
   "dependencies": {
     "@angular-devkit/build-angular": "^15.2.4",
     "@angular/animations": "^15.2.0",
