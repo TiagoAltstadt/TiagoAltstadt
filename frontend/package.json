@@ -8,8 +8,8 @@
     "postinstall": "ng build --aot"
   },
   "engines": {
-    "node": "16.15.0",
-    "npm": "8.5.5"
+    "node": "18.15.0",
+    "npm": "9.6.2"
   },
   "private": true,
   "dependencies": {
