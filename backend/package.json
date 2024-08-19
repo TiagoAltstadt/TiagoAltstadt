@@ -7,6 +7,10 @@
     "start": "cd src && nodemon server.ts ",
     "build": "npm install && tsc"
   },
+  "engines": {
+    "node": "20.16.0",
+    "npm": "10.8.1"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

@@ -6,6 +6,10 @@
     "prebuild": "cd backend && npm run build",
     "build": "cd frontend && npm run build"
   },
+  "engines": {
+    "node": "20.16.0",
+    "npm": "10.8.1"
+  },
   "dependencies": {
     "@angular/common": "^12.0.0",
     "@fullcalendar/daygrid": "^6.1.9",
