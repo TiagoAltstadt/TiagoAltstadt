@@ -7,6 +7,48 @@
     color: inherit;
   }
 
+  .blur {
+    background: rgba(
+      255,
+      255,
+      255,
+      0.05
+    ); /* Semi-transparent white background */
+    border-radius: 16px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    backdrop-filter: blur(7.3px); /* Blurs the background behind this element */
+    -webkit-backdrop-filter: blur(
+      7.3px
+    ); /* Ensures compatibility with Safari */
+  }
+
+  .bigTitle {
+    margin-top: var(--space-32px);
+    width: fit-content;
+    margin: 0px auto;
+    font-size: var(--font-xxl);
+    font-weight: 600;
+  }
+  .title {
+    margin-top: var(--space-32px);
+    width: fit-content;
+    margin: 0px auto;
+    font-size: var(--font-38px);
+  }
+
+  .subtitle {
+    width: fit-content;
+    margin: 0px auto;
+    font-size: var(--font-32px);
+  }
+
+  .paragraph {
+    margin: 0px auto;
+    font-weight: 400;
+    font-size: var(--font-m);
+    opacity: 0.5;
+  }
+
   ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
@@ -45,28 +87,9 @@
       margin: auto;
       margin-top: var(--space-32px);
 
-      .title {
-        margin-top: var(--space-32px);
-        width: fit-content;
-        margin: 0px auto;
-        font-size: var(--font-38px);
-      }
-
-      .subtitle {
-        width: fit-content;
-        margin: 0px auto;
-        font-size: var(--font-32px);
-        opacity: 0.5;
-      }
-
       .sub-subtitle {
         font-size: var(--font-24px);
         text-align: center;
-      }
-
-      .paragraph {
-        width: fit-content;
-        font-size: var(--font-16px);
       }
 
       .icon {
@@ -86,6 +109,16 @@
   --border-radius: 4px;
 
   // Tamaños de fonts
+
+  --font-xxl: 3em; /* Extra Extra Large (42px) */
+  --font-xl: 2.5em; /* Extra Large (38px) */
+  --font-l: 2em; /* Large (32px) */
+  --font-m: 1.5em; /* Medium (24px) */
+  --font-s: 1.125em; /* Small (18px) */
+  --font-xs: 1em; /* Extra Small (16px) */
+  --font-xxs: 0.875em; /* Extra Extra Small (14px) */
+  --font-xxxs: 0.75em; /* Extra Extra Extra Small (12px) */
+
   --font-42px: 3em;
   --font-38px: 2.5em;
   --font-32px: 2em;
@@ -95,6 +128,20 @@
   --font-14px: 0.875em;
   --font-12px: 0.75em;
   // Tamaño de espacios (Margenes y paddings)
+  --space-xxl: 96px; /* Extra Extra Large */
+  --space-xl: 88px; /* Extra Large */
+  --space-l: 80px; /* Large */
+  --space-m: 72px; /* Medium */
+  --space-s: 64px; /* Small */
+  --space-xs: 56px; /* Extra Small */
+  --space-xxs: 48px; /* Extra Extra Small */
+  --space-xxs: 40px; /* Extra Extra Small */
+  --space-xxs: 32px; /* Extra Extra Small */
+  --space-xxs: 24px; /* Extra Extra Small */
+  --space-xxs: 16px; /* Extra Extra Small */
+  --space-xxs: 12px; /* Extra Extra Small */
+  --space-xxs: 8px; /* Extra Extra Small */
+
   --space-96px: 96px;
   --space-88px: 88px;
   --space-80px: 80px;

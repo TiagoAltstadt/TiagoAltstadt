@@ -1,121 +1,13 @@
 #presentation-container {
-    height: 85vh;
+  height: 100vw;
+  padding: var(--space-xs);
 
-    #hello {
-        font-size: var(--font-38px);
-        margin: var(--space-32px) 0px 0px 0px;
+  .hero {
+    border-radius: 16px;
+    padding: var(--space-xs);
+    position: relative; /* For positioning the cursor */
+    #typing-text {
+      height: 64px;
     }
-
-    #name {
-        font-size: var(--font-38px);
-        margin: var(--space-8px) 0px 0px 0px;
-    }
-
-    #presentation {
-        font-size: var(--font-24px);
-    }
-
-    .image-container {
-        img {
-            position: absolute;
-            height: 50%;
-            right: 0px;
-            left: 0;
-            margin: auto;
-            bottom: -10px;
-            z-index: 2;
-            filter: grayscale(0.5);
-        }
-
-        
-    }
-
-}
-
-//-----------------------Arrows-----------------------
-.arrowsUp {
-    width: fit-content;
-    margin: 5px auto 18px 48%;
-
-    .arrow1 {
-        width: var(--space-32px);
-    }
-
-    .arrow2 {
-        width: var(--font-16px);
-        position: relative;
-        bottom: -9px;
-        left: -24px;
-    }
-}
-
-.arrowsDown {
-    width: fit-content;
-    margin: auto auto 18px 48%;
-
-    .arrow1 {
-        width: var(--font-16px);
-    }
-
-    .arrow2 {
-        width: var(--space-32px);
-        position: relative;
-        bottom: -25px;
-        left: -24px;
-    }
-}
-
-@keyframes downAnimation {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(15px);
-        /* Simulate movement to the right */
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.animatedClass {
-    animation: downAnimation 2s ease-in-out infinite;
-    /* Adjust the duration and easing as needed */
-}
-
-//------------------------------SCSS MEDIA QUERIES TEMPLATE------------------------------
-
-/* Custom CSS for small screens (max-width: 768px) */
-@media all and (max-width: 425px) {
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        overflow: visible;
-        width: 90%;
-        margin: auto;
-        margin-top: 30px;
-
-    }
-
-    #presentation-container {
-
-        #hello {
-            font-size: var(--space-32px);
-            margin: 32px 0px 0px 0px;
-        }
-
-        #name {
-            font-size: var(--font-24px);
-            margin: 8px 0px 0px 0px;
-        }
-
-        #presentation {
-            font-size: var(--font-16px);
-        }
-
-    }
-
+  }
 }

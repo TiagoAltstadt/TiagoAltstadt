@@ -20,39 +20,13 @@ export class MainLayoutComponent implements OnInit {
   
   ngOnInit(): void {
     console.clear();
-    console.log(`
-            
-   ______________________________  
-  |                :%.           |
-  |              -@:             |
-  |              +@=             |
-  |            *@*               |
-  |          .%@#                |
-  |          :@@%    *@@@%:      |
-  |        -@@@:   -@@@@@#       |
-  |        +@@@-     =#%%*.       |
-  |      *@@@+                   |
-  |    .%@@@#                    |
-  |    :@@@@@=---:::::::.......  |
-  |  .#%%@@@@@@@@@@@@@@@@@@@@#.   |
-  |            ...:::-*@@@@%=    |
-  |                  +@@@@=      |
-  |    .==-        .#@@@+        |
-  |    :@@@@#      -@@@*.        |
-  |    .#@@@=     +@@#.          |
-  |      .     .#@%-             |
-  |            -@%-              |
-  |          *@=                 |
-  |        :%+                   |
-  |        .*.                   |
-  |______________________________|               
-        
-  Hello there!
-  You found my little easter egg!
-  My name is Tiago Altstadt,
-  nice to meet you!
-  https://www.linkedin.com/in/tiagoaltstadt/
-`);
+    setTimeout(() => {
+      console.clear();
+      console.log(
+        '%c⚡Hello,\n My name is Tiago Altstadt and I developed this site, and a lot of other stuff, reach out to me if you wanna find out more!',
+        'color:#1cce69; background: #3d09bf; font-size: 1.5rem; padding: 0.15rem 0.25rem; margin: 1rem; font-family: Helvetica; border: 2px solid #1cce69; border-radius: 4px; font-weight: bold; text-shadow: 1px 1px 1px #0a0121; font-style: italic;'
+      );
+    }, 1000);
   }
 
   navigationFunction(link: string) {

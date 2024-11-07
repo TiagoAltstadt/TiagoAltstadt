@@ -22,6 +22,12 @@ const routes: Routes = [
       import('./pages/bio/bio.module').then((m) => m.BioModule),
   },
   {
+    path: 'test',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/test/test.module').then((m) => m.TestModule),
+  },
+  {
     path: 'contact',
     component: MainLayoutComponent,
     loadChildren: () =>

@@ -2,48 +2,53 @@ import { Component, OnInit } from '@angular/core';
 import { simpleTabInterface } from 'src/app/interfaces/simple-tabs';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  textToType: string = '';
-  typingSpeed: number = 50; // Adjust typing speed (milliseconds per character)
-  typingElement: HTMLElement | null = null;
-  charIndex: number = 0;
-  cycles = 0;
-  imageLoaded = false;
+    texts: string[] = ['Hello', 'Hola', 'Ciao'];
+    typingElement: HTMLElement | null = null;
+    cursor: HTMLElement | null = null;
+    currentTextIndex: number = 0;
+    charIndex: number = 0;
+    isDeleting: boolean = false;
 
-  ngOnInit() {
-    this.writeThis('Hello world!', 'hello');
-    setTimeout(() => {
-      this.writeThis('My name is Tiago Altstadt.', 'name');
-    }, 1200);
-    setTimeout(() => {
-      this.typingSpeed = 25;
-      this.writeThis(
-        "I'm a Full Stack Web Developer, I made this page/project, and many more. But this one is special, this one serves two main porposes: your first impression of me, and indexing all my relevant information. But if  you stay here long enough, you may find I have some other funny things going around here...",
-        'presentation'
-      );
-    }, 2900);
-  }
-
-  writeThis(textValue: string, textId: string) {
-    this.charIndex = 0;
-    this.textToType = textValue;
-    this.typingElement = document.getElementById(textId);
-    this.typeText();
-  }
-
-  typeText() {
-    if (this.charIndex < this.textToType.length) {
-      if (this.typingElement) {
-        this.typingElement.textContent += this.textToType.charAt(
-          this.charIndex
-        );
-        this.charIndex++;
-      }
-      setTimeout(() => this.typeText(), this.typingSpeed);
+    ngOnInit() {
+        this.typingElement = document.getElementById('typing-text');
+        this.cursor = document.createElement('span');
+        this.cursor.className = 'cursor';
+        this.cursor.innerHTML = '';
+        this.typingElement?.appendChild(this.cursor);
+        this.type();
     }
-  }
+
+    type() {
+        if (this.charIndex < this.texts[this.currentTextIndex].length) {
+            this.typingElement!.textContent += this.texts[this.currentTextIndex].charAt(this.charIndex);
+            this.charIndex++;
+            setTimeout(() => this.type(), 150); // Typing speed
+        } else {
+            this.cursor!.style.display = 'none'; // Hide cursor when done typing
+            setTimeout(() => {
+                this.isDeleting = true;
+                this.delete();
+            }, 1000); // Wait before starting to delete
+        }
+    }
+
+    delete() {
+        if (this.charIndex > 0) {
+            this.typingElement!.textContent = this.texts[this.currentTextIndex].substring(0, this.charIndex - 1);
+            this.charIndex--;
+            setTimeout(() => this.delete(), 100); // Deleting speed
+        } else {
+            this.cursor!.style.display = 'inline-block'; // Show cursor again
+            this.currentTextIndex = (this.currentTextIndex + 1) % this.texts.length; // Cycle through texts
+            setTimeout(() => {
+                this.isDeleting = false;
+                this.type();
+            }, 1000); // Wait before starting to type next text
+        }
+    }
 }
