@@ -7,6 +7,7 @@ import {
   HTTP_BAD_REQUEST,
   HTTP_NOT_FOUND,
   HTTP_OK,
+  sendErrorResponse,
 } from "../configs/http_status";
 import bcrypt from "bcryptjs";
 import { UserTypeModel } from "../models/user/user-type.model";
@@ -18,7 +19,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const users = await UserModel.find();
     if (!users) {
-      res.status(HTTP_BAD_REQUEST).send([]);
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "Error fetching all users");
       return;
     }
     res.status(HTTP_OK).send(users);
@@ -29,9 +30,8 @@ router.get(
 router.post(
   "/",
   asyncHandler(async (req, res) => {
-    console.log('req.body', req.body);  
     const { name, surname, email, phone, address, password } = req.body;
-    
+
     //---------- Checking for missing Data
     const missingFields = [];
 
@@ -46,18 +46,24 @@ router.post(
       const errorMessage = `Check that the following variables are provided: ${missingFields.join(
         ", "
       )}`;
-      res.status(HTTP_BAD_REQUEST).send(errorMessage);
+      sendErrorResponse(res, HTTP_BAD_REQUEST, errorMessage);
+
       return;
     }
 
     // Validate the user is not already registered
     const user = await UserModel.findOne({ email });
     if (user) {
-      res.status(HTTP_BAD_REQUEST).send("Email " + email + " already in use.");
+      sendErrorResponse(
+        res,
+        HTTP_BAD_REQUEST,
+        "Email " + email + " already in use."
+      );
+
       return;
     }
 
-    const encryptedPassword = await bcrypt.hash(password, 10);
+    const encryptedPassword = await bcrypt.hash(password, 12);
 
     const newUser: User = {
       userTypeId: "USER",
@@ -67,41 +73,46 @@ router.post(
       phone: phone,
       address: address,
       password: encryptedPassword,
+      balanceSheet: [],
+      groups: [],
     };
 
     const dbUser = await UserModel.create(newUser);
 
     if (!dbUser) {
-      res.status(HTTP_BAD_REQUEST).send("Error creating user");
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "Error creating user");
+
       return;
     }
     res.status(HTTP_OK).send(generateTokenResponse(dbUser));
     return;
   })
 );
-
 //----------Update user----------
-router.put(
+router.patch(
   "/:id",
   asyncHandler(async (req, res) => {
     const { id } = req.params;
     const { userTypeId, name, surname, email, phone, address } = req.body;
 
     if (!id || !isValidObjectId(id)) {
-      res.status(HTTP_BAD_REQUEST).send("Invalid Id");
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "Invalid ID");
+
       return;
     }
 
     const user = await UserModel.findById(id);
     if (!user) {
-      res.status(HTTP_BAD_REQUEST).send("Missing data");
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "No user found");
+
       return;
     }
 
     const userTypeExists = await UserTypeModel.findOne({ id: userTypeId });
 
     if (!userTypeExists) {
-      res.status(HTTP_BAD_REQUEST).send("User Type not found");
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "No user type found");
+
       return;
     }
 
@@ -119,28 +130,32 @@ router.put(
 );
 //----------Delete User----------
 router.delete(
-  "/",
+  "/:id",
   asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const user = await UserModel.findOne({ _id: id });
     const { email, password } = req.body;
 
-    const user = await UserModel.findOne({ email });
-
     if (!user) {
-      res.status(HTTP_NOT_FOUND).send("No user found");
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "No user found");
       return;
     }
 
-    if (user && (await bcrypt.compare(password, user.password))) {
+    if (
+      user &&
+      (await bcrypt.compare(password, user.password)) &&
+      user.email == email
+    ) {
       await UserModel.deleteOne({ email: user.email });
       res.status(HTTP_OK).send("User successfully deleted");
       return;
     } else {
-      res.status(HTTP_BAD_REQUEST).send("Username or password is invalid!");
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "Invalid username or password");
+
       return;
     }
   })
 );
-
 //----------Login----------
 router.post(
   "/login",
@@ -149,7 +164,12 @@ router.post(
     const user = await UserModel.findOne({ email });
 
     if (!user) {
-      res.status(HTTP_NOT_FOUND).send("No user found with the mail " + email);
+      sendErrorResponse(
+        res,
+        HTTP_NOT_FOUND,
+        "No user found with the mail " + email
+      );
+
       return;
     }
 
@@ -157,35 +177,44 @@ router.post(
       res.status(HTTP_OK).send(generateTokenResponse(user));
       return;
     } else {
-      res.status(HTTP_BAD_REQUEST).send("Username or password are invalid!");
+      sendErrorResponse(
+        res,
+        HTTP_BAD_REQUEST,
+        "Username or password are invalid"
+      );
+
       return;
     }
   })
 );
-
 //----------Search by id----------
 router.post(
-  "/searchById/:id",
+  "/search-ID/:id",
   asyncHandler(async (req, res) => {
     const id = req.params.id;
 
     if (id && isValidObjectId(id)) {
       const user = await UserModel.findOne({ _id: id });
       if (!user) {
-        res.status(HTTP_NOT_FOUND).send("No user registered with that id");
+        sendErrorResponse(
+          res,
+          HTTP_NOT_FOUND,
+          "No user registered with that id"
+        );
+
         return;
       }
       res.status(HTTP_OK).send(user);
       return;
     } else {
-      res.status(HTTP_BAD_REQUEST).send("Missing or incorrect data");
+      sendErrorResponse(res, HTTP_NOT_FOUND, "Missing or incorrect data");
       return;
     }
   })
 );
 //----------Search by email----------
 router.post(
-  "/searchByEmail/:email",
+  "/search-Email/:email",
   asyncHandler(async (req, res) => {
     const email = req.params.email;
 
@@ -195,11 +224,12 @@ router.post(
         res.status(HTTP_OK).send(user);
         return;
       } else {
-        res.status(HTTP_BAD_REQUEST).send("No user found");
+        sendErrorResponse(res, HTTP_NOT_FOUND, "No user found");
+
         return;
       }
     } else {
-      res.status(HTTP_BAD_REQUEST).send("Missing data");
+      sendErrorResponse(res, HTTP_NOT_FOUND, "Missing data");
       return;
     }
   })
@@ -210,8 +240,8 @@ const generateTokenResponse = (user: User) => {
     {
       email: user.email,
     },
-    "tiagoaltstadt",
-    { expiresIn: "30d" }
+    process.env.JWT_SECRET as any,
+    { expiresIn: process.env.JWT_EXPIRATION || "30d" }
   );
 
   return {

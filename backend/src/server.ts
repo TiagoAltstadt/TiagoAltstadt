@@ -3,11 +3,17 @@ dotenv.config();
 import path from "path";
 import express from "express";
 import cors from "cors";
+import yomeRouter from "./routers/yome.router";
 import userRouter from "./routers/user.router";
+import userTypeRouter from "./routers/user-type.router";
 import { dbConnect } from "./configs/database.config";
 dbConnect();
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 app.use(
   cors({
     credentials: true,
@@ -16,6 +22,8 @@ app.use(
 );
 
 app.use("/api/users", userRouter);
+app.use("/api/userTypes", userTypeRouter);
+app.use("/api/yome", yomeRouter);
 
 app.get("/api", (req, res) => {
   res.send("Hello World!");
