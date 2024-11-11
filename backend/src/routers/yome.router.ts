@@ -89,10 +89,7 @@ router.post("/createGroup", async (req, res) => {
         return sendErrorResponse(res, HTTP_BAD_REQUEST, "No user found.");
       }
 
-      console.log("found user " + user.name + " with groups " + user.groups);
-
       if (user.groups.includes(newGroup.id)) return;
-      console.log("adding group " + newGroup.id);
 
       if (user.groups) {
         user.groups.push(newGroup.id);
@@ -113,112 +110,7 @@ router.post("/createGroup", async (req, res) => {
     }
   }
 });
-// Delete a group
-router.delete("/:id", async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const group = await GroupModel.findByIdAndDelete(id);
-    if (!group) {
-      return res.status(404).json({ message: "GroupModel not found" });
-    }
-
-    group.members.forEach(async (member) => {
-      // Check if the user exists
-      const user = await UserModel.findById(member);
-      if (!user) {
-        return sendErrorResponse(res, HTTP_BAD_REQUEST, "No user found.");
-      }
-
-      user.groups = user.groups.filter((groupId) => groupId !== group.id);
-
-      await user.save();
-    });
-
-    return res.status(200).json({ message: "GroupModel deleted successfully" });
-  } catch (err: unknown) {
-    if (err instanceof Error) {
-      return res.status(500).json({ error: err.message });
-    } else {
-      return res.status(500).json({ error: "An unknown error occurred" });
-    }
-  }
-});
-// Edit a group
-router.patch("/:id", async (req, res) => {
-  const { id } = req.params;
-  const updates = req.body;
-  console.log(id);
-
-  try {
-    const group = await GroupModel.findByIdAndUpdate(id, updates, {
-      new: true,
-    });
-    if (!group) {
-      sendErrorResponse(res, HTTP_NOT_FOUND, "GroupModel not found");
-    }
-    return res.status(200).json(group);
-  } catch (err: unknown) {
-    if (err instanceof Error) {
-      sendErrorResponse(res, HTTP_BAD_REQUEST, err.message);
-    } else {
-      sendErrorResponse(res, HTTP_BAD_REQUEST, "An unknown error occurred");
-    }
-  }
-});
-// Get a specific group
-router.get("/:id", async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const group = await GroupModel.findById(id);
-    if (!group) {
-      return res.status(404).json({ message: "GroupModel not found" });
-    }
-    return res.status(200).json(group);
-  } catch (err: unknown) {
-    if (err instanceof Error) {
-      return res.status(500).json({ error: err.message });
-    } else {
-      return res.status(500).json({ error: "An unknown error occurred" });
-    }
-  }
-});
-// Add new member to a group
-router.post("/addMember", async (req, res) => {
-  const { groupId, userId } = req.body;
-
-  try {
-    // Find the group by ID
-    const group = await GroupModel.findById(groupId);
-
-    if (!group) {
-      sendErrorResponse(res, HTTP_NOT_FOUND, "GroupModel not found");
-      return;
-    }
-
-    // Check if the user is already a member
-    if (group.members.includes(new mongoose.Schema.Types.ObjectId(userId))) {
-      sendErrorResponse(res, HTTP_NOT_FOUND, "UserModel is already a member");
-      return;
-    }
-
-    // Add the new member
-    group.members.push(userId);
-    await group.save();
-    return res
-      .status(200)
-      .json({ message: "UserModel added to the group successfully" });
-  } catch (err: unknown) {
-    if (err instanceof Error) {
-      sendErrorResponse(res, HTTP_BAD_REQUEST, err.message);
-    } else {
-      sendErrorResponse(res, HTTP_BAD_REQUEST, "An unknown error occurred");
-    }
-  }
-});
-
-// Add a new expense to a group and split it
+// Create a new expense
 router.post("/newExpense", async (req, res) => {
   const { groupId, paidBy, payers, title, amount } = req.body;
 
@@ -259,6 +151,232 @@ router.post("/newExpense", async (req, res) => {
       return res.status(500).json({ error: err.message });
     } else {
       return res.status(500).json({ error: "An unknown error occurred" });
+    }
+  }
+});
+// Delete a group
+router.delete("/group/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const group = await GroupModel.findByIdAndDelete(id);
+    if (!group) {
+      return res.status(404).json({ message: "GroupModel not found" });
+    }
+
+    group.members.forEach(async (member) => {
+      // Check if the user exists
+      const user = await UserModel.findById(member);
+      if (!user) {
+        return sendErrorResponse(res, HTTP_BAD_REQUEST, "No user found.");
+      }
+
+      user.groups = user.groups.filter((groupId) => groupId !== group.id);
+
+      await user.save();
+    });
+
+    return res.status(200).json({ message: "GroupModel deleted successfully" });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return res.status(500).json({ error: err.message });
+    } else {
+      return res.status(500).json({ error: "An unknown error occurred" });
+    }
+  }
+});
+// Delete an expense
+router.delete("/expense/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const expense = await ExpenseModel.findByIdAndDelete(id);
+    if (!expense) {
+      return res.status(404).json({ message: "Expense not found" });
+    }
+
+    return res.status(200).json({ message: "Expense deleted successfully" });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return res.status(500).json({ error: err.message });
+    } else {
+      return res.status(500).json({ error: "An unknown error occurred" });
+    }
+  }
+});
+// Edit a group
+router.patch("/group/:id", async (req, res) => {
+  const { id } = req.params;
+  const updates = req.body;
+
+  try {
+    const group = await GroupModel.findByIdAndUpdate(id, updates, {
+      new: true,
+    });
+    if (!group) {
+      sendErrorResponse(res, HTTP_NOT_FOUND, "Group not found");
+    }
+    return res.status(200).json(group);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      sendErrorResponse(res, HTTP_BAD_REQUEST, err.message);
+    } else {
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "An unknown error occurred");
+    }
+  }
+});
+// Edit an expense
+router.patch("/expense/:id", async (req, res) => {
+  const { id } = req.params;
+  const updates = req.body;
+
+  try {
+    const expense = await ExpenseModel.findByIdAndUpdate(id, updates, {
+      new: true,
+    });
+    if (!expense) {
+      return sendErrorResponse(res, HTTP_NOT_FOUND, "Expense not found");
+    }
+    return res.status(200).json(expense);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return sendErrorResponse(res, HTTP_BAD_REQUEST, err.message);
+    } else {
+      return sendErrorResponse(
+        res,
+        HTTP_BAD_REQUEST,
+        "An unknown error occurred"
+      );
+    }
+  }
+});
+// Get a specific group
+router.get("/group/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const group = await GroupModel.findById(id);
+    if (!group) {
+      return res.status(404).json({ message: "GroupModel not found" });
+    }
+    return res.status(200).json(group);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return res.status(500).json({ error: err.message });
+    } else {
+      return res.status(500).json({ error: "An unknown error occurred" });
+    }
+  }
+});
+// Get a specific expense
+router.get("/expense/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const expense = await ExpenseModel.findById(id);
+    if (!expense) {
+      return res.status(404).json({ message: "Expense not found" });
+    }
+    return res.status(200).json(expense);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return res.status(500).json({ error: err.message });
+    } else {
+      return res.status(500).json({ error: "An unknown error occurred" });
+    }
+  }
+});
+// Add new member to a group
+router.post("/addMember", async (req, res) => {
+  const { groupId, userId } = req.body;
+
+  const user = await UserModel.findById(userId);
+  if (!user) {
+    return sendErrorResponse(res, HTTP_BAD_REQUEST, "No user found.");
+  }
+
+  try {
+    // Find the group by ID
+    const group = await GroupModel.findById(groupId);
+
+    if (!group) {
+      sendErrorResponse(res, HTTP_NOT_FOUND, "GroupModel not found");
+      return;
+    }
+
+    // Check if the user is already a member
+    if (group.members.includes(new mongoose.Schema.Types.ObjectId(userId))) {
+      sendErrorResponse(res, HTTP_NOT_FOUND, "UserModel is already a member");
+      return;
+    }
+
+    // Add the new member
+    group.members.push(userId);
+    await group.save();
+    return res.status(200).json({
+      message:
+        "User " +
+        user.name +
+        " added to the group '" +
+        group.name +
+        "' successfully",
+    });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      sendErrorResponse(res, HTTP_BAD_REQUEST, err.message);
+    } else {
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "An unknown error occurred");
+    }
+  }
+});
+// Remove member to a group
+router.delete("/removeMember", async (req, res) => {
+  const { groupId, userId } = req.body;
+
+  const user = await UserModel.findById(userId);
+  if (!user) {
+    return sendErrorResponse(res, HTTP_BAD_REQUEST, "No user found.");
+  }
+
+  try {
+    // Find the group by ID
+    const group = await GroupModel.findById(groupId);
+
+    if (!group) {
+      sendErrorResponse(res, HTTP_NOT_FOUND, "Group not found");
+      return;
+    }
+
+    // Check if the user is already a member
+    if (!group.members.includes(userId)) {
+      sendErrorResponse(res, HTTP_NOT_FOUND, "User is not a member");
+      return;
+    }
+
+    // Add the new member
+    group.members = group.members.filter((userIdItem) => {
+      return userIdItem.toString() !== userId;
+    });
+    // Remove group from user
+    user.groups = user.groups.filter((userGroupItem) => {
+      return userGroupItem.toString() !== group.id;
+    });
+
+    await user.save();
+    await group.save();
+    return res.status(200).json({
+      message:
+        "User " +
+        user.name +
+        " removed from group '" +
+        group.name +
+        "' successfully.",
+    });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      sendErrorResponse(res, HTTP_BAD_REQUEST, err.message);
+    } else {
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "An unknown error occurred");
     }
   }
 });

@@ -5,3 +5,5 @@ const BASE_URL = environment.production
   : location.protocol + '//localhost:5000';
 
 export const USERS_URL = BASE_URL + '/api/users';
+
+export const YOME_URL = BASE_URL + '/api/yome';
