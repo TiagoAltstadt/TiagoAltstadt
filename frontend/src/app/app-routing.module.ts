@@ -28,6 +28,18 @@ const routes: Routes = [
       import('./pages/test/test.module').then((m) => m.TestModule),
   },
   {
+    path: 'yome',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/yome/yome.module').then((m) => m.YomeModule),
+  },
+  {
+    path: 'profile',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+  },
+  {
     path: 'login',
     component: MainLayoutComponent,
     loadChildren: () =>

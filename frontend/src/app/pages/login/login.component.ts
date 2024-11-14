@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -14,7 +15,11 @@ export class LoginComponent {
   errorMessage: string = '';
   isSubmitting: boolean = false; // Flag to manage button state
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       // Obligatory
       email: ['', [Validators.required, Validators.email]],
@@ -47,9 +52,9 @@ export class LoginComponent {
     this.userService.login(this.loginForm.value).subscribe({
       next: (res) => {
         this.sendingMessage = ''; // Clear sending message
-        this.successMessage =
-          'Inicio de sesion exitoso!'; // Show success message
+        this.successMessage = 'Inicio de sesion exitoso!'; // Show success message
         this.errorMessage = ''; // Clear any previous error messages
+        this.router.navigate(['/']);
       },
       error: (error) => {
         this.sendingMessage = ''; // Clear sending message

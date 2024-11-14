@@ -1,5 +1,5 @@
 <!---------- Header ---------->
-<app-header [headerOptions]="headerOptions" (menStatusChange)="toggleMenu($event)"></app-header>
+<app-header (menStatusChange)="toggleMenu($event)"></app-header>
 <div id="menu" *ngIf="menuState">
     <ul>
         <li *ngFor="let headerOption of headerOptions">

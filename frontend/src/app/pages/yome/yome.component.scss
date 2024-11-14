@@ -1,0 +1,30 @@
+#yome-page {
+  height: 100vw;
+  padding: var(--space-xs);
+  .box {
+    border-radius: 16px;
+    width: fit-content;
+    margin: auto;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: var(--space-xs);
+    gap: var(--space-xs);
+    .text {
+      text-align: justify;
+    }
+  }
+  .box-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: var(--space-xs);
+    gap: var(--space-xs);
+    .box {
+      width: 45%;
+    }
+  }
+}

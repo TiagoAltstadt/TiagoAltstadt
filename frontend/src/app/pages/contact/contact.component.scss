@@ -33,16 +33,3 @@
   position: relative;
   bottom: -var(--space-8px);
 }
-
-@media all and (max-width: 480px) {
-  .subtitle {
-    font-size: var(--font-24px) !important;
-  }
-
-  ul {
-    li {
-      word-wrap: none;
-      font-size: var(--font-18px) !important;
-    }
-  }
-}

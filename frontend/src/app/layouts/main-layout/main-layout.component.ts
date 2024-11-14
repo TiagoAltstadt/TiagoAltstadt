@@ -4,21 +4,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
-  styleUrls: ['./main-layout.component.scss']
+  styleUrls: ['./main-layout.component.scss'],
 })
 export class MainLayoutComponent implements OnInit {
   headerOptions = [
-    { tag: 'Home', link: '' }, 
+    { tag: 'Home', link: '' },
     { tag: 'Experience', link: 'experience' }, // Will have Work, Studies and Projects
     { tag: 'Bio', link: 'bio' },
     { tag: 'Contact', link: 'contact' },
     { tag: 'Login', link: 'login' },
     // { tag: '🌙', link: '#' },
-  ]
+  ];
   menuState: boolean = false;
 
   constructor(private router: Router) {}
-  
+
   ngOnInit(): void {
     console.clear();
     setTimeout(() => {
@@ -32,11 +32,10 @@ export class MainLayoutComponent implements OnInit {
 
   navigationFunction(link: string) {
     this.router.navigate(['/' + link]);
-    console.log('/' + link)
+    console.log('/' + link);
   }
 
-  toggleMenu(state: boolean){
+  toggleMenu(state: boolean) {
     this.menuState = state;
   }
-
 }

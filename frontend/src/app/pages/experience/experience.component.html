@@ -1,10 +1,56 @@
-<section id="experience" class="container blur" #experience>
-    <p class="title">Experience</p>
-    <p class="subtitle">Companies</p>
-    <app-project-card [cards]="work" class="hover"></app-project-card>
-    <p class="subtitle">Freelance</p>
-    <app-project-card [cards]="freelance" class="hover"></app-project-card>
-    <p class="subtitle">Projects</p>
-    <app-project-card [cards]="projects" class="hover"></app-project-card>
+<section id="experience-page" #experience>
+
+    <div class="box hover blur experience">
+        <p class="title">Experience</p>
+    </div>
+    <div class="box hover blur companies">
+        <p class="subtitle">Companies</p>
+        <div class="item" *ngFor="let job of work">
+            <img src="/assets/banners/{{job.image}}_banner.png">
+            <div>
+                <a href="{{job.link}}">
+                    <p>{{job.tag}}</p>
+                </a>
+                <div class="date">{{job.date}}</div>
+                <div class="text">
+                    {{job.description}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="box hover blur companies">
+        <p class="subtitle">Freelance</p>
+        <div class="item" *ngFor="let job of freelance">
+            <img src="/assets/banners/{{job.image}}_banner.png">
+            <div>
+                <a href="{{job.link}}">
+                    <p>{{job.tag}}</p>
+                </a>
+                <div class="date">{{job.date}}</div>
+                <div class="text">
+                    {{job.description}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="box hover blur companies">
+        <p class="subtitle">Projects</p>
+        <div class="item" *ngFor="let job of projects">
+            <img src="/assets/banners/{{job.image}}_banner.png">
+            <div>
+                <a href="{{job.link}}">
+                    <p>{{job.tag}}</p>
+                </a>
+                <div class="date">{{job.date}}</div>
+                <div class="text">
+                    {{job.description}}
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </section>

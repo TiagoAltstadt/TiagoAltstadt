@@ -1,15 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { USERS_URL } from '../shared/constants/urls';
 import { UserModel } from '../shared/models/User';
-import { LoginUserInterface, UserInterface } from '../shared/interfaces/userInterfce';
+import {
+  LoginUserInterface,
+  UserInterface,
+} from '../shared/interfaces/userInterfce';
 
+const USER_KEY = 'User';
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  private userSubject = new BehaviorSubject<UserModel>(
+    this.getUserFromLocalStorage()
+  );
+  public userObservable: Observable<UserModel>;
+  constructor(private http: HttpClient) {
+    this.userObservable = this.userSubject.asObservable();
+  }
+  private setUserToLocalStorage(user: UserModel) {
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
+  }
+  private getUserFromLocalStorage(): any {
+    const userJson = localStorage.getItem(USER_KEY);
+
+    if (userJson) return JSON.parse(userJson) as UserModel;
+    return new UserModel();
+  }
 
   get(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(USERS_URL);
@@ -67,32 +86,36 @@ export class UserService {
     );
   }
   getByID(id: string): Observable<UserInterface> {
-    return this.http.post<UserInterface>(USERS_URL + '/search-ID/' + id, {}).pipe(
-      tap({
-        next: (res) => {
-          console.log('User found', res);
-          return;
-        },
-        error: (errorResponse) => {
-          console.log('Error', errorResponse);
-          return;
-        },
-      })
-    );
+    return this.http
+      .post<UserInterface>(USERS_URL + '/search-ID/' + id, {})
+      .pipe(
+        tap({
+          next: (res) => {
+            console.log('User found', res);
+            return;
+          },
+          error: (errorResponse) => {
+            console.log('Error', errorResponse);
+            return;
+          },
+        })
+      );
   }
   getByEmail(id: string): Observable<UserInterface> {
-    return this.http.post<UserInterface>(USERS_URL + '/search-Email/' + id, {}).pipe(
-      tap({
-        next: (res) => {
-          console.log('User found', res);
-          return;
-        },
-        error: (errorResponse) => {
-          console.log('Error', errorResponse);
-          return;
-        },
-      })
-    );
+    return this.http
+      .post<UserInterface>(USERS_URL + '/search-Email/' + id, {})
+      .pipe(
+        tap({
+          next: (res) => {
+            console.log('User found', res);
+            return;
+          },
+          error: (errorResponse) => {
+            console.log('Error', errorResponse);
+            return;
+          },
+        })
+      );
   }
   login(user: LoginUserInterface): Observable<UserModel> {
     let body: LoginUserInterface = {
@@ -102,8 +125,10 @@ export class UserService {
 
     return this.http.post<UserModel>(USERS_URL + '/login', body).pipe(
       tap({
-        next: (res) => {
-          console.log('User loged in', res);
+        next: (user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+
           return;
         },
         error: (errorResponse) => {
@@ -113,5 +138,10 @@ export class UserService {
       })
     );
   }
-
+  logout() {
+    this.userSubject.next(new UserModel());
+    localStorage.removeItem(USER_KEY);
+    window.location.reload();
+    return;
+  }
 }

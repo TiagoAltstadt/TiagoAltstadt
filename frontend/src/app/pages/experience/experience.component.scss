@@ -1,0 +1,49 @@
+#experience-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-top: var(--space-xs);
+  .experience {
+    width: fit-content;
+    margin: auto;
+    padding: 10px var(--space-xs);
+  }
+  .companies {
+    width: fit-content;
+    margin: auto;
+    padding: 10px var(--space-xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    width: 70%;
+    padding-bottom: 40px;
+    .item {
+      display: flex;
+      gap: var(--space-xs);
+      flex-wrap: auto;
+
+      img {
+        width: 30%;
+        border-radius: var(--border-radius);
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: fit-content;
+
+        a {
+          text-align: center;
+          font-size: large;
+          width: fit-content;
+          height: fit-content;
+        }
+        .date {
+          color: rgb(175, 175, 175);
+        }
+        .text {
+        }
+      }
+    }
+  }
+}

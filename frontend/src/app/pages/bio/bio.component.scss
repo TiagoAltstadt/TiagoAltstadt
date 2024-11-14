@@ -7,7 +7,6 @@
         flex-wrap: wrap;
         margin-top: var(--space-12px);
         gap: var(--space-8px);
-
         .half-block {
             height: fit-content;
             width: 40%;
@@ -17,7 +16,6 @@
         }
 
         .code-block {
-            height: fit-content;
             width: 40%;
             min-width: 290px;
             max-width: 550px;
@@ -101,62 +99,3 @@
     }
 }
 
-@media all and (max-width: 425px) {
-    #bio {
-        .row-container {
-            // display: flex;
-            // flex-direction: row;
-            // justify-content: space-evenly;
-            // flex-wrap: wrap;
-            // gap: var(--space-8px);
-
-            .half-block {
-                // width: 40%;
-                min-width: 320px;
-                // background-color: var(--background-soft);
-                // padding: var(--space-12px);
-                // border-radius: var(--border-radius);
-            }
-        }
-    }
-}
-
-@media all and (max-width: 375px) {
-    #bio {
-        .row-container {
-            // display: flex;
-            // flex-direction: row;
-            // justify-content: space-evenly;
-            // flex-wrap: wrap;
-            // gap: var(--space-8px);
-
-            .half-block {
-                // width: 40%;
-                min-width: 300px;
-                // background-color: var(--background-soft);
-                // padding: var(--space-12px);
-                // border-radius: var(--border-radius);
-            }
-        }
-    }
-}
-
-@media all and (max-width: 320px) {
-    #bio {
-        .row-container {
-            // display: flex;
-            // flex-direction: row;
-            // justify-content: space-evenly;
-            // flex-wrap: wrap;
-            // gap: var(--space-8px);
-
-            .half-block {
-                // width: 40%;
-                min-width: 263px;
-                // background-color: var(--background-soft);
-                // padding: var(--space-12px);
-                // border-radius: var(--border-radius);
-            }
-        }
-    }
-}
