@@ -12,6 +12,7 @@ export class MainLayoutComponent implements OnInit {
     { tag: 'Experience', link: 'experience' }, // Will have Work, Studies and Projects
     { tag: 'Bio', link: 'bio' },
     { tag: 'Contact', link: 'contact' },
+    { tag: 'Login', link: 'login' },
     // { tag: '🌙', link: '#' },
   ]
   menuState: boolean = false;

@@ -1,6 +1,8 @@
 #contact {
   display: flex;
   flex-direction: column;
+  width: fit-content;
+  padding: var(--space-m);
 
   ul {
     margin: var(--space-40px) auto;

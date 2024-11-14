@@ -1,0 +1,36 @@
+<section id="login-container" class="">
+    <div class=" login-box hover blur">
+        <div class="title">Login</div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="send()">
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" formControlName="email">
+                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+                    {{ getSpecificErrorMessage('email') }}
+                </div>
+            </div>
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" formControlName="password">
+                <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                    class="error-message">
+                    {{ getSpecificErrorMessage('password') }}
+                </div>
+            </div>
+
+            <!-- Messages and Submit Button -->
+            <div *ngIf="sendingMessage" class="waiting-message">{{ sendingMessage }}</div>
+            <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+            <input [disabled]="!isFormValid || isSubmitting" type="submit" value="Enviar">
+            <div *ngIf="!isFormValid && !isSubmitting" class="error-message">
+                {{ getGlobalErrorMessage() }}
+            </div>
+        </form>
+
+    </div>
+</section>

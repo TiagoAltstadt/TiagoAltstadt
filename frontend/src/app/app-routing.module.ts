@@ -28,6 +28,12 @@ const routes: Routes = [
       import('./pages/test/test.module').then((m) => m.TestModule),
   },
   {
+    path: 'login',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginModule),
+  },
+  {
     path: 'contact',
     component: MainLayoutComponent,
     loadChildren: () =>

@@ -163,6 +163,11 @@ router.post(
     const { email, password } = req.body;
     const user = await UserModel.findOne({ email });
 
+    console.log(email);
+    console.log(password);
+    console.log(user);
+    
+
     if (!user) {
       sendErrorResponse(
         res,

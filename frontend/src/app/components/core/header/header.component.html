@@ -1,10 +1,10 @@
-<section id="header" class="blur" #header>
-    <div id="logo-container">
+<section id="header" class="blur hover" #header>
+    <!-- <div id="logo-container">
         <a (click)="navigationFunction('')" class="logo">
             <img src="/assets/icons/lightning.svg" alt="">
         </a>
-    </div>
-    <div id="menu-container">
+    </div> -->
+    <div id="menu-container" class="">
         <ul>
             <li *ngFor="let option of headerOptions">
                 <a (click)="navigationFunction(option.link)"> {{option.tag}}</a>

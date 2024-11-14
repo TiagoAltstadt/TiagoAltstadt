@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 * {
   scroll-behavior: smooth;
+  color: var(--font-color-primary);
 
   a {
     text-decoration: none;
@@ -8,15 +9,10 @@
   }
 
   .blur {
-    background: rgba(
-      255,
-      255,
-      255,
-      0.05
-    ); /* Semi-transparent white background */
+    background: var(--color-black);
     border-radius: 16px; /* Rounded corners */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    backdrop-filter: blur(7.3px); /* Blurs the background behind this element */
+    // backdrop-filter: blur(7.3px); /* Blurs the background behind this element */
     -webkit-backdrop-filter: blur(
       7.3px
     ); /* Ensures compatibility with Safari */
@@ -49,6 +45,193 @@
     opacity: 0.5;
   }
 
+  // Variables
+  $primary-color: #4caf50;
+  $secondary-color: #f1f1f1;
+  $input-border-color: #ccc;
+  $input-focus-border-color: $primary-color;
+  $input-padding: 10px;
+  $input-margin-bottom: 15px;
+  $label-color: #333;
+  $button-background-color: $primary-color;
+  $button-hover-background-color: darken($primary-color, 10%);
+  $button-color: #fff;
+  $button-padding: 10px 20px;
+  $button-border-radius: 5px;
+  $max-width: 800px;
+  form {
+    padding: 20px;
+    max-width: $max-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    .form-group {
+      display: flex;
+      flex-direction: column; /* Change to column to stack label and input vertically */
+      align-items: flex-start; /* Align items to the start */
+      gap: 5px; /* Adjust gap between label and input */
+    }
+
+    .form-group-full {
+      display: flex;
+      flex-direction: column; /* Change to column for consistency */
+      align-items: flex-start; /* Align items to the start */
+      gap: 5px;
+      grid-column: span 2;
+    }
+
+    .form-group-group {
+      display: flex;
+      flex-direction: column; /* Stack checkboxes vertically */
+      gap: 10px; /* Space between checkboxes */
+      grid-column: span 2; /* Make .form-group-group span across two columns */
+    }
+
+    .form-group.full-width {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%; /* Make each checkbox occupy full width */
+      gap: 10px; /* Space between checkbox and label */
+    }
+
+    .form-group.full-width input[type="checkbox"] {
+      flex-shrink: 0; /* Prevent checkbox from shrinking */
+      width: fit-content;
+    }
+
+    .form-group.full-width label {
+      flex-grow: 1; /* Make the label take remaining space */
+      margin-left: 5px; /* Space between checkbox and label */
+    }
+
+    input,
+    textarea {
+      width: 100%; /* Ensure input and textarea fit within the form group */
+      padding: $input-padding;
+      margin-bottom: $input-margin-bottom;
+      border: 1px solid $input-border-color;
+      border-radius: 5px;
+      font-size: 16px;
+      box-sizing: border-box; /* Include padding and border in the element's total width and height */
+
+      &:focus {
+        border-color: $input-focus-border-color;
+        outline: none;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input {
+      margin: 0;
+      color: var(--color-black);
+
+    }
+    input[type="checkbox"] {
+      margin: 0;
+    }
+
+    input[type="submit"] {
+      background-color: $button-background-color;
+      color: $button-color;
+      padding: $button-padding;
+      border: none;
+      border-radius: $button-border-radius;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $button-hover-background-color;
+      }
+
+      &.disabled {
+        background-color: #e0e0e0;
+        color: #a0a0a0;
+        cursor: not-allowed;
+      }
+    }
+
+    .waiting-message,
+    .success-message,
+    .error-message {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .waiting-message {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+    }
+
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .error-message {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+
+      .form-group label {
+        width: 100%; /* Ensure labels take full width */
+      }
+
+      .form-group-full {
+        grid-column: span 1;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding: 10px;
+      gap: 10px;
+
+      label {
+        font-size: 14px;
+      }
+
+      input,
+      textarea {
+        font-size: 14px;
+      }
+
+      .waiting-message,
+      .success-message,
+      .error-message {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .hover {
+    transition: var(--transition-time);
+    transform: translateY(0px);
+    box-shadow: none;
+  }
+  .hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px var(--color-primary);
+    transition: transform var(--transition-time),
+      box-shadow var(--transition-time);
+  }
+
   ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
@@ -67,15 +250,11 @@
     background: rgb(141, 141, 141);
   }
 
-  html {
-    height: -webkit-fill-available;
-  }
-
   body {
     height: -webkit-fill-available;
     margin: 0px;
     overflow-x: hidden;
-    background-color: var(--background-primary);
+    // background-color: var(--background-primary);
     min-width: 375px;
 
     .container {
@@ -102,11 +281,17 @@
 }
 
 :root {
+  --color-primary: rgb(0, 255, 255);
+  --color-black: rgb(60, 60, 60);
+
   --bottom-shadow: 0 4px 6px -6px #222;
   --background-soft: rgba(0, 0, 0, 0.178);
-  --background-primary: #f5f1ec;
+  --background-primary: rgb(44, 44, 44);
   transition: 2s;
   --border-radius: 4px;
+
+  // Transition duration
+  --transition-time: 0.3s;
 
   // Tamaños de fonts
 
@@ -127,6 +312,8 @@
   --font-16px: 1em;
   --font-14px: 0.875em;
   --font-12px: 0.75em;
+
+  --font-color-primary: white;
   // Tamaño de espacios (Margenes y paddings)
   --space-xxl: 96px; /* Extra Extra Large */
   --space-xl: 88px; /* Extra Large */
@@ -161,11 +348,6 @@
 }
 
 @media all and (max-width: 425px) {
-  :root {
-    --heigth-header: 10vh;
-    --heigth-body: 90vh;
-  }
-
   body {
     .container {
       .title {

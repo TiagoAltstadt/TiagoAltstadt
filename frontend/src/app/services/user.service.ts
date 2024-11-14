@@ -3,7 +3,7 @@ import { Observable, catchError, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { USERS_URL } from '../shared/constants/urls';
 import { UserModel } from '../shared/models/User';
-import { UserInterface } from '../shared/interfaces/userInterfce';
+import { LoginUserInterface, UserInterface } from '../shared/interfaces/userInterfce';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,6 @@ export class UserService {
   get(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(USERS_URL);
   }
-
   post(userBody: UserInterface): Observable<UserModel> {
     return this.http.post<UserModel>(USERS_URL, userBody).pipe(
       tap({
@@ -29,7 +28,7 @@ export class UserService {
       })
     );
   }
-  put(user: UserInterface): Observable<UserModel> {
+  patch(user: UserInterface): Observable<UserModel> {
     let body: UserModel = {
       id: user.id,
       userTypeId: user.userTypeId,
@@ -67,8 +66,8 @@ export class UserService {
       })
     );
   }
-  searchById(id: string): Observable<UserInterface> {
-    return this.http.post<UserInterface>(USERS_URL + id, {}).pipe(
+  getByID(id: string): Observable<UserInterface> {
+    return this.http.post<UserInterface>(USERS_URL + '/search-ID/' + id, {}).pipe(
       tap({
         next: (res) => {
           console.log('User found', res);
@@ -81,4 +80,38 @@ export class UserService {
       })
     );
   }
+  getByEmail(id: string): Observable<UserInterface> {
+    return this.http.post<UserInterface>(USERS_URL + '/search-Email/' + id, {}).pipe(
+      tap({
+        next: (res) => {
+          console.log('User found', res);
+          return;
+        },
+        error: (errorResponse) => {
+          console.log('Error', errorResponse);
+          return;
+        },
+      })
+    );
+  }
+  login(user: LoginUserInterface): Observable<UserModel> {
+    let body: LoginUserInterface = {
+      email: user.email,
+      password: user.password,
+    };
+
+    return this.http.post<UserModel>(USERS_URL + '/login', body).pipe(
+      tap({
+        next: (res) => {
+          console.log('User loged in', res);
+          return;
+        },
+        error: (errorResponse) => {
+          console.log('Error', errorResponse);
+          return;
+        },
+      })
+    );
+  }
+
 }
