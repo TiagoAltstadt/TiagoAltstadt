@@ -39,7 +39,6 @@ export class HeaderComponent implements OnInit {
   user!: UserModel;
 
   ngOnInit(): void {
-    console.log(this.user);
     if (this.user.token) {
       this.headerOptions = this.headerOptions.filter(
         (element) => element.link != 'login'
@@ -59,7 +58,6 @@ export class HeaderComponent implements OnInit {
       const header = document.getElementById('header');
       const options = document.getElementById('phone-options');
       if (header) {
-        header.style.width = '300px';
         header.style.height = '250px';
       }
       if (options) {
@@ -71,7 +69,6 @@ export class HeaderComponent implements OnInit {
       const header = document.getElementById('header');
       const options = document.getElementById('phone-options');
       if (header) {
-        header.style.width = '86px';
         header.style.height = '60px';
       }
       if (options) {

@@ -38,3 +38,47 @@
   position: relative;
   bottom: -var(--space-8px);
 }
+
+@media screen and (max-width: 812px) {
+  #contact {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: var(--space-24px);
+    margin: auto;
+    .box{
+      gap: 8px;
+    }
+    .subtitle{
+      text-align: center;
+    }
+  
+    .container{
+      padding: var(--space-xs);
+    }
+  
+    ul {
+      list-style-type: none;
+      padding: 0px;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      gap: var(--space-8px);
+  
+      li {
+        margin: var(--space-8px);
+        width: fit-content;
+        font-size: var(--font-20px);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: var(--space-8px);
+  
+        img {
+          margin-right: var(--space-8px);
+        }
+      }
+    }
+  }
+  
+}

@@ -12,6 +12,7 @@
     width: 86px;
     height: 60px;
     margin: auto;
+    width: 70%;
   }
 
   #menu-container {
@@ -80,6 +81,7 @@
       display: none;
       flex-direction: column;
       justify-content: center;
+      width: 100%;
       @media screen and (max-width: 812px) {
         display: flex;
       }
