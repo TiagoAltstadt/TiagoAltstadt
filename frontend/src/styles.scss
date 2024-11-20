@@ -108,6 +108,19 @@
       font-size: var(--font-12px);
     }
 
+    .button {
+      color: var(--color-white);
+      width: fit-content;
+      border-radius: var(--border-radius);
+      padding: var(--space-xxs);
+    }
+    .button:hover {
+      transition: background-color 1s, box-shadow 0.5s, color 0.5s;
+      background-color: var(--color-primary);
+      box-shadow: 0px 15px 20px rgba(35, 96, 110, 0.4);
+      color: var(--color-black);
+    }
+
     .box {
       margin: auto;
       padding: 10px var(--space-xs);
@@ -163,10 +176,13 @@
     }
 
     .paragraph {
+      b{
+        color: var(--color-primary);
+      }
       margin: 0px auto;
       font-weight: 400;
       font-size: var(--font-m);
-      opacity: 0.5;
+      opacity: 0.8;
     }
 
     form {
@@ -294,7 +310,6 @@
     }
 
     .hover {
-      transition: var(--transition-time);
       transform: translateY(0px);
       box-shadow: none;
     }

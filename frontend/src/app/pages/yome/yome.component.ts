@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './yome.component.html',
   styleUrls: ['./yome.component.scss'],
 })
-export class YomeComponent {}
+export class YomeComponent {
+  createGroup() {
+    console.log('create');
+  }
+}

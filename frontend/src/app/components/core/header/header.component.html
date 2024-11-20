@@ -2,7 +2,7 @@
 
     <div id="menu-container" class="">
         <ul class="row-options">
-            <li *ngFor="let option of headerOptions">
+            <li *ngFor="let option of headerOptions" class="button">
                 <a (click)="navigationFunction(option.link)"> {{option.tag}}</a>
             </li>
         </ul>
