@@ -1,101 +1,109 @@
 #bio {
-   
-    .row-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        margin-top: var(--space-12px);
-        gap: var(--space-8px);
-        .half-block {
-            height: fit-content;
-            width: 40%;
-            min-width: 290px;
-            max-width: 550px;
-            padding: var(--space-12px);
-        }
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-top: var(--space-xs);
+    
+  .biography {
+    width: 70%;
+    margin: auto;
+    padding: var(--space-24px);
+  }
 
-        .code-block {
-            width: 40%;
-            min-width: 290px;
-            max-width: 550px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            color: white;
-            background-color: #0e0f17;
-            display: flex;
-            flex-direction: column;
-            margin-bottom: var(--space-12px);
-
-            .code-title {
-                background-color: #1e1c26;
-                width: 100%;
-                height: 24px;
-                padding: 4px;
-                padding-bottom: 0px;
-                display: flex;
-                justify-content: left;
-                align-items: center;
-
-                #circle1 {
-                    width: 15px;
-                    height: 15px;
-                    border-radius: 50%;
-                    background-color: #FF605C;
-                    margin-right: 4px;
-                }
-
-                #circle2 {
-                    width: 15px;
-                    height: 15px;
-                    border-radius: 50%;
-                    background-color: #FFBD44;
-                    margin-right: 4px;
-                }
-
-                #circle3 {
-                    width: 15px;
-                    height: 15px;
-                    border-radius: 50%;
-                    background-color: #00CA4E;
-                    margin-right: 4px;
-                }
-
-                .text {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    border-top-left-radius: 5px;
-                    border-top-right-radius: 5px;
-                    width: 190px;
-                    background-color: #0e0f17;
-                    margin-left: 12px;
-                    padding-left: 4px;
-                    padding-right: 4px;
-
-                    .icon {
-                        width: 18px;
-                        margin: 0;
-                    }
-
-                    .close {
-                        width: 25px;
-
-                    }
-                }
-
-            }
-
-            .code-content {
-                width: 80%;
-                height: 100%;
-
-                pre {
-                    font-size: var(--font-16spx);
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-                }
-            }
-        }
+  .row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: var(--space-12px);
+    gap: var(--space-8px);
+    .half-block {
+      height: fit-content;
+      width: 40%;
+      min-width: 290px;
+      max-width: 550px;
+      padding: var(--space-24px);
     }
-}
 
+    .code-block {
+      width: 40%;
+      min-width: 290px;
+      max-width: 550px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      color: white;
+      background-color: #0e0f17;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: var(--space-12px);
+
+      .code-title {
+        background-color: #1e1c26;
+        width: 100%;
+        height: 24px;
+        padding: 4px;
+        padding-bottom: 0px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        #circle1 {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background-color: #ff605c;
+          margin-right: 4px;
+        }
+
+        #circle2 {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background-color: #ffbd44;
+          margin-right: 4px;
+        }
+
+        #circle3 {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background-color: #00ca4e;
+          margin-right: 4px;
+        }
+
+        .text {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          width: 190px;
+          background-color: #0e0f17;
+          margin-left: 12px;
+          padding-left: 4px;
+          padding-right: 4px;
+
+          .icon {
+            width: 18px;
+            margin: 0;
+          }
+
+          .close {
+            width: 25px;
+          }
+        }
+      }
+
+      .code-content {
+        width: 80%;
+        height: 100%;
+
+        pre {
+          font-size: var(--font-16spx);
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", sans-serif;
+        }
+      }
+    }
+  }
+}

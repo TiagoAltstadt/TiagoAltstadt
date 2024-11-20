@@ -3,10 +3,10 @@
     <div class="box hover blur experience">
         <p class="title">Experience</p>
     </div>
-    <div class="box hover blur companies">
+    <div class="box hover blur companies box-thingy">
         <p class="subtitle">Companies</p>
         <div class="item" *ngFor="let job of work">
-            <img src="/assets/banners/{{job.image}}_banner.png">
+            <div class="image"><img src="/assets/banners/{{job.image}}_banner.png"></div>
             <div>
                 <a href="{{job.link}}">
                     <p>{{job.tag}}</p>
@@ -23,7 +23,9 @@
     <div class="box hover blur companies">
         <p class="subtitle">Freelance</p>
         <div class="item" *ngFor="let job of freelance">
-            <img src="/assets/banners/{{job.image}}_banner.png">
+            <div class="image">
+                <img src="/assets/banners/{{job.image}}_banner.png">
+            </div>
             <div>
                 <a href="{{job.link}}">
                     <p>{{job.tag}}</p>
@@ -39,7 +41,10 @@
     <div class="box hover blur companies">
         <p class="subtitle">Projects</p>
         <div class="item" *ngFor="let job of projects">
-            <img src="/assets/banners/{{job.image}}_banner.png">
+            <div class="image">
+
+                <img src="/assets/banners/{{job.image}}_banner.png">
+            </div>
             <div>
                 <a href="{{job.link}}">
                     <p>{{job.tag}}</p>

@@ -1,17 +1,19 @@
 <section id="header" class="blur hover" #header>
-    <!-- <div id="logo-container">
-        <a (click)="navigationFunction('')" class="logo">
-            <img src="/assets/icons/lightning.svg" alt="">
-        </a>
-    </div> -->
+
     <div id="menu-container" class="">
-        <ul>
+        <ul class="row-options">
             <li *ngFor="let option of headerOptions">
                 <a (click)="navigationFunction(option.link)"> {{option.tag}}</a>
             </li>
         </ul>
         <div id="phone-burguer" (click)="hamburguer()">
             <img class="icon" src="/assets/icons/hamburger-menu.svg">
+            <ul id="phone-options" class="column-options">
+                <li *ngFor="let option of headerOptions">
+                    <a (click)="navigationFunction(option.link)"> {{option.tag}}</a>
+                </li>
+            </ul>
+
         </div>
     </div>
 </section>

@@ -5,30 +5,13 @@
   flex-direction: row;
   margin: auto;
   border-radius: 0 0 16px 16px;
-
-  #logo-container {
-    transition: 2s;
-    width: 30%;
-    max-width: 100px;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    .logo {
-      width: 43px;
-      position: absolute;
-      top: 3px;
-      height: 86px;
-      left: 0px;
-      border-radius: 4px;
-
-      img {
-        height: 100%;
-        max-height: 80px;
-      }
-    }
+  transition: height 1s;
+  transition: width 1s;
+  transition: opacity 1s;
+  @media screen and (max-width: 812px) {
+    width: 86px;
+    height: 60px;
+    margin: auto;
   }
 
   #menu-container {
@@ -37,12 +20,29 @@
     flex-direction: row;
     justify-content: right;
     align-items: center;
-    padding-right: 24px;
+    padding: 12px 24px;
+    @media screen and (max-width: 812px) {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
 
+    .row-options {
+      @media screen and (max-width: 812px) {
+        display: none;
+      }
+    }
+    .column-options {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 30px;
+      align-items: center;
+    }
     ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
+      gap: 4px;
 
       li {
         display: flex;
@@ -78,10 +78,16 @@
 
     #phone-burguer {
       display: none;
+      flex-direction: column;
+      justify-content: center;
+      @media screen and (max-width: 812px) {
+        display: flex;
+      }
 
       .icon {
         width: var(--font-38px);
         margin: 0;
+        margin: auto;
       }
     }
   }

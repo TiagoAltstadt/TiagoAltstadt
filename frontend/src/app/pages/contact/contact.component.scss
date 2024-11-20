@@ -3,6 +3,11 @@
   flex-direction: column;
   width: fit-content;
   padding: var(--space-m);
+  margin: auto;
+
+  .container{
+    padding: var(--space-xs);
+  }
 
   ul {
     margin: var(--space-40px) auto;

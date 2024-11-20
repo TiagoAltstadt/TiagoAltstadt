@@ -12,7 +12,6 @@
   --transition-time: 0.3s;
 
   // Tamaños de fonts
-
   --font-xxl: 3em; /* Extra Extra Large (42px) */
   --font-xl: 2.5em; /* Extra Large (38px) */
   --font-l: 2em; /* Large (32px) */
@@ -70,48 +69,6 @@
 }
 
 * {
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .blur {
-    background: var(--color-black);
-    border-radius: 16px; /* Rounded corners */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    // backdrop-filter: blur(7.3px); /* Blurs the background behind this element */
-    -webkit-backdrop-filter: blur(
-      7.3px
-    ); /* Ensures compatibility with Safari */
-  }
-
-  .bigTitle {
-    margin-top: var(--space-32px);
-    width: fit-content;
-    margin: 0px auto;
-    font-size: var(--font-xxl);
-    font-weight: 600;
-  }
-  .title {
-    margin-top: var(--space-32px);
-    width: fit-content;
-    margin: 0px auto;
-    font-size: var(--font-38px);
-  }
-
-  .subtitle {
-    width: fit-content;
-    margin: 0px auto;
-    font-size: var(--font-32px);
-  }
-
-  .paragraph {
-    margin: 0px auto;
-    font-weight: 400;
-    font-size: var(--font-m);
-    opacity: 0.5;
-  }
-
   // Variables
   $primary-color: #4caf50;
   $secondary-color: #f1f1f1;
@@ -126,143 +83,6 @@
   $button-padding: 10px 20px;
   $button-border-radius: 5px;
   $max-width: 800px;
-
-  form {
-    padding: 20px;
-    max-width: $max-width;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-
-    .form-group {
-      display: flex;
-      flex-direction: column; /* Change to column to stack label and input vertically */
-      align-items: flex-start; /* Align items to the start */
-      gap: 5px; /* Adjust gap between label and input */
-    }
-
-    .form-group-full {
-      display: flex;
-      flex-direction: column; /* Change to column for consistency */
-      align-items: flex-start; /* Align items to the start */
-      gap: 5px;
-      grid-column: span 2;
-    }
-
-    .form-group-group {
-      display: flex;
-      flex-direction: column; /* Stack checkboxes vertically */
-      gap: 10px; /* Space between checkboxes */
-      grid-column: span 2; /* Make .form-group-group span across two columns */
-    }
-
-    .form-group.full-width {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: 100%; /* Make each checkbox occupy full width */
-      gap: 10px; /* Space between checkbox and label */
-    }
-
-    .form-group.full-width input[type="checkbox"] {
-      flex-shrink: 0; /* Prevent checkbox from shrinking */
-      width: fit-content;
-    }
-
-    .form-group.full-width label {
-      flex-grow: 1; /* Make the label take remaining space */
-      margin-left: 5px; /* Space between checkbox and label */
-    }
-
-    input,
-    textarea {
-      width: 100%; /* Ensure input and textarea fit within the form group */
-      padding: $input-padding;
-      margin-bottom: $input-margin-bottom;
-      border: 1px solid $input-border-color;
-      border-radius: 5px;
-      font-size: 16px;
-      box-sizing: border-box; /* Include padding and border in the element's total width and height */
-
-      &:focus {
-        border-color: $input-focus-border-color;
-        outline: none;
-      }
-    }
-
-    textarea {
-      resize: vertical;
-    }
-
-    input {
-      margin: 0;
-      color: var(--color-black);
-    }
-    input[type="checkbox"] {
-      margin: 0;
-    }
-
-    input[type="submit"] {
-      background-color: $button-background-color;
-      color: $button-color;
-      padding: $button-padding;
-      border: none;
-      border-radius: $button-border-radius;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: $button-hover-background-color;
-      }
-
-      &.disabled {
-        background-color: #e0e0e0;
-        color: #a0a0a0;
-        cursor: not-allowed;
-      }
-    }
-
-    .waiting-message,
-    .success-message,
-    .error-message {
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-
-    .waiting-message {
-      background-color: #fff3cd;
-      color: #856404;
-      border: 1px solid #ffeeba;
-    }
-
-    .success-message {
-      background-color: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
-
-    .error-message {
-      background-color: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
-    }
-  }
-
-  .hover {
-    transition: var(--transition-time);
-    transform: translateY(0px);
-    box-shadow: none;
-  }
-
-  .hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px var(--color-primary);
-    transition: transform var(--transition-time),
-      box-shadow var(--transition-time);
-  }
 
   // Scrollbar
   ::-webkit-scrollbar {
@@ -282,28 +102,207 @@
 
   body {
     margin: 0px;
-    overflow-x: hidden;
-    background-color: var(--background-primary);
     min-width: 375px;
+    @media screen and (max-width: 812px) {
+      font-size: var(--font-12px);
+    }
 
-    .container {
+    .box {
+      margin: auto;
+      padding: 10px var(--space-xs);
       display: flex;
       flex-direction: column;
-      height: calc(100vh);
-      width: 90%;
-      margin: auto;
+      gap: var(--space-xs);
+      width: 70%;
+      padding-bottom: 40px;
+      @media screen and (max-width: 812px) {
+        width: fit-content;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+        width: 70%;
+        padding: var(--space-24px);
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .blur {
+      background: var(--color-black);
+      border-radius: 16px; /* Rounded corners */
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+      // backdrop-filter: blur(7.3px); /* Blurs the background behind this element */
+      -webkit-backdrop-filter: blur(
+        7.3px
+      ); /* Ensures compatibility with Safari */
+    }
+
+    .bigTitle {
       margin-top: var(--space-32px);
+      width: fit-content;
+      margin: 0px auto;
+      font-size: var(--font-xxl);
+      font-weight: 600;
+    }
+    .title {
+      margin-top: var(--space-32px);
+      width: fit-content;
+      margin: 0px auto;
+      font-size: var(--font-38px);
+    }
 
-      .sub-subtitle {
-        font-size: var(--font-24px);
-        text-align: center;
+    .subtitle {
+      width: fit-content;
+      margin: 0px auto;
+      font-size: var(--font-32px);
+    }
+
+    .paragraph {
+      margin: 0px auto;
+      font-weight: 400;
+      font-size: var(--font-m);
+      opacity: 0.5;
+    }
+
+    form {
+      padding: 20px;
+      max-width: $max-width;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+
+      .form-group {
+        display: flex;
+        flex-direction: column; /* Change to column to stack label and input vertically */
+        align-items: flex-start; /* Align items to the start */
+        gap: 5px; /* Adjust gap between label and input */
       }
 
-      .icon {
-        width: var(--font-24px);
-        position: relative;
-        bottom: -var(--space-8px);
+      .form-group-full {
+        display: flex;
+        flex-direction: column; /* Change to column for consistency */
+        align-items: flex-start; /* Align items to the start */
+        gap: 5px;
+        grid-column: span 2;
       }
+
+      .form-group-group {
+        display: flex;
+        flex-direction: column; /* Stack checkboxes vertically */
+        gap: 10px; /* Space between checkboxes */
+        grid-column: span 2; /* Make .form-group-group span across two columns */
+      }
+
+      .form-group.full-width {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%; /* Make each checkbox occupy full width */
+        gap: 10px; /* Space between checkbox and label */
+      }
+
+      .form-group.full-width input[type="checkbox"] {
+        flex-shrink: 0; /* Prevent checkbox from shrinking */
+        width: fit-content;
+      }
+
+      .form-group.full-width label {
+        flex-grow: 1; /* Make the label take remaining space */
+        margin-left: 5px; /* Space between checkbox and label */
+      }
+
+      input,
+      textarea {
+        width: 100%; /* Ensure input and textarea fit within the form group */
+        padding: $input-padding;
+        margin-bottom: $input-margin-bottom;
+        border: 1px solid $input-border-color;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+
+        &:focus {
+          border-color: $input-focus-border-color;
+          outline: none;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      input {
+        margin: 0;
+        color: var(--color-black);
+      }
+      input[type="checkbox"] {
+        margin: 0;
+      }
+
+      input[type="submit"] {
+        background-color: $button-background-color;
+        color: $button-color;
+        padding: $button-padding;
+        border: none;
+        border-radius: $button-border-radius;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $button-hover-background-color;
+        }
+
+        &.disabled {
+          background-color: #e0e0e0;
+          color: #a0a0a0;
+          cursor: not-allowed;
+        }
+      }
+
+      .waiting-message,
+      .success-message,
+      .error-message {
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .waiting-message {
+        background-color: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeeba;
+      }
+
+      .success-message {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .error-message {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+    }
+
+    .hover {
+      transition: var(--transition-time);
+      transform: translateY(0px);
+      box-shadow: none;
+    }
+
+    .hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px var(--color-primary);
+      transition: transform var(--transition-time),
+        box-shadow var(--transition-time);
     }
   }
 }

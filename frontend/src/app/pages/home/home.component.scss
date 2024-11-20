@@ -6,6 +6,9 @@
     border-radius: 16px;
     padding: var(--space-xs);
     position: relative; /* For positioning the cursor */
+    @media screen and (max-width: 812px) {
+      padding: var(--space-24px);
+    }
     #typing-text {
       height: 64px;
     }

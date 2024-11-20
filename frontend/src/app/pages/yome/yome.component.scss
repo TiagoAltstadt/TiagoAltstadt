@@ -12,6 +12,7 @@
     justify-content: center;
     padding: var(--space-xs);
     gap: var(--space-xs);
+
     .text {
       text-align: justify;
     }
@@ -25,6 +26,42 @@
     gap: var(--space-xs);
     .box {
       width: 45%;
+    }
+  }
+}
+
+@media screen and (max-width: 812px) {
+  #yome-page {
+    height: 100vw;
+    margin-top: var(--space-24px);
+    padding: var(--space-12);
+
+    .box {
+      border-radius: 16px;
+      width: 70%;
+      margin: auto;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: var(--space-24px);
+      gap: var(--space-xs);
+
+      .text {
+        text-align: justify;
+      }
+    }
+    .box-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: var(--space-xs);
+      gap: var(--space-xs);
+      .box {
+        width: 70%;
+      }
     }
   }
 }

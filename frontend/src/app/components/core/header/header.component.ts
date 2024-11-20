@@ -54,6 +54,32 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/' + link]);
   }
   hamburguer() {
+    if (!this.menuStatus) {
+      // If opening
+      const header = document.getElementById('header');
+      const options = document.getElementById('phone-options');
+      if (header) {
+        header.style.width = '300px';
+        header.style.height = '250px';
+      }
+      if (options) {
+        options.style.display = 'flex';
+        options.style.opacity = '1';
+      }
+    } else {
+      // If closing
+      const header = document.getElementById('header');
+      const options = document.getElementById('phone-options');
+      if (header) {
+        header.style.width = '86px';
+        header.style.height = '60px';
+      }
+      if (options) {
+        options.style.opacity = '0';
+        options.style.display = 'none';
+      }
+    }
+
     this.menuStatus = !this.menuStatus;
     this.menStatusChange.emit(this.menuStatus);
   }
