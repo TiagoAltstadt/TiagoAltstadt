@@ -1,17 +1,8 @@
 #experience-page {
-  display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
-  padding-top: var(--space-xs);
-  .experience {
-    width: fit-content;
-    margin: auto;
-    padding: 10px var(--space-xs);
-    width: 70%;
-  }
-  .companies {
-    
+  gap: var(--space-24px);
 
+  .companies {
     .item {
       display: flex;
       gap: var(--space-xs);
@@ -45,15 +36,9 @@
 
 @media screen and (max-width: 812px) {
   #experience-page {
+    padding: var(--space-24px);
     display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    padding-top: var(--space-xs);
-    .experience {
-      width: 70%;
-      margin: auto;
-      padding: var(--space-24px);
-    }
+
     .companies {
       .item {
         display: flex;

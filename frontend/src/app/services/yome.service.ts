@@ -30,9 +30,11 @@ export class UserService {
     return new UserModel();
   }
 
-  get(): Observable<UserModel[]> {
+  getGroups(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(USERS_URL);
   }
+
+  //-------------------
   post(userBody: UserInterface): Observable<UserModel> {
     return this.http.post<UserModel>(USERS_URL, userBody).pipe(
       tap({

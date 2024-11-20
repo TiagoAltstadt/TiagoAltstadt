@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./yome.component.scss'],
 })
 export class YomeComponent {
+  constructor(){}
   createGroup() {
     console.log('create');
   }

@@ -7,5 +7,24 @@
     width: fit-content;
     margin: auto;
     padding: var(--space-xs);
+    
+  }
+}
+
+@media screen and (max-width: 812px) {
+  #login-container {
+    height: 100vw;
+    padding: var(--space-xs);
+  
+    .login-box {
+      border-radius: 16px;
+      width: fit-content;
+      margin: auto;
+      padding: var(--space-xs);
+      form{
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 }

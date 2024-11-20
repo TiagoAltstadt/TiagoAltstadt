@@ -1,9 +1,5 @@
 #contact {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  padding: var(--space-m);
-  margin: auto;
+  
 
   .container{
     padding: var(--space-xs);
@@ -41,11 +37,7 @@
 
 @media screen and (max-width: 812px) {
   #contact {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    padding: var(--space-24px);
-    margin: auto;
+   
     .box{
       gap: 8px;
     }

@@ -1,9 +1,9 @@
-<section id="experience-page" #experience>
+<section id="experience-page" class="page" #experience>
 
-    <div class="box hover blur experience">
+    <div class="box hover blur">
         <p class="title">Experience</p>
     </div>
-    <div class="box hover blur companies box-thingy">
+    <div class="box hover blur companies">
         <p class="subtitle">Companies</p>
         <div class="item" *ngFor="let job of work">
             <div class="image"><img src="/assets/banners/{{job.image}}_banner.png"></div>
@@ -38,6 +38,7 @@
         </div>
 
     </div>
+
     <div class="box hover blur companies">
         <p class="subtitle">Projects</p>
         <div class="item" *ngFor="let job of projects">

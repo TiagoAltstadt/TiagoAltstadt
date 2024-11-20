@@ -6,7 +6,7 @@
     
   .biography {
     width: 70%;
-    margin: auto;
+    margin: 24px auto;
     padding: var(--space-24px);
   }
 
@@ -16,19 +16,15 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-top: var(--space-12px);
-    gap: var(--space-8px);
-    .half-block {
-      height: fit-content;
-      width: 40%;
-      min-width: 290px;
+    gap: var(--space-24px);
+    .box {
+      margin: 0;
       max-width: 550px;
-      padding: var(--space-24px);
     }
 
     .code-block {
       width: 40%;
       min-width: 290px;
-      max-width: 550px;
       border-radius: var(--border-radius);
       overflow: hidden;
       color: white;
@@ -129,20 +125,16 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-top: var(--space-12px);
-    gap: var(--space-8px);
+    gap: var(--space-24px);
     .half-block {
       height: fit-content;
-      width: 40%;
-      min-width: 290px;
-      max-width: 550px;
       padding: var(--space-24px);
       margin-bottom: var(--space-xs);
     }
     
     .code-block {
-      width: 40%;
+      width: 80%;
       min-width: 290px;
-      max-width: 550px;
       border-radius: var(--border-radius);
       overflow: hidden;
       color: white;
