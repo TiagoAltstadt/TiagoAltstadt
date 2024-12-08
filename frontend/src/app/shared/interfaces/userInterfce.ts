@@ -8,6 +8,7 @@ export interface UserInterface {
   userTypeId: string;
   password?: string;
   confirmPassword?: string;
+  token?: string;
 }
 export interface DeleteUserInterface {
   email: string;

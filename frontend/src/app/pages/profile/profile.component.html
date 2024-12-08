@@ -2,7 +2,7 @@
     <div class="box profile-box hover blur">
         <div class="title">Profile</div>
 
-        <div class="container-box" *ngIf="user">
+        <div class="container-box" *ngIf="user && !editInterface">
 
             <div class="line"><span class="label">Nombre:</span>
                 <div class="underline"></div> <span class="data">{{user.name}}</span>
@@ -20,8 +20,64 @@
                 <div class="underline"></div><span class="data">{{user.address}}</span>
             </div>
         </div>
+
+        <form *ngIf="editInterface" [formGroup]="editForm" (ngSubmit)="send()">
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" formControlName="name" autocomplete="name">
+                <div *ngIf="editForm.get('name')?.invalid && editForm.get('name')?.touched" class="error-message">
+                    {{ getSpecificErrorMessage('name') }}
+                </div>
+            </div>
+            <!-- Surname Field -->
+            <div class="form-group">
+                <label for="surname">Apellido</label>
+                <input type="text" id="surname" formControlName="surname" autocomplete="surname">
+                <div *ngIf="editForm.get('surname')?.invalid && editForm.get('surname')?.touched" class="error-message">
+                    {{ getSpecificErrorMessage('surname') }}
+                </div>
+            </div>
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" formControlName="email" autocomplete="email">
+                <div *ngIf="editForm.get('email')?.invalid && editForm.get('email')?.touched" class="error-message">
+                    {{ getSpecificErrorMessage('email') }}
+                </div>
+            </div>
+            <!-- Phone Field -->
+            <div class="form-group">
+                <label for="phone">Telefono</label>
+                <input type="number" id="phone" formControlName="phone" autocomplete="phone">
+                <div *ngIf="editForm.get('phone')?.invalid && editForm.get('phone')?.touched" class="error-message">
+                    {{ getSpecificErrorMessage('phone') }}
+                </div>
+            </div>
+            <!-- Address Field -->
+            <div class="form-group">
+                <label for="address">Direccion</label>
+                <input type="text" id="address" formControlName="address" autocomplete="address">
+                <div *ngIf="editForm.get('address')?.invalid && editForm.get('address')?.touched" class="error-message">
+                    {{ getSpecificErrorMessage('address') }}
+                </div>
+            </div>
+
+
+            <!-- Messages and Submit Button -->
+            <div *ngIf="sendingMessage" class="waiting-message">{{ sendingMessage }}</div>
+            <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+            <input [disabled]="!isFormValid || isSubmitting" type="submit" value="Enviar">
+            <div *ngIf="!isFormValid && !isSubmitting" class="error-message">
+                {{ getGlobalErrorMessage() }}
+            </div>
+        </form>
+
         <div class="button-container">
-            <button (click)="logout()">Cerrar Sesion</button>
+            <button (click)="enableEditInterface()" class="edit">Editar Perfil</button>
+            <button (click)="logout()" class="logout">Cerrar Sesion</button>
         </div>
     </div>
 </div>

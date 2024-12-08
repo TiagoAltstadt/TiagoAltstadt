@@ -50,7 +50,7 @@ export class UserService {
     );
   }
   patch(user: UserInterface): Observable<UserModel> {
-    let body: UserModel = {
+    const body: UserModel = {
       id: user.id,
       userTypeId: user.userTypeId,
       name: user.name,
@@ -58,21 +58,29 @@ export class UserService {
       email: user.email,
       phone: user.phone,
       address: user.address,
+      token: user.token,
     };
 
-    return this.http.put<UserModel>(USERS_URL + user.id, body).pipe(
+    return this.http.patch<UserModel>(USERS_URL + '/' + user.id, body).pipe(
       tap({
-        next: (res) => {
-          console.log('User updated', res);
-          return;
+        next: (updatedUser) => {
+          console.log('User updated', updatedUser);
+
+          // Check if the updated user is the currently logged-in user
+          const currentUser = this.getUserFromLocalStorage();
+          if (currentUser?.id === updatedUser.id) {
+            // Update the local storage and userSubject
+            this.setUserToLocalStorage(updatedUser);
+            this.userSubject.next(updatedUser);
+          }
         },
         error: (errorResponse) => {
           console.log('Error', errorResponse);
-          return;
         },
       })
     );
   }
+
   delete(id: string): Observable<UserModel> {
     return this.http.delete<UserModel>(USERS_URL + id).pipe(
       tap({
@@ -126,7 +134,6 @@ export class UserService {
     return this.http.post<UserModel>(USERS_URL + '/login', body).pipe(
       tap({
         next: (user) => {
-
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
 

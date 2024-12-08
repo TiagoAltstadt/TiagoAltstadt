@@ -3,7 +3,6 @@
   padding: var(--space-xs);
 
   .profile-box {
-    
     .container-box {
       display: flex;
       flex-direction: column;
@@ -30,8 +29,21 @@
     .button-container {
       display: flex;
       flex-direction: column;
-      button {
+      gap: var(--space-xxs);
+      .logout {
         background-color: #af4c4c;
+
+        &:hover {
+          background-color: #ab2222;
+        }
+      }
+      .edit {
+        background-color: #4caaaf;
+        &:hover {
+          background-color: #00787f;
+        }
+      }
+      button {
         color: white;
         padding: 10px;
         border: none;
@@ -57,9 +69,8 @@
   #profile-container {
     height: 100vw;
     padding: var(--space-24px);
-  
-    .profile-box {
 
+    .profile-box {
       .container-box {
         display: flex;
         flex-direction: column;
@@ -71,7 +82,7 @@
           justify-content: space-between;
           width: 100%;
           min-width: 60px;
-  
+
           .label {
             width: fit-content;
           }
@@ -96,11 +107,11 @@
           border-radius: 5px;
           cursor: pointer;
           transition: background-color 0.3s ease;
-  
+
           &:hover {
             background-color: var(--color-primary);
           }
-  
+
           &.disabled {
             background-color: #e0e0e0;
             color: #a0a0a0;
@@ -110,5 +121,4 @@
       }
     }
   }
-  
 }

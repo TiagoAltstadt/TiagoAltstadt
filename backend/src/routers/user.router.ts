@@ -93,7 +93,7 @@ router.patch(
   "/:id",
   asyncHandler(async (req, res) => {
     const { id } = req.params;
-    const { userTypeId, name, surname, email, phone, address } = req.body;
+    const { userTypeId, name, surname, email, phone, address, token } = req.body;
 
     if (!isValidObjectId(id)) {
       sendErrorResponse(res, HTTP_BAD_REQUEST, "Invalid ID format");
@@ -119,9 +119,10 @@ router.patch(
     user.email = email;
     user.phone = phone;
     user.address = address;
+    user.token = token;
 
     await user.save();
-    res.status(HTTP_OK).send("User updated successfully!");
+    res.status(HTTP_OK).send(user);
     return;
   })
 );
@@ -170,15 +171,15 @@ router.post(
       return;
     }
 
-    if (await bcrypt.compare(password, user.password)) {
-      return res.status(HTTP_OK).send(generateTokenResponse(user));
-    } else {
-      return sendErrorResponse(
-        res,
-        HTTP_BAD_REQUEST,
-        "Username or password are invalid"
-      );
-    }
+      if (await bcrypt.compare(password, user.password)) {
+        return res.status(HTTP_OK).send(generateTokenResponse(user));
+      } else {
+        return sendErrorResponse(
+          res,
+          HTTP_BAD_REQUEST,
+          "Username or password are invalid"
+        );
+      }
   })
 );
 //----------Search by id----------

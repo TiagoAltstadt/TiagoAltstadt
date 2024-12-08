@@ -28,6 +28,7 @@ export interface User {
   password: string;
   balanceSheet: BalanceSheetEntry[]; // Array of balance sheet entries
   groups: Schema.Types.ObjectId[];
+  token?: string;
 }
 
 // Define the main User schema
@@ -40,6 +41,7 @@ const UserSchema = new Schema<User>(
     phone: { type: String, required: true },
     address: { type: String, required: true },
     password: { type: String, required: true },
+    token: { type: String, required: false },
     balanceSheet: { type: [balanceSheetSchema], default: [] },
     groups: { type: [Schema.Types.ObjectId], ref: "Group", default: [] },
   },
