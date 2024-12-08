@@ -286,6 +286,31 @@ router.get("/expense/:id", async (req, res) => {
     }
   }
 });
+// Get user expenses
+router.get("/expenses/user/:userId", async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const expenses = await ExpenseModel.find({
+      $or: [{ paidBy: userId }, { payers: userId }],
+    }).populate("paidBy payers");
+
+    if (expenses.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No expenses found for this user" });
+    }
+
+    return res.status(200).json(expenses);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return res.status(500).json({ error: err.message });
+    } else {
+      return res.status(500).json({ error: "An unknown error occurred" });
+    }
+  }
+});
+
 // Add new member to a group
 router.post("/addMember", async (req, res) => {
   const { groupId, userId } = req.body;

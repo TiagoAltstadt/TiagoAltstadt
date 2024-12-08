@@ -95,16 +95,13 @@ router.patch(
     const { id } = req.params;
     const { userTypeId, name, surname, email, phone, address } = req.body;
 
-    if (!id || !isValidObjectId(id)) {
-      sendErrorResponse(res, HTTP_BAD_REQUEST, "Invalid ID");
-
+    if (!isValidObjectId(id)) {
+      sendErrorResponse(res, HTTP_BAD_REQUEST, "Invalid ID format");
       return;
     }
-
     const user = await UserModel.findById(id);
     if (!user) {
-      sendErrorResponse(res, HTTP_BAD_REQUEST, "No user found");
-
+      sendErrorResponse(res, HTTP_NOT_FOUND, "User not found");
       return;
     }
 
@@ -163,11 +160,6 @@ router.post(
     const { email, password } = req.body;
     const user = await UserModel.findOne({ email });
 
-    console.log(email);
-    console.log(password);
-    console.log(user);
-    
-
     if (!user) {
       sendErrorResponse(
         res,
@@ -179,16 +171,13 @@ router.post(
     }
 
     if (await bcrypt.compare(password, user.password)) {
-      res.status(HTTP_OK).send(generateTokenResponse(user));
-      return;
+      return res.status(HTTP_OK).send(generateTokenResponse(user));
     } else {
-      sendErrorResponse(
+      return sendErrorResponse(
         res,
         HTTP_BAD_REQUEST,
         "Username or password are invalid"
       );
-
-      return;
     }
   })
 );
@@ -242,10 +231,8 @@ router.post(
 
 const generateTokenResponse = (user: User) => {
   const token = jwt.sign(
-    {
-      email: user.email,
-    },
-    process.env.JWT_SECRET as any,
+    { email: user.email },
+    process.env.JWT_SECRET as string,
     { expiresIn: process.env.JWT_EXPIRATION || "30d" }
   );
 
@@ -256,19 +243,13 @@ const generateTokenResponse = (user: User) => {
     email: user.email,
     phone: user.phone,
     address: user.address,
-    password: user.password,
+    id: user.id,
     token: token,
   };
 };
 
 function isValidObjectId(value: string): boolean {
-  const objectIdRegex = /^[0-9a-fA-F]{24}$/;
-
-  return (
-    typeof value === "string" &&
-    value.length === 24 &&
-    objectIdRegex.test(value)
-  );
+  return mongoose.Types.ObjectId.isValid(value);
 }
 
 export default router;

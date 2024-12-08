@@ -18,6 +18,7 @@ const balanceSheetSchema = new Schema<BalanceSheetEntry>({
 
 // User interface, aligning with Mongoose's requirements
 export interface User {
+  id?: string;
   userTypeId: string;
   name: string;
   surname: string;
@@ -32,35 +33,26 @@ export interface User {
 // Define the main User schema
 const UserSchema = new Schema<User>(
   {
+    userTypeId: { type: String, required: true },
     name: { type: String, required: true },
     surname: { type: String, required: true },
-    userTypeId: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     phone: { type: String, required: true },
     address: { type: String, required: true },
     password: { type: String, required: true },
-    balanceSheet: { type: [balanceSheetSchema], default: [] }, // Embedding balanceSheetSchema
-    groups: { type: [String], required: true },
+    balanceSheet: { type: [balanceSheetSchema], default: [] },
+    groups: { type: [Schema.Types.ObjectId], ref: "Group", default: [] },
   },
   {
-    toJSON: {
-      virtuals: true,
-      transform: (doc, ret) => {
-        ret.id = ret._id; // Map _id to id
-        delete ret._id; // Exclude _id from the output
-        delete ret.__v; // Exclude __v from the output
-      },
-    },
-    toObject: {
-      virtuals: true,
-      transform: (doc, ret) => {
-        ret.id = ret._id; // Map _id to id
-        delete ret._id; // Exclude _id from the output
-        delete ret.__v; // Exclude __v from the output
-      },
-    },
-    timestamps: true, // Automatically handle createdAt and updatedAt fields
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+    timestamps: true,
   }
 );
+
+// Virtual field to map _id to id
+UserSchema.virtual("id").get(function () {
+  return this._id.toHexString();
+});
 
 export const UserModel = model<User>("User", UserSchema);

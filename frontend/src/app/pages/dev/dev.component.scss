@@ -1,0 +1,14 @@
+#devPage {
+
+  .dev_line {
+    background-color: var(--background-soft);
+    padding: var(--space-xxs);
+    border-radius: var(--border-radius);
+  }
+
+  .group{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxs);
+  }
+}

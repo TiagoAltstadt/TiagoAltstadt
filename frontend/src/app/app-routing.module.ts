@@ -13,13 +13,21 @@ const routes: Routes = [
     path: 'experience',
     component: MainLayoutComponent,
     loadChildren: () =>
-      import('./pages/experience/experience.module').then((m) => m.ExperienceModule),
+      import('./pages/experience/experience.module').then(
+        (m) => m.ExperienceModule
+      ),
   },
   {
     path: 'bio',
     component: MainLayoutComponent,
     loadChildren: () =>
       import('./pages/bio/bio.module').then((m) => m.BioModule),
+  },
+  {
+    path: 'dev',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/dev/dev.module').then((m) => m.DevModule),
   },
   {
     path: 'test',
@@ -55,13 +63,14 @@ const routes: Routes = [
     path: '**',
     component: MainLayoutComponent,
     loadChildren: () =>
-      import('./pages/not-found/not-found.module').then((m) => m.NotFoundModule),
+      import('./pages/not-found/not-found.module').then(
+        (m) => m.NotFoundModule
+      ),
   },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -26,7 +26,9 @@ export class UserService {
   private getUserFromLocalStorage(): any {
     const userJson = localStorage.getItem(USER_KEY);
 
-    if (userJson) return JSON.parse(userJson) as UserModel;
+    if (userJson) {
+      return JSON.parse(userJson) as UserModel;
+    }
     return new UserModel();
   }
 
@@ -91,7 +93,6 @@ export class UserService {
       .pipe(
         tap({
           next: (res) => {
-            console.log('User found', res);
             return;
           },
           error: (errorResponse) => {
@@ -107,7 +108,6 @@ export class UserService {
       .pipe(
         tap({
           next: (res) => {
-            console.log('User found', res);
             return;
           },
           error: (errorResponse) => {
@@ -126,14 +126,15 @@ export class UserService {
     return this.http.post<UserModel>(USERS_URL + '/login', body).pipe(
       tap({
         next: (user) => {
+
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
 
-          return;
+          return user;
         },
         error: (errorResponse) => {
           console.log('Error', errorResponse);
-          return;
+          return errorResponse;
         },
       })
     );

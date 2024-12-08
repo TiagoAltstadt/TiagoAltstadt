@@ -5,4 +5,5 @@ export interface GroupInterface {
   expenses: string[];
   createdAt: Date;
   updatedAt: Date;
+  id: string;
 }

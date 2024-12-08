@@ -11,15 +11,72 @@
     </div>
 
     <div class="box-container">
-        <div class="box blur hover">
-            <div class="subtitle">Mis Grupos</div>
-            <div class="task button" (click)="createGroup()">Crear Grupo</div>
-            <div class="group">
-                Buscando money
+        <div class="row">
+            <div class="box blur hover">
+                <div class="subtitle">Mis Grupos</div>
+                <div class="task button" (click)="getGroups()">Get Groups</div>
+                <div class="dev_line" *ngFor="let group of allGroups">
+                    <div style="display: flex; flex-direction: column;">
+                        <div>{{group.name}} </div>
+                        <div style="color: gray;">{{group.description}}</div>
+                    </div>
+                    <div class="button-danger" (click)="deleteGroup(group.id)">Eliminar grupo</div>
+                </div>
+                <div class="dev_line" *ngIf="!allGroups">
+                    No perteneces a ningun grupo
+                </div>
+            </div>
+            <div class="box blur hover">
+                <div class="subtitle">Mis Expensas</div>
+                <div class="task button" (click)="getExpenses()">Get Expenses</div>
+                <div class="dev_line" *ngFor="let expense of allExpenses">
+                    <div style="display: flex; flex-direction: column;">
+                        <div>{{expense.title}} </div>
+                        <div style="color: gray;" [ngStyle]="{'color':expense.amount>0 ? 'red' : 'green'}">
+                            {{expense.amount > 0 ? '- '+expense.amount : expense.amount}}</div>
+                    </div>
+                </div>
+                <div class="dev_line" *ngIf="!allExpenses">
+                    No perteneces a ningun grupo
+                </div>
             </div>
         </div>
-        <div class="box blur hover">
-            <div class="subtitle">Mis Amigos</div>
+        <div class="row">
+            <div class="box blur hover">
+                <div class="subtitle">Crear Grupo</div>
+                <form [formGroup]="createGroupForm" (ngSubmit)="send()">
+                    <!-- Name Field -->
+                    <div class="form-group">
+                        <label for="text">Nombre de grupo</label>
+                        <input type="text" id="name" formControlName="name">
+                        <div *ngIf="createGroupForm.get('name')?.invalid && createGroupForm.get('name')?.touched"
+                            class="error-message">
+                            {{ getSpecificErrorMessage('name') }}
+                        </div>
+                    </div>
+                    <!-- Description Field -->
+                    <div class="form-group">
+                        <label for="text">Descripcion del grupo</label>
+                        <input type="text" id="description" formControlName="description">
+                        <div *ngIf="createGroupForm.get('description')?.invalid && createGroupForm.get('description')?.touched"
+                            class="error-message">
+                            {{ getSpecificErrorMessage('description') }}
+                        </div>
+                    </div>
+                    <!-- Messages and Submit Button -->
+                    <div *ngIf="sendingMessage" class="waiting-message">{{ sendingMessage }}</div>
+                    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+                    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+                    <div style="grid-column: span 2;
+                    display: grid; gap: var(--space-24px);">
+                        <input [disabled]="!isFormValid || isSubmitting" type="submit" value="Enviar">
+                        <div *ngIf="!isFormValid && !isSubmitting" class="error-message">
+                            {{ getGlobalErrorMessage() }}
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>

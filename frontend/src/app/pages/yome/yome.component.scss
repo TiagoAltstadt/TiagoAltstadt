@@ -1,6 +1,13 @@
 #yome-page {
   height: 100vw;
   padding: var(--space-xs);
+  .dev_line {
+    background-color: var(--background-soft);
+    padding: var(--space-xxs);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+  }
   .box {
     border-radius: 16px;
     width: fit-content;
@@ -10,8 +17,8 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    padding: var(--space-xs);
-    gap: var(--space-xs);
+    padding: var(--space-24px);
+    gap: var(--space-24px);
 
     .text {
       text-align: justify;
@@ -19,11 +26,11 @@
   }
   .box-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin-top: var(--space-xs);
-    gap: var(--space-xs);
+    gap: var(--space-24px);
     .box {
       width: 45%;
     }
@@ -46,7 +53,7 @@
       flex-wrap: wrap;
       justify-content: center;
       padding: var(--space-24px);
-      gap: var(--space-xs);
+      gap: var(--space-24px);
 
       .text {
         text-align: justify;
@@ -58,7 +65,7 @@
       justify-content: space-around;
       align-items: center;
       margin-top: var(--space-xs);
-      gap: var(--space-xs);
+      gap: var(--space-24px);
       .box {
         width: 70%;
       }

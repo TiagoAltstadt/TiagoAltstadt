@@ -13,7 +13,7 @@ export class LoginComponent {
   sendingMessage: string = '';
   successMessage: string = '';
   errorMessage: string = '';
-  isSubmitting: boolean = false; // Flag to manage button state
+  isSubmitting: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -26,21 +26,7 @@ export class LoginComponent {
       password: ['', Validators.required],
     });
   }
-  logFormStatus() {
-    const controls = this.loginForm.controls;
-    for (const controlName in controls) {
-      if (controls.hasOwnProperty(controlName)) {
-        const control = controls[controlName];
-        console.log(`${controlName}:`, {
-          value: control.value,
-          valid: control.valid,
-          errors: control.errors,
-          touched: control.touched,
-          dirty: control.dirty,
-        });
-      }
-    }
-  }
+  
   send() {
     if (this.isSubmitting || !this.isFormValid) {
       this.logFormStatus(); // Log form status before early return
@@ -49,6 +35,7 @@ export class LoginComponent {
 
     this.isSubmitting = true; // Disable the button
     this.sendingMessage = 'Iniciando sesion...'; // Show sending message
+    
     this.userService.login(this.loginForm.value).subscribe({
       next: (res) => {
         this.sendingMessage = ''; // Clear sending message
@@ -67,7 +54,21 @@ export class LoginComponent {
       },
     });
   }
-
+  logFormStatus() {
+    const controls = this.loginForm.controls;
+    for (const controlName in controls) {
+      if (controls.hasOwnProperty(controlName)) {
+        const control = controls[controlName];
+        console.log(`${controlName}:`, {
+          value: control.value,
+          valid: control.valid,
+          errors: control.errors,
+          touched: control.touched,
+          dirty: control.dirty,
+        });
+      }
+    }
+  }
   get isFormValid(): boolean {
     // Check if the form is valid overall
     const isFormValid = this.loginForm.valid;

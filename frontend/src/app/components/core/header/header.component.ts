@@ -30,8 +30,8 @@ export class HeaderComponent implements OnInit {
     { tag: 'Experience', link: 'experience' }, // Will have Work, Studies and Projects
     { tag: 'Bio', link: 'bio' },
     { tag: 'Contact', link: 'contact' },
+    // { tag: 'Y-O-Me', link: 'yome' },
     { tag: 'Login', link: 'login' },
-    { tag: 'Y-O-Me', link: 'yome' },
     // { tag: '🌙', link: '#' },
   ];
 

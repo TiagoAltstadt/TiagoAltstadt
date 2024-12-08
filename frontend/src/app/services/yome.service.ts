@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { USERS_URL } from '../shared/constants/urls';
+import { USERS_URL, YOME_URL } from '../shared/constants/urls';
 import { UserModel } from '../shared/models/User';
 import {
   LoginUserInterface,
   UserInterface,
 } from '../shared/interfaces/userInterfce';
+import { GroupModel } from '../shared/models/Group';
+import { ExpenseModel } from '../shared/models/Expense';
+import { GroupInterface } from '../shared/interfaces/groupInterface';
+import { ExpenseInterface } from '../shared/interfaces/expenseInterface';
 
 const USER_KEY = 'User';
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class YomeService {
   private userSubject = new BehaviorSubject<UserModel>(
     this.getUserFromLocalStorage()
   );
@@ -30,70 +34,28 @@ export class UserService {
     return new UserModel();
   }
 
-  getGroups(): Observable<UserModel[]> {
-    return this.http.get<UserModel[]>(USERS_URL);
+  getExpenses(): Observable<ExpenseModel[]> {
+    return this.http.get<ExpenseModel[]>(YOME_URL + '/expenses');
+  }
+  getGroups(): Observable<GroupInterface[]> {
+    return this.http.get<GroupInterface[]>(YOME_URL + '/groups');
+  }
+  deleteGroup(groupId: string): Observable<GroupInterface[]> {
+    return this.http.delete<GroupInterface[]>(YOME_URL + '/group/' + groupId);
+  }
+  getUserExpenses(userId: string) {
+    return this.http.get<ExpenseInterface[]>(
+      YOME_URL + '/expenses/user/' + userId
+    );
   }
 
-  //-------------------
-  post(userBody: UserInterface): Observable<UserModel> {
-    return this.http.post<UserModel>(USERS_URL, userBody).pipe(
-      tap({
-        next: (res) => {
-          console.log('User created', res);
-          return;
-        },
-        error: (errorResponse) => {
-          console.log('Error', errorResponse);
-          return;
-        },
-      })
-    );
-  }
-  patch(user: UserInterface): Observable<UserModel> {
-    let body: UserModel = {
-      id: user.id,
-      userTypeId: user.userTypeId,
-      name: user.name,
-      surname: user.surname,
-      email: user.email,
-      phone: user.phone,
-      address: user.address,
-    };
-
-    return this.http.put<UserModel>(USERS_URL + user.id, body).pipe(
-      tap({
-        next: (res) => {
-          console.log('User updated', res);
-          return;
-        },
-        error: (errorResponse) => {
-          console.log('Error', errorResponse);
-          return;
-        },
-      })
-    );
-  }
-  delete(id: string): Observable<UserModel> {
-    return this.http.delete<UserModel>(USERS_URL + id).pipe(
-      tap({
-        next: (res) => {
-          console.log('User deleted', res);
-          return;
-        },
-        error: (errorResponse) => {
-          console.log('Error', errorResponse);
-          return;
-        },
-      })
-    );
-  }
-  getByID(id: string): Observable<UserInterface> {
+  createGroup(groupBody: GroupInterface): Observable<GroupModel> {
     return this.http
-      .post<UserInterface>(USERS_URL + '/search-ID/' + id, {})
+      .post<GroupModel>(YOME_URL + '/createGroup', groupBody)
       .pipe(
         tap({
           next: (res) => {
-            console.log('User found', res);
+            console.log('Group created', res);
             return;
           },
           error: (errorResponse) => {
@@ -102,48 +64,5 @@ export class UserService {
           },
         })
       );
-  }
-  getByEmail(id: string): Observable<UserInterface> {
-    return this.http
-      .post<UserInterface>(USERS_URL + '/search-Email/' + id, {})
-      .pipe(
-        tap({
-          next: (res) => {
-            console.log('User found', res);
-            return;
-          },
-          error: (errorResponse) => {
-            console.log('Error', errorResponse);
-            return;
-          },
-        })
-      );
-  }
-  login(user: LoginUserInterface): Observable<UserModel> {
-    let body: LoginUserInterface = {
-      email: user.email,
-      password: user.password,
-    };
-
-    return this.http.post<UserModel>(USERS_URL + '/login', body).pipe(
-      tap({
-        next: (user) => {
-          this.setUserToLocalStorage(user);
-          this.userSubject.next(user);
-
-          return;
-        },
-        error: (errorResponse) => {
-          console.log('Error', errorResponse);
-          return;
-        },
-      })
-    );
-  }
-  logout() {
-    this.userSubject.next(new UserModel());
-    localStorage.removeItem(USER_KEY);
-    window.location.reload();
-    return;
   }
 }
