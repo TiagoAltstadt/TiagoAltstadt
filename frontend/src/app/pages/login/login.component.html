@@ -27,7 +27,7 @@
             <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
             <input [disabled]="!isFormValid || isSubmitting" type="submit" value="Enviar">
-            <div *ngIf="!isFormValid && !isSubmitting" class="error-message">
+            <div *ngIf="!isFormValid && !isSubmitting && this.showErrors" class="error-message">
                 {{ getGlobalErrorMessage() }}
             </div>
         </form>

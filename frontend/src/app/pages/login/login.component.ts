@@ -14,6 +14,7 @@ export class LoginComponent {
   successMessage: string = '';
   errorMessage: string = '';
   isSubmitting: boolean = false;
+  showErrors: boolean = false; // Added flag to control error visibility
 
   constructor(
     private fb: FormBuilder,
@@ -26,8 +27,10 @@ export class LoginComponent {
       password: ['', Validators.required],
     });
   }
-  
+
   send() {
+    this.showErrors = true; // Allow errors to be shown when the form is submitted
+
     if (this.isSubmitting || !this.isFormValid) {
       this.logFormStatus(); // Log form status before early return
       return;
@@ -35,7 +38,7 @@ export class LoginComponent {
 
     this.isSubmitting = true; // Disable the button
     this.sendingMessage = 'Iniciando sesion...'; // Show sending message
-    
+
     this.userService.login(this.loginForm.value).subscribe({
       next: (res) => {
         this.sendingMessage = ''; // Clear sending message
