@@ -2,13 +2,10 @@
 <section id="bio" class="page" #bio>
 
 
-    <div class="box hover blur biography">
-        <p class="title">Biography</p>
-    </div>
-
     <div class="row-container">
 
-        <div class="blur hover box">
+        <div class="box blur hover">
+            <p class="title">Biography</p>
             <p class="sub-subtitle">Sobre mi:</p>
             <p class="paragraph">
 
@@ -44,7 +41,7 @@
                 <pre>
                     &lt;<span style="color: #e84a59;">ul</span>&gt;
                     <ng-container style="max-height: 21px;" *ngFor="let technologie of technologies"> 
-                        &lt;<span style="color: #e84a59;">li</span>&gt;{{technologie}}&lt;/ <span style="color: #e84a59;">li</span>&gt;
+                        &lt;<span style="color: #e84a59;">li</span>&gt; <a href="{{technologie.link}}" target="_blank">{{technologie.name}}</a> &lt;/ <span style="color: #e84a59;">li</span>&gt;
                     </ng-container>
                     &lt;/ <span style="color: #e84a59;">ul</span>&gt;
                 </pre>
