@@ -39,8 +39,6 @@ export class HeaderComponent implements OnInit {
   user!: UserModel;
 
   ngOnInit(): void {
-    console.log(this.user.token);
-    
     if (this.user.token) {
       this.headerOptions = this.headerOptions.filter(
         (element) => element.link != 'login'
