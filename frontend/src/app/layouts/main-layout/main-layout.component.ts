@@ -7,14 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-layout.component.scss'],
 })
 export class MainLayoutComponent implements OnInit {
-  headerOptions = [
-    { tag: 'Home', link: '' },
-    { tag: 'Experience', link: 'experience' }, // Will have Work, Studies and Projects
-    { tag: 'Bio', link: 'bio' },
-    { tag: 'Contact', link: 'contact' },
-    { tag: 'Login', link: 'login' },
-    // { tag: '🌙', link: '#' },
-  ];
+  
   menuState: boolean = false;
 
   constructor(private router: Router) {}

@@ -1,4 +1,4 @@
-<section id="login-container" class="">
+<section id="login-container">
     <div class=" login-box hover blur">
         <div class="title">Login</div>
 
@@ -27,6 +27,7 @@
             <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
             <input [disabled]="!isFormValid || isSubmitting" type="submit" value="Enviar">
+            <input type="button" (click)="register()" class="button register-button" value="Registrate">
             <div *ngIf="!isFormValid && !isSubmitting && this.showErrors" class="error-message">
                 {{ getGlobalErrorMessage() }}
             </div>

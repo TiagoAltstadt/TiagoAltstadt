@@ -1,5 +1,6 @@
 :root {
   --color-primary: rgb(0, 255, 255);
+  --color-secondary: rgb(225, 0, 255);
   --color-black: rgb(60, 60, 60);
   --color-danger: rgb(255, 0, 0);
   --color-danger-low: rgb(255, 77, 77);
@@ -300,6 +301,7 @@
         border-radius: $button-border-radius;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        width: 100%;
 
         &:hover {
           background-color: $button-hover-background-color;

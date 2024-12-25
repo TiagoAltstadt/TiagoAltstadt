@@ -48,6 +48,12 @@ const routes: Routes = [
       import('./pages/profile/profile.module').then((m) => m.ProfileModule),
   },
   {
+    path: 'register',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/register/register.module').then((m) => m.RegisterModule),
+  },
+  {
     path: 'login',
     component: MainLayoutComponent,
     loadChildren: () =>

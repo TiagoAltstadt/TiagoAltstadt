@@ -12,6 +12,7 @@ import { UserModel } from 'src/app/shared/models/User';
 export class ProfileComponent implements OnInit {
   user!: UserModel;
   editForm: FormGroup;
+
   sendingMessage: string = '';
   successMessage: string = '';
   errorMessage: string = '';
@@ -59,7 +60,6 @@ export class ProfileComponent implements OnInit {
 
     this.isSubmitting = true; // Disable the button
     this.sendingMessage = 'Guardando datos...'; // Show sending message
-    console.log('this.editForm.value', this.editForm.value);
 
     this.userService.patch(this.editForm.value).subscribe({
       next: (res) => {
@@ -67,7 +67,6 @@ export class ProfileComponent implements OnInit {
         this.successMessage = 'Cambios guardados Correctamente!'; // Show success message
         this.errorMessage = ''; // Clear any previous error messages
         location.reload();
-        
       },
       error: (error) => {
         this.sendingMessage = ''; // Clear sending message
@@ -85,13 +84,6 @@ export class ProfileComponent implements OnInit {
     for (const controlName in controls) {
       if (controls.hasOwnProperty(controlName)) {
         const control = controls[controlName];
-        console.log(`${controlName}:`, {
-          value: control.value,
-          valid: control.valid,
-          errors: control.errors,
-          touched: control.touched,
-          dirty: control.dirty,
-        });
       }
     }
   }

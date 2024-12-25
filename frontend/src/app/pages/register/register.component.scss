@@ -1,0 +1,10 @@
+#register-page {
+  height: 100vw;
+  padding: var(--space-xs);
+  .register-box {
+    border-radius: 16px;
+    width: fit-content;
+    margin: auto;
+    padding: var(--space-xs);
+  }
+}

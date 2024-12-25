@@ -1,32 +1,14 @@
-<div id="profile-container">
-    <div class="box profile-box hover blur">
-        <div class="title">Profile</div>
+<section id="register-page">
+    <div class=" register-box hover blur ">
+        <div class="title">Registrarse</div>
 
-        <div class="container-box" *ngIf="user && !editInterface">
-
-            <div class="line"><span class="label">Nombre:</span>
-                <div class="underline"></div> <span class="data">{{user.name}}</span>
-            </div>
-            <div class="line"><span class="label">Apellido:</span>
-                <div class="underline"></div><span class="data">{{user.surname}}</span>
-            </div>
-            <div class="line"><span class="label">Email:</span>
-                <div class="underline"></div> <span class="data">{{user.email}}</span>
-            </div>
-            <div class="line"><span class="label">Telefono:</span>
-                <div class="underline"></div><span class="data">{{user.phone}}</span>
-            </div>
-            <div class="line"><span class="label">Direccion:</span>
-                <div class="underline"></div><span class="data">{{user.address}}</span>
-            </div>
-        </div>
-
-        <form *ngIf="editInterface" [formGroup]="editForm" (ngSubmit)="send()">
+        <form [formGroup]="registerForm" (ngSubmit)="send()">
             <!-- Name Field -->
             <div class="form-group">
                 <label for="name">Nombre</label>
                 <input type="text" id="name" formControlName="name" autocomplete="name">
-                <div *ngIf="editForm.get('name')?.invalid && editForm.get('name')?.touched" class="error-message">
+                <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched"
+                    class="error-message">
                     {{ getSpecificErrorMessage('name') }}
                 </div>
             </div>
@@ -34,7 +16,8 @@
             <div class="form-group">
                 <label for="surname">Apellido</label>
                 <input type="text" id="surname" formControlName="surname" autocomplete="surname">
-                <div *ngIf="editForm.get('surname')?.invalid && editForm.get('surname')?.touched" class="error-message">
+                <div *ngIf="registerForm.get('surname')?.invalid && registerForm.get('surname')?.touched"
+                    class="error-message">
                     {{ getSpecificErrorMessage('surname') }}
                 </div>
             </div>
@@ -42,7 +25,8 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" formControlName="email" autocomplete="email">
-                <div *ngIf="editForm.get('email')?.invalid && editForm.get('email')?.touched" class="error-message">
+                <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched"
+                    class="error-message">
                     {{ getSpecificErrorMessage('email') }}
                 </div>
             </div>
@@ -50,7 +34,8 @@
             <div class="form-group">
                 <label for="phone">Telefono</label>
                 <input type="number" id="phone" formControlName="phone" autocomplete="phone">
-                <div *ngIf="editForm.get('phone')?.invalid && editForm.get('phone')?.touched" class="error-message">
+                <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched"
+                    class="error-message">
                     {{ getSpecificErrorMessage('phone') }}
                 </div>
             </div>
@@ -58,11 +43,20 @@
             <div class="form-group">
                 <label for="address">Direccion</label>
                 <input type="text" id="address" formControlName="address" autocomplete="address">
-                <div *ngIf="editForm.get('address')?.invalid && editForm.get('address')?.touched" class="error-message">
+                <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched"
+                    class="error-message">
                     {{ getSpecificErrorMessage('address') }}
                 </div>
             </div>
-
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" formControlName="password" autocomplete="current-password">
+                <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+                    class="error-message">
+                    {{ getSpecificErrorMessage('password') }}
+                </div>
+            </div>
 
             <!-- Messages and Submit Button -->
             <div *ngIf="sendingMessage" class="waiting-message">{{ sendingMessage }}</div>
@@ -75,10 +69,6 @@
             </div>
         </form>
 
-        <div class="button-container">
-            <button (click)="enableEditInterface()" *ngIf="!editInterface" class="edit">Editar Perfil</button>
-            <button (click)="enableEditInterface()" *ngIf="editInterface" class="edit">Cancelar</button>
-            <button (click)="logout()" class="logout">Cerrar Sesion</button>
-        </div>
     </div>
-</div>
+
+</section>

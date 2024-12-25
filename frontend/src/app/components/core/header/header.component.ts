@@ -30,9 +30,7 @@ export class HeaderComponent implements OnInit {
     { tag: 'Experience', link: 'experience' }, // Will have Work, Studies and Projects
     { tag: 'Bio', link: 'bio' },
     { tag: 'Contact', link: 'contact' },
-    // { tag: 'Y-O-Me', link: 'yome' },
     { tag: 'Login', link: 'login' },
-    // { tag: '🌙', link: '#' },
   ];
 
   menuStatus: boolean = false;
@@ -46,6 +44,16 @@ export class HeaderComponent implements OnInit {
       this.headerOptions.push({
         tag: 'Hola ' + this.user.name,
         link: 'profile',
+      });
+      this.headerOptions.push({
+        tag: 'Y.O.ME',
+        link: 'yome',
+      });
+    }
+    if (this.user.userTypeId === 'ADMIN') {
+      this.headerOptions.push({
+        tag: 'Admin',
+        link: 'dev',
       });
     }
   }

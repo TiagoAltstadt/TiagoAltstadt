@@ -1,54 +1,74 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
+import { UserModel } from 'src/app/shared/models/User';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
 })
-export class LoginComponent {
-  loginForm: FormGroup;
+export class RegisterComponent implements OnInit {
+  registerForm: FormGroup;
+
+  user!: UserModel;
+
   sendingMessage: string = '';
   successMessage: string = '';
   errorMessage: string = '';
   isSubmitting: boolean = false;
-  showErrors: boolean = false; // Added flag to control error visibility
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router
   ) {
-    this.loginForm = this.fb.group({
+    userService.userObservable.subscribe((newUser) => {
+      this.user = newUser;
+      if (this.user.token) {
+        this.router.navigate(['/']);
+      }
+    });
+    this.registerForm = this.fb.group({
       // Obligatory
+      name: ['', [Validators.required]],
+      surname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      userTypeId: ['USER'],
       password: ['', Validators.required],
     });
   }
-
-  register() {
-    this.router.navigate(['/register']);
-  }
-
-  send() {
-    this.showErrors = true; // Allow errors to be shown when the form is submitted
-
+  ngOnInit() {
     if (this.isSubmitting || !this.isFormValid) {
       this.logFormStatus(); // Log form status before early return
       return;
     }
 
     this.isSubmitting = true; // Disable the button
-    this.sendingMessage = 'Iniciando sesion...'; // Show sending message
+    this.sendingMessage = 'Guardando datos...'; // Show sending message
+    console.log('this.registerForm.value', this.registerForm.value);
+  }
 
-    this.userService.login(this.loginForm.value).subscribe({
+  send() {
+    if (this.isSubmitting || !this.isFormValid) {
+      this.logFormStatus(); // Log form status before early return
+      return;
+    }
+
+    this.isSubmitting = true; // Disable the button
+    this.sendingMessage = 'Guardando datos...'; // Show sending message
+
+    this.userService.post(this.registerForm.value).subscribe({
       next: (res) => {
         this.sendingMessage = ''; // Clear sending message
-        this.successMessage = 'Inicio de sesion exitoso!'; // Show success message
+        this.successMessage = 'Usuario registrado correctamente!'; // Show success message
         this.errorMessage = ''; // Clear any previous error messages
-        this.router.navigate(['/']);
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 2000);
       },
       error: (error) => {
         this.sendingMessage = ''; // Clear sending message
@@ -62,26 +82,19 @@ export class LoginComponent {
     });
   }
   logFormStatus() {
-    const controls = this.loginForm.controls;
+    const controls = this.registerForm.controls;
     for (const controlName in controls) {
       if (controls.hasOwnProperty(controlName)) {
         const control = controls[controlName];
-        console.log(`${controlName}:`, {
-          value: control.value,
-          valid: control.valid,
-          errors: control.errors,
-          touched: control.touched,
-          dirty: control.dirty,
-        });
       }
     }
   }
   get isFormValid(): boolean {
     // Check if the form is valid overall
-    const isFormValid = this.loginForm.valid;
+    const isFormValid = this.registerForm.valid;
 
     // Validate arrival date if it's enabled
-    const formValue = this.loginForm.value;
+    const formValue = this.registerForm.value;
 
     if (formValue.email && formValue.password) {
       return true;
@@ -92,7 +105,7 @@ export class LoginComponent {
 
   getMissingFields(): string[] {
     const missingFields: string[] = [];
-    const controls = this.loginForm.controls;
+    const controls = this.registerForm.controls;
 
     for (const key in controls) {
       if (controls[key].invalid && controls[key].touched) {
@@ -125,8 +138,8 @@ export class LoginComponent {
   }
 
   getSpecificErrorMessage(controlName: string): string {
-    const control = this.loginForm.get(controlName);
-    const formValue = this.loginForm.value;
+    const control = this.registerForm.get(controlName);
+    const formValue = this.registerForm.value;
 
     if (control?.hasError('required')) {
       return `El campo ${controlName} es obligatorio.`; // More user-friendly message

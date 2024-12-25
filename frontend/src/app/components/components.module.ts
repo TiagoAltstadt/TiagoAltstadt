@@ -16,6 +16,7 @@ import { ExperienceComponent } from '../pages/experience/experience.component';
 import { NotFoundComponent } from '../pages/not-found/not-found.component';
 import { YomeComponent } from '../pages/yome/yome.component';
 import { DevComponent } from '../pages/dev/dev.component';
+import { RegisterComponent } from '../pages/register/register.component';
 
 const components: any[] = [
   //Components
@@ -27,6 +28,7 @@ const components: any[] = [
   ContactComponent,
   DevComponent,
   ExperienceComponent,
+  RegisterComponent,
   HomeComponent,
   LoginComponent,
   NotFoundComponent,
