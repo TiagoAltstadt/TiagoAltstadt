@@ -3,6 +3,7 @@ import { Router } from "express";
 import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
 import { User, UserModel } from "../models/user/user.model";
+import nodemailer from "nodemailer";
 import {
   HTTP_BAD_REQUEST,
   HTTP_NOT_FOUND,
@@ -11,6 +12,9 @@ import {
 } from "../configs/http_status";
 import bcrypt from "bcryptjs";
 import { UserTypeModel } from "../models/user/user-type.model";
+import dotenv from "dotenv";
+
+dotenv.config(); // Load environment variables from .env file
 
 const router = Router();
 
@@ -85,6 +89,261 @@ router.post(
       return;
     }
     res.status(HTTP_OK).send(generateTokenResponse(dbUser));
+
+    // Use environment variables for sensitive information
+    const myEmail = process.env.EMAIL;
+    const myPassword = process.env.EMAIL_PASSWORD;
+    const adminEmails = myEmail;
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: myEmail,
+        pass: myPassword,
+      },
+    });
+
+    // Admin Email
+    let mailOptions = {
+      from: myEmail,
+      to: adminEmails,
+      subject: "Tiago Altstadt - Creacion de usuario",
+      html: `
+      <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(60, 60, 60);
+        }
+
+        a {
+            color: rgb(0, 255, 255);
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: rgb(60, 60, 60);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid rgb(0, 255, 255);
+            box-shadow: 0px 15px 20px rgba(35, 96, 110, 0.4);
+
+        }
+
+        .email-header {
+            background-color: #0073e6;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+
+        .email-body {
+            padding: 20px;
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        .email-body b {
+            color: rgb(0, 255, 255);
+        }
+
+        .email-footer {
+            background-color: rgb(75, 75, 75);
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            color: #969696;
+            border-top: 1px solid #ddd;
+        }
+
+        .email-footer a {
+            color: rgb(0, 255, 255);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            New User Created
+        </div>
+        <div class="email-body">
+            <p>A new user has been created on <a href="https://www.tiagoaltstadt.com/"
+                    target="_blank">www.tiagoaltstadt.com</a>.</p>
+            <p>
+                <b>Name:</b> ${name}<br>
+                <b>Surname:</b> ${surname}<br>
+                <b>Email:</b> ${email}<br>
+                <b>Phone:</b> ${phone}<br>
+                <b>Address:</b> ${address}
+            </p>
+            <p>Best regards,<br><b>Tiago Altstadt</b></p>
+        </div>
+        <div class="email-footer">
+            <p>&copy; 2024 Tiago Altstadt. All rights reserved.</p>
+            <p>
+                Visit us at <a href="https://www.tiagoaltstadt.com/" target="_blank">www.tiagoaltstadt.com</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+      `,
+    };
+    transporter.sendMail(
+      mailOptions,
+      (error: any, info: { response: string }) => {
+        if (error) {
+          console.log(error);
+          res.status(500).json({ message: "Error sending email." });
+        } else {
+          console.log("Email sent: " + info.response);
+          res.status(HTTP_OK).json({ message: "Email sent successfully." });
+        }
+      }
+    );
+
+    // Client Email
+    mailOptions = {
+      from: myEmail,
+      to: email,
+      subject: "Tiago Altstadt - Creacion de usuario ",
+      html: `
+
+      <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(60, 60, 60);
+        }
+
+        a {
+            color: rgb(0, 255, 255);
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: rgb(60, 60, 60);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid rgb(0, 255, 255);
+            box-shadow: 0px 15px 20px rgba(35, 96, 110, 0.4);
+
+        }
+
+        .email-header {
+            background-color: #0073e6;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+
+        .email-body {
+            padding: 20px;
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        .email-body b {
+            color: rgb(0, 255, 255);
+        }
+
+        .email-footer {
+            background-color: rgb(75, 75, 75);
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            color: #969696;
+            border-top: 1px solid #ddd;
+        }
+
+        .email-footer a {
+            color: rgb(0, 255, 255);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            Usuario Creado
+        </div>
+        <div class="email-body">
+            <p>Gracias por registrarte en <a href="https://www.tiagoaltstadt.com/"
+                    target="_blank">www.tiagoaltstadt.com</a>!</p>
+            <p>
+                <b>Name:</b> ${name}<br>
+                <b>Surname:</b> ${surname}<br>
+                <b>Email:</b> ${email}<br>
+                <b>Phone:</b> ${phone}<br>
+                <b>Address:</b> ${address}
+            </p>
+            <p>Exitos,<br><b>Tiago Altstadt</b></p>
+        </div>
+        <div class="email-footer">
+            <p>&copy; 2024 Tiago Altstadt. All rights reserved.</p>
+            <p>
+                Visit me at <a href="https://www.tiagoaltstadt.com/" target="_blank">www.tiagoaltstadt.com</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+      `,
+    };
+    transporter.sendMail(
+      mailOptions,
+      (error: any, info: { response: string }) => {
+        if (error) {
+          console.log(error);
+          res.status(500).json({ message: "Error sending email." });
+        } else {
+          console.log("Email sent: " + info.response);
+          res.status(HTTP_OK).json({ message: "Email sent successfully." });
+        }
+      }
+    );
+
+    // Consultation logging
+    // const dbConsultation = await ConsultationModel.create(consultationBody);
+    // if (!dbConsultation) {
+    //   res
+    //     .status(HTTP_BAD_REQUEST)
+    //     .json({ message: "Error creating consultation log" });
+    //   return;
+    // }
+    // res
+    //   .status(HTTP_OK)
+    //   .json({ message: "Consultation log added successfully" });
+
     return;
   })
 );
