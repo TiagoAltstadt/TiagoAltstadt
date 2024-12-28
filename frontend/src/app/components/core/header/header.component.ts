@@ -27,9 +27,11 @@ export class HeaderComponent implements OnInit {
 
   headerOptions = [
     { tag: 'Home', link: '' },
-    { tag: 'Experience', link: 'experience' }, // Will have Work, Studies and Projects
+    { tag: 'Dev Exp.', link: 'experience' }, // Will have Work, Studies and Projects
+    { tag: 'Cook Exp.', link: 'cook' }, // Will have Work, Studies and Projects
     { tag: 'Bio', link: 'bio' },
     { tag: 'Contact', link: 'contact' },
+    { tag: 'Tools', link: '#' },
     { tag: 'Login', link: 'login' },
   ];
 
@@ -41,19 +43,19 @@ export class HeaderComponent implements OnInit {
       this.headerOptions = this.headerOptions.filter(
         (element) => element.link != 'login'
       );
+      // this.headerOptions.push({
+      //   tag: 'Y.O.ME',
+      //   link: 'yome',
+      // });
+      // if (this.user.userTypeId === 'ADMIN') {
+      //   this.headerOptions.push({
+      //     tag: 'Admin',
+      //     link: 'dev',
+      //   });
+      // }
       this.headerOptions.push({
         tag: 'Hola ' + this.user.name,
         link: 'profile',
-      });
-      this.headerOptions.push({
-        tag: 'Y.O.ME',
-        link: 'yome',
-      });
-    }
-    if (this.user.userTypeId === 'ADMIN') {
-      this.headerOptions.push({
-        tag: 'Admin',
-        link: 'dev',
       });
     }
   }
@@ -66,7 +68,7 @@ export class HeaderComponent implements OnInit {
       const header = document.getElementById('header');
       const options = document.getElementById('phone-options');
       if (header) {
-        header.style.height = '250px';
+        header.style.height = 'fit-content';
       }
       if (options) {
         options.style.display = 'flex';

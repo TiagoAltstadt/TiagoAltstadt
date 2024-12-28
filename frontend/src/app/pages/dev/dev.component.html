@@ -6,15 +6,30 @@
         <div class="subtitle">Y-o-me services</div>
 
         <div class="group">
-            <div class="task button" (click)="getGroups()">Get Groups</div>
-            <div class="dev_line" *ngFor="let group of allGroups">
-                {{group.name}} - {{group.description}}
+            <div class="task button" (click)="getUsers()">All Users</div>
+            <div class="list">
+                <div class="dev_line tooltip" *ngFor="let user of allUsers">
+                    {{user.name}} {{user.surname}}
+                    <div class="tooltiptext">
+                        {{user.email}}
+                    </div>
+                </div>
             </div>
         </div>
         <div class="group">
-            <div class="task button" (click)="getExpenses()">Get Expenses</div>
-            <div class="dev_line" *ngFor="let expense of allExpenses">
-                {{expense.title}}
+            <div class="task button" (click)="getGroups()">Get Groups</div>
+            <div class="list">
+                <div class="dev_line" *ngFor="let group of allGroups">
+                    {{group.name}} - <br> {{group.description}}
+                </div>
+            </div>
+        </div>
+        <div class="group">
+            <div class="list">
+                <div class="task button" (click)="getExpenses()">Get Expenses</div>
+                <div class="dev_line" *ngFor="let expense of allExpenses">
+                    {{expense.title}}
+                </div>
             </div>
         </div>
 

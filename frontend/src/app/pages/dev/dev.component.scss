@@ -1,14 +1,35 @@
 #devPage {
-
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .dev_line {
     background-color: var(--background-soft);
     padding: var(--space-xxs);
     border-radius: var(--border-radius);
+    width: fit-content;
   }
 
-  .group{
+  .group {
     display: flex;
     flex-direction: column;
     gap: var(--space-xxs);
+    width: fit-content;
+  }
+
+  .list {
+    padding: var(--space-xxs);
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: var(--space-xxs);
+    height: 100px;
+    overflow-y: scroll;
+    background-color: var(--background-soft);
+    width: 50%;
+    min-width: 250px;
+    border-radius: var(--border-radius);
   }
 }

@@ -10,7 +10,10 @@
 
       .image {
         width: 30%;
-        border-radius: var(--border-radius);
+        img{
+          border-radius: var(--border-radius);
+
+        }
       }
       div {
         display: flex;

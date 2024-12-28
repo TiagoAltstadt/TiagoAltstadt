@@ -11,7 +11,7 @@ import { ExpenseInterface } from '../shared/interfaces/expenseInterface';
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class GroupService {
   constructor(private http: HttpClient) {}
 
   getExpenses(): Observable<ExpenseModel[]> {

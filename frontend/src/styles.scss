@@ -104,6 +104,27 @@
     background: rgb(141, 141, 141);
   }
 
+  // Tooltip container
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: fit-content;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
   body {
     .page {
       height: 100vw;
@@ -163,7 +184,7 @@
       padding-bottom: 40px;
       @media screen and (max-width: 812px) {
         width: fit-content;
-        margin: auto;
+        margin: 24px auto;
         display: flex;
         flex-direction: column;
         gap: var(--space-xs);
