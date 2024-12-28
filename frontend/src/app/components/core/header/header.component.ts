@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
     { tag: 'Cook Exp.', link: 'cook' }, // Will have Work, Studies and Projects
     { tag: 'Bio', link: 'bio' },
     { tag: 'Contact', link: 'contact' },
-    { tag: 'Tools', link: '#' },
+    // { tag: 'Tools', link: '#' },
     { tag: 'Login', link: 'login' },
   ];
 
@@ -47,12 +47,12 @@ export class HeaderComponent implements OnInit {
       //   tag: 'Y.O.ME',
       //   link: 'yome',
       // });
-      // if (this.user.userTypeId === 'ADMIN') {
-      //   this.headerOptions.push({
-      //     tag: 'Admin',
-      //     link: 'dev',
-      //   });
-      // }
+      if (this.user.userTypeId === 'ADMIN') {
+        this.headerOptions.push({
+          tag: 'Admin',
+          link: 'dev',
+        });
+      }
       this.headerOptions.push({
         tag: 'Hola ' + this.user.name,
         link: 'profile',

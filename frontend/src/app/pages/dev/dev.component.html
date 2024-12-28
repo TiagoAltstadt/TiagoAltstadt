@@ -1,12 +1,10 @@
 <section id="devPage" class="page">
     <div class="box hover blur">
         <div class="title">Developer Tools</div>
-    </div>
-    <div class="box hover blur">
-        <div class="subtitle">Y-o-me services</div>
+        <div class="subtitle">8=====D</div>
 
         <div class="group">
-            <div class="task button" (click)="getUsers()">All Users</div>
+            <div class="task button" (click)="getUsers()">All Users ({{allUsers ? allUsers.length : '-'}})</div>
             <div class="list">
                 <div class="dev_line tooltip" *ngFor="let user of allUsers">
                     {{user.name}} {{user.surname}}
@@ -17,7 +15,7 @@
             </div>
         </div>
         <div class="group">
-            <div class="task button" (click)="getGroups()">Get Groups</div>
+            <div class="task button" (click)="getGroups()">Get Groups ({{allGroups ? allGroups.length : '-'}})</div>
             <div class="list">
                 <div class="dev_line" *ngFor="let group of allGroups">
                     {{group.name}} - <br> {{group.description}}

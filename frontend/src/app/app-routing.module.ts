@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { AdminGuard } from './guards/admin.guard';
+
 
 const routes: Routes = [
   {
@@ -18,6 +20,12 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'cook',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/cook/cook.module').then((m) => m.CookModule),
+  },
+  {
     path: 'bio',
     component: MainLayoutComponent,
     loadChildren: () =>
@@ -28,6 +36,7 @@ const routes: Routes = [
     component: MainLayoutComponent,
     loadChildren: () =>
       import('./pages/dev/dev.module').then((m) => m.DevModule),
+    canActivate: [AdminGuard],
   },
   {
     path: 'test',

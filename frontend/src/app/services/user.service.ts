@@ -23,7 +23,7 @@ export class UserService {
   private setUserToLocalStorage(user: UserModel) {
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
-  private getUserFromLocalStorage(): any {
+  public getUserFromLocalStorage(): any {
     const userJson = localStorage.getItem(USER_KEY);
 
     if (userJson) {
