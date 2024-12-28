@@ -125,7 +125,7 @@ router.post(
         }
 
         a {
-            color: rgb(0, 255, 255);
+            color: rgb(0, 255, 255)!important;
         }
 
         .email-container {
@@ -155,7 +155,7 @@ router.post(
         }
 
         .email-body b {
-            color: rgb(0, 255, 255);
+            color: rgb(0, 255, 255)!important;
         }
 
         .email-footer {
@@ -168,7 +168,7 @@ router.post(
         }
 
         .email-footer a {
-            color: rgb(0, 255, 255);
+            color: rgb(0, 255, 255)!important;
             text-decoration: none;
         }
     </style>
@@ -183,11 +183,11 @@ router.post(
             <p>A new user has been created on <a href="https://www.tiagoaltstadt.com/"
                     target="_blank">www.tiagoaltstadt.com</a>.</p>
             <p>
-                <b>Name:</b> ${name}<br>
-                <b>Surname:</b> ${surname}<br>
+                <b>Nombre:</b> ${name}<br>
+                <b>Apellido:</b> ${surname}<br>
                 <b>Email:</b> ${email}<br>
-                <b>Phone:</b> ${phone}<br>
-                <b>Address:</b> ${address}
+                <b>Telefono:</b> ${phone}<br>
+                <b>Direccion:</b> ${address}
             </p>
             <p>Best regards,<br><b>Tiago Altstadt</b></p>
         </div>
@@ -240,7 +240,7 @@ router.post(
         }
 
         a {
-            color: rgb(0, 255, 255);
+            color: rgb(0, 255, 255)!important;
         }
 
         .email-container {
@@ -270,7 +270,7 @@ router.post(
         }
 
         .email-body b {
-            color: rgb(0, 255, 255);
+            color: rgb(0, 255, 255)!important;
         }
 
         .email-footer {
@@ -283,7 +283,7 @@ router.post(
         }
 
         .email-footer a {
-            color: rgb(0, 255, 255);
+            color: rgb(0, 255, 255)!important;
             text-decoration: none;
         }
     </style>
@@ -298,11 +298,11 @@ router.post(
             <p>Gracias por registrarte en <a href="https://www.tiagoaltstadt.com/"
                     target="_blank">www.tiagoaltstadt.com</a>!</p>
             <p>
-                <b>Name:</b> ${name}<br>
-                <b>Surname:</b> ${surname}<br>
+                <b>Nombre:</b> ${name}<br>
+                <b>Apellido:</b> ${surname}<br>
                 <b>Email:</b> ${email}<br>
-                <b>Phone:</b> ${phone}<br>
-                <b>Address:</b> ${address}
+                <b>Telefono:</b> ${phone}<br>
+                <b>Direccion:</b> ${address}
             </p>
             <p>Exitos,<br><b>Tiago Altstadt</b></p>
         </div>
