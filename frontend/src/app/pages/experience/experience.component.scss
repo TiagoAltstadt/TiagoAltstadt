@@ -2,6 +2,19 @@
   flex-direction: column;
   gap: var(--space-24px);
 
+  .buttons {
+    display: flex;
+    justify-content: left;
+    gap: var(--space-xxs);
+    button {
+      border: none;
+      background-color: var(--background-soft);
+      border-radius: var(--border-radius);
+      color: var(--font-color-primary);
+      padding: 10px 10px;
+      cursor: pointer;
+    }
+  }
   .companies {
     .item {
       display: flex;
@@ -10,9 +23,8 @@
 
       .image {
         width: 30%;
-        img{
+        img {
           border-radius: var(--border-radius);
-
         }
       }
       div {
@@ -42,6 +54,20 @@
     padding: var(--space-24px);
     display: flex;
 
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      gap: var(--space-xxs);
+      button {
+        border: none;
+        background-color: var(--background-soft);
+        border-radius: var(--border-radius);
+        color: var(--font-color-primary);
+        padding: 10px 10px;
+        cursor: pointer;
+      }
+    }
     .companies {
       .item {
         display: flex;
@@ -60,6 +86,9 @@
           flex-direction: column;
           justify-content: flex-start;
           width: fit-content;
+          p {
+            text-align: left;
+          }
 
           a {
             text-align: center;

@@ -5,4 +5,5 @@ export interface simpleTabInterface {
   description?: string;
   date?: string;
   current?: boolean;
+  category?: string;
 }

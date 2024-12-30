@@ -1,0 +1,33 @@
+.companies {
+    .item {
+      display: flex;
+      gap: var(--space-xs);
+      flex-wrap: auto;
+
+      .image {
+        width: 30%;
+        img{
+          border-radius: var(--border-radius);
+
+        }
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: fit-content;
+
+        a {
+          text-align: center;
+          font-size: large;
+          width: fit-content;
+          height: fit-content;
+        }
+        .date {
+          color: rgb(175, 175, 175);
+        }
+        .text {
+        }
+      }
+    }
+  }

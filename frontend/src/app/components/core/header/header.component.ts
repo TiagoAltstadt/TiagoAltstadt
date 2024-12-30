@@ -26,13 +26,12 @@ export class HeaderComponent implements OnInit {
   @Output() menStatusChange: EventEmitter<any> = new EventEmitter<any>();
 
   headerOptions = [
-    { tag: 'Home', link: '' },
-    { tag: 'Dev Exp.', link: 'experience' }, // Will have Work, Studies and Projects
-    { tag: 'Cook Exp.', link: 'cook' }, // Will have Work, Studies and Projects
-    { tag: 'Bio', link: 'bio' },
-    { tag: 'Contact', link: 'contact' },
+    { tag: 'Inicio', link: '' },
+    { tag: 'Experiencia', link: 'experience' }, // Will have Work, Studies and Projects
+    { tag: 'Bio.', link: 'bio' },
+    { tag: 'Contacto', link: 'contact' },
     // { tag: 'Tools', link: '#' },
-    { tag: 'Login', link: 'login' },
+    { tag: 'Iniciar Sesion', link: 'login' },
   ];
 
   menuStatus: boolean = false;

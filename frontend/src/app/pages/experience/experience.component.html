@@ -1,28 +1,36 @@
 <section id="experience-page" class="page" #experience>
 
     <div class="box hover blur companies">
-        <p class="title">Experience</p>
-        <p class="subtitle">Companies</p>
-        <div class="item" *ngFor="let job of work;  index as i">
-            <div class="image"><img src="/assets/banners/{{job.image}}_banner.png"></div>
-            <div>
-                <a href="{{job.link}}">
-                    <p>{{job.tag}}</p>
-                </a>
-                <div class="date">{{job.date}}</div>
-                <div class="text">
-                    {{job.description}}
+        <p class="title">Experiencia</p>
+        <div class="buttons">
+            <button (click)="toggleDevFunc()">{{!toggleDev ? '❌ Ocultando' : '✅ Mostrando'}} Experiencia Programador
+            </button>
+            <button (click)="toggleCookFunc()">{{!toggleCook ? '❌ Ocultando' : '✅ Mostrando'}} Experiencia
+                Cocinero</button>
+        </div>
+        <ng-container *ngFor="let job of work;  index as i">
+            <div class="item"
+                *ngIf="(job.category === 'developer' && toggleDev) || (job.category === 'cook' && toggleCook) ">
+                <div class="image"><img src="/assets/banners/{{job.image}}.png"></div>
+                <div>
+                    <a href="{{job.link}}">
+                        <p>{{job.tag}}</p>
+                    </a>
+                    <div class="date">{{job.date}}</div>
+                    <div class="text">
+                        {{job.description}}
+                    </div>
                 </div>
             </div>
-        </div>
+        </ng-container>
 
     </div>
 
     <div class="box hover blur companies">
-        <p class="subtitle">Freelance</p>
+        <p class="subtitle">Como Desarrollador Freelance</p>
         <div class="item" *ngFor="let job of freelance">
             <div class="image">
-                <img src="/assets/banners/{{job.image}}_banner.png">
+                <img src="/assets/banners/{{job.image}}.png">
             </div>
             <div>
                 <a href="{{job.link}}">
@@ -38,11 +46,11 @@
     </div>
 
     <div class="box hover blur companies">
-        <p class="subtitle">Projects</p>
+        <p class="subtitle">Proyectos varios</p>
         <div class="item" *ngFor="let job of projects">
             <div class="image">
 
-                <img src="/assets/banners/{{job.image}}_banner.png">
+                <img src="/assets/banners/{{job.image}}.png">
             </div>
             <div>
                 <a href="{{job.link}}">

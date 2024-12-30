@@ -7,47 +7,119 @@ import { simpleTabInterface } from 'src/app/interfaces/simple-tabs';
   styleUrls: ['./experience.component.scss'],
 })
 export class ExperienceComponent {
+  toggleDev: boolean = true;
+  toggleCook: boolean = false;
   work: simpleTabInterface[] = [
     {
       tag: 'VML - ex Wunderman Thompson',
       link: 'https://www.wundermanthompson.com/es/argentina',
       image: 'wunderman',
-      date: '2023 - Hoy',
+      date: '2023 - 2025',
       description:
-        'Maquetado web con AEM, Implementacion de GA4, Accesibilidad y diseño. Correccion de errores y  migraciones.',
+        'Maquetado web con AEM, Implementacion de GA4, Accesibilidad y diseño. Correccion de errores y migraciones.',
       current: true,
+      category: 'developer',
     },
     {
       tag: 'Q&R Solutions',
-      date: '2022 - 2023',
       link: 'https://gestion-ar.qrsolutions.com.ar/login',
       image: 'qr',
+      date: '2022 - 2023',
       description:
-        'Fullstack dev,  creacion de modulos, actualizacion, migracion de tecnologias, deploys y gestion de errores.',
+        'Fullstack dev, creación de módulos, actualización, migración de tecnologías, deploys y gestión de errores.',
+      current: false,
+      category: 'developer',
+    },
+    {
+      tag: "Seven's",
+      link: 'https://www.breckenridge.com/explore-the-resort/during-your-stay/dining/sevens-restaurant.aspx',
+      image: 'sevens',
+      date: '2021 - 2022',
+      description:
+        'Gerente de Restaurante - Responsable de supervisar las operaciones diarias, la gestión del equipo y el servicio al cliente en un entorno de comedor en la montaña.',
+      current: false,
+      category: 'cook',
     },
     {
       tag: 'Digital House',
-      date: 'Febrero 2020 - Junio 2020 ',
       link: 'https://www.digitalhouse.com/ar',
       image: 'digital_house',
+      date: 'Febrero 2020 - Junio 2020 ',
       description:
         'Frontend Dev, Maquetado de playground digital para cursos de Latam.',
+      current: false,
+      category: 'developer',
     },
     {
       tag: 'Todo Noticias - Artear',
-      date: 'Marzo 2020 - Junio 2020 ',
       link: 'https://tn.com.ar/?gclid=CjwKCAjwo9unBhBTEiwAipC11yPdNv-NnOkUbIjxoy0pPg17-b0QMN7dma1qzbIXPHwWVw18bXijHhoC46cQAvD_BwE',
       image: 'tn',
+      date: 'Marzo 2020 - Junio 2020 ',
       description:
-        'Fullstack dev,  gestion de sistema de templates de noticias para redactores de diario digital, manejo de sprints, bases de datos, seguridad, front y back end. ',
+        'Fullstack dev, gestión de sistema de templates de noticias para redactores de diario digital, manejo de sprints, bases de datos, seguridad, front y back end.',
+      current: false,
+      category: 'developer',
     },
     {
       tag: 'Nybble',
-      date: 'Febrero 2020 - Noviembre 2020 ',
       link: 'https://www.nybblegroup.com/',
       image: 'nybble',
+      date: 'Febrero 2020 - Noviembre 2020 ',
       description:
         'Fullstack dev, worked on front end development and after for an experimental branch testing different tools that suited our clients needs, including mobile development, VR, APIS , and web development.',
+      current: false,
+      category: 'developer',
+    },
+
+    {
+      tag: 'The Coop',
+      link: 'https://www.breckenridge.com/explore-the-resort/during-your-stay/dining/the-coop.aspx',
+      image: 'the-coop',
+      date: '2019 - 2020',
+      description:
+        'Líder de Equipo - Coordiné equipos para garantizar la eficiencia en la preparación de comidas y el servicio en un restaurante de alto volumen.',
+      current: false,
+      category: 'cook',
+    },
+    {
+      tag: 'Vista Haus',
+      link: 'https://www.breckenridge.com/explore-the-resort/during-your-stay/dining/vista-haus.aspx',
+      image: 'vista-haus',
+      date: '2019 - 2020',
+      description:
+        'Líder de Equipo - Dirigí al equipo de cocina y supervisé el servicio en un entorno de alta demanda.',
+      current: false,
+      category: 'cook',
+    },
+    {
+      tag: 'Warehouse - Vail Resorts',
+      link: 'https://www.vailresorts.com/',
+      image: 'warehouse',
+      date: '2019 - 2020',
+      description:
+        'Encargado de Ubicación - Empleado a tiempo parcial en Warehouse y Limber Grove. Responsable de la gestión de inventario y la asistencia al cliente.',
+      current: false,
+      category: 'other',
+    },
+    {
+      tag: 'Cefiro',
+      link: 'https://lamejorpizzeria.com/pizzerias/cefiro/',
+      image: 'cefiro',
+      date: '2018 (Verano)',
+      description:
+        'Cocinero y Personal Temporal - Trabajo estacional en un restaurante conocido por su cocina de calidad y servicio al cliente.',
+      current: false,
+      category: 'cook',
+    },
+    {
+      tag: 'Lucas & Laety',
+      link: 'https://www.instagram.com/chez_lucasylaety/',
+      image: 'lucas-laety',
+      date: '2018 (Invierno)',
+      description:
+        'Mesero - Servicio al cliente y responsabilidades como camarero en un entorno de restaurante.',
+      current: false,
+      category: 'cook',
     },
   ];
   freelance: simpleTabInterface[] = [
@@ -99,4 +171,11 @@ export class ExperienceComponent {
       date: '2018',
     },
   ];
+
+  toggleDevFunc() {
+    this.toggleDev = !this.toggleDev;
+  }
+  toggleCookFunc() {
+    this.toggleCook = !this.toggleCook;
+  }
 }

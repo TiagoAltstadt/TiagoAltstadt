@@ -1,8 +1,23 @@
 <div id="profile-container">
-    <div class="box profile-box hover blur">
-        <div class="title">Cook Experience</div>
 
-        <div class="text">Still cooking this section...</div>
+    <div class="box hover blur companies">
+        <p class="title">Experience</p>
+        <p class="subtitle">Companies</p>
+        <div class="item" *ngFor="let job of work;  index as i">
+            <div class="image"><img src="/assets/cook-maps/{{job.image}}.jpg"></div>
+            <div>
+                <a href="{{job.link}}">
+                    <p>{{job.tag}}</p>
+                </a>
+                <div class="date">{{job.date}}</div>
+                <div class="text">
+                    {{job.description}}
+                </div>
+            </div>
+        </div>
 
     </div>
+
+
+
 </div>

@@ -109,98 +109,98 @@ router.post(
       subject: "Tiago Altstadt - Creacion de usuario",
       html: `
       <!DOCTYPE html>
-<html lang="en">
+        <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New User Notification</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            background-color: rgb(60, 60, 60);
-        }
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>New User Notification</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    color: #ffffff;
+                    margin: 0;
+                    padding: 0;
+                    background-color: rgb(60, 60, 60);
+                }
 
-        a {
-            color: rgb(0, 255, 255)!important;
-        }
+                a {
+                    color: rgb(0, 255, 255)!important;
+                }
 
-        .email-container {
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: rgb(60, 60, 60);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: 1px solid rgb(0, 255, 255);
-            box-shadow: 0px 15px 20px rgba(35, 96, 110, 0.4);
+                .email-container {
+                    max-width: 600px;
+                    margin: 20px auto;
+                    background-color: rgb(60, 60, 60);
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    overflow: hidden;
+                    border: 1px solid rgb(0, 255, 255);
+                    box-shadow: 0px 15px 20px rgba(35, 96, 110, 0.4);
 
-        }
+                }
 
-        .email-header {
-            background-color: #0073e6;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            padding: 20px 0;
-            font-size: 24px;
-        }
+                .email-header {
+                    background-color: #0073e6;
+                    color: rgb(255, 255, 255);
+                    text-align: center;
+                    padding: 20px 0;
+                    font-size: 24px;
+                }
 
-        .email-body {
-            padding: 20px;
-            line-height: 1.6;
-            color: #ffffff;
-        }
+                .email-body {
+                    padding: 20px;
+                    line-height: 1.6;
+                    color: #ffffff;
+                }
 
-        .email-body b {
-            color: rgb(0, 255, 255)!important;
-        }
+                .email-body b {
+                    color: rgb(0, 255, 255)!important;
+                }
 
-        .email-footer {
-            background-color: rgb(75, 75, 75);
-            text-align: center;
-            padding: 15px 0;
-            font-size: 14px;
-            color: #969696;
-            border-top: 1px solid #ddd;
-        }
+                .email-footer {
+                    background-color: rgb(75, 75, 75);
+                    text-align: center;
+                    padding: 15px 0;
+                    font-size: 14px;
+                    color: #969696;
+                    border-top: 1px solid #ddd;
+                }
 
-        .email-footer a {
-            color: rgb(0, 255, 255)!important;
-            text-decoration: none;
-        }
-    </style>
-</head>
+                .email-footer a {
+                    color: rgb(0, 255, 255)!important;
+                    text-decoration: none;
+                }
+            </style>
+        </head>
 
-<body>
-    <div class="email-container">
-        <div class="email-header">
-            New User Created
-        </div>
-        <div class="email-body">
-            <p>A new user has been created on <a href="https://www.tiagoaltstadt.com/"
-                    target="_blank">www.tiagoaltstadt.com</a>.</p>
-            <p>
-                <b>Nombre:</b> ${name}<br>
-                <b>Apellido:</b> ${surname}<br>
-                <b>Email:</b> ${email}<br>
-                <b>Telefono:</b> ${phone}<br>
-                <b>Direccion:</b> ${address}
-            </p>
-            <p>Best regards,<br><b>Tiago Altstadt</b></p>
-        </div>
-        <div class="email-footer">
-            <p>&copy; 2024 Tiago Altstadt. All rights reserved.</p>
-            <p>
-                Visit us at <a href="https://www.tiagoaltstadt.com/" target="_blank">www.tiagoaltstadt.com</a>
-            </p>
-        </div>
-    </div>
-</body>
+        <body>
+            <div class="email-container">
+                <div class="email-header">
+                    New User Created
+                </div>
+                <div class="email-body">
+                    <p>A new user has been created on <a href="https://www.tiagoaltstadt.com/"
+                            target="_blank">www.tiagoaltstadt.com</a>.</p>
+                    <p>
+                        <b>Nombre:</b> ${name}<br>
+                        <b>Apellido:</b> ${surname}<br>
+                        <b>Email:</b> ${email}<br>
+                        <b>Telefono:</b> ${phone}<br>
+                        <b>Direccion:</b> ${address}
+                    </p>
+                    <p>Best regards,<br><b>Tiago Altstadt</b></p>
+                </div>
+                <div class="email-footer">
+                    <p>&copy; 2024 Tiago Altstadt. All rights reserved.</p>
+                    <p>
+                        Visit us at <a href="https://www.tiagoaltstadt.com/" target="_blank">www.tiagoaltstadt.com</a>
+                    </p>
+                </div>
+            </div>
+        </body>
 
-</html>
+        </html>
       `,
     };
     transporter.sendMail(
@@ -224,98 +224,98 @@ router.post(
       html: `
 
       <!DOCTYPE html>
-<html lang="en">
+      <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New User Notification</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            background-color: rgb(60, 60, 60);
-        }
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>New User Notification</title>
+          <style>
+              body {
+                  font-family: Arial, sans-serif;
+                  color: #ffffff;
+                  margin: 0;
+                  padding: 0;
+                  background-color: rgb(60, 60, 60);
+              }
 
-        a {
-            color: rgb(0, 255, 255)!important;
-        }
+              a {
+                  color: rgb(0, 255, 255)!important;
+              }
 
-        .email-container {
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: rgb(60, 60, 60);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: 1px solid rgb(0, 255, 255);
-            box-shadow: 0px 15px 20px rgba(35, 96, 110, 0.4);
+              .email-container {
+                  max-width: 600px;
+                  margin: 20px auto;
+                  background-color: rgb(60, 60, 60);
+                  border-radius: 8px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                  overflow: hidden;
+                  border: 1px solid rgb(0, 255, 255);
+                  box-shadow: 0px 15px 20px rgba(35, 96, 110, 0.4);
 
-        }
+              }
 
-        .email-header {
-            background-color: #0073e6;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            padding: 20px 0;
-            font-size: 24px;
-        }
+              .email-header {
+                  background-color: #0073e6;
+                  color: rgb(255, 255, 255);
+                  text-align: center;
+                  padding: 20px 0;
+                  font-size: 24px;
+              }
 
-        .email-body {
-            padding: 20px;
-            line-height: 1.6;
-            color: #ffffff;
-        }
+              .email-body {
+                  padding: 20px;
+                  line-height: 1.6;
+                  color: #ffffff;
+              }
 
-        .email-body b {
-            color: rgb(0, 255, 255)!important;
-        }
+              .email-body b {
+                  color: rgb(0, 255, 255)!important;
+              }
 
-        .email-footer {
-            background-color: rgb(75, 75, 75);
-            text-align: center;
-            padding: 15px 0;
-            font-size: 14px;
-            color: #969696;
-            border-top: 1px solid #ddd;
-        }
+              .email-footer {
+                  background-color: rgb(75, 75, 75);
+                  text-align: center;
+                  padding: 15px 0;
+                  font-size: 14px;
+                  color: #969696;
+                  border-top: 1px solid #ddd;
+              }
 
-        .email-footer a {
-            color: rgb(0, 255, 255)!important;
-            text-decoration: none;
-        }
-    </style>
-</head>
+              .email-footer a {
+                  color: rgb(0, 255, 255)!important;
+                  text-decoration: none;
+              }
+          </style>
+      </head>
 
-<body>
-    <div class="email-container">
-        <div class="email-header">
-            Usuario Creado
-        </div>
-        <div class="email-body">
-            <p>Gracias por registrarte en <a href="https://www.tiagoaltstadt.com/"
-                    target="_blank">www.tiagoaltstadt.com</a>!</p>
-            <p>
-                <b>Nombre:</b> ${name}<br>
-                <b>Apellido:</b> ${surname}<br>
-                <b>Email:</b> ${email}<br>
-                <b>Telefono:</b> ${phone}<br>
-                <b>Direccion:</b> ${address}
-            </p>
-            <p>Exitos,<br><b>Tiago Altstadt</b></p>
-        </div>
-        <div class="email-footer">
-            <p>&copy; 2024 Tiago Altstadt. All rights reserved.</p>
-            <p>
-                Visit me at <a href="https://www.tiagoaltstadt.com/" target="_blank">www.tiagoaltstadt.com</a>
-            </p>
-        </div>
-    </div>
-</body>
+      <body>
+          <div class="email-container">
+              <div class="email-header">
+                  Usuario Creado
+              </div>
+              <div class="email-body">
+                  <p>Gracias por registrarte en <a href="https://www.tiagoaltstadt.com/"
+                          target="_blank">www.tiagoaltstadt.com</a>!</p>
+                  <p>
+                      <b>Nombre:</b> ${name}<br>
+                      <b>Apellido:</b> ${surname}<br>
+                      <b>Email:</b> ${email}<br>
+                      <b>Telefono:</b> ${phone}<br>
+                      <b>Direccion:</b> ${address}
+                  </p>
+                  <p>Exitos,<br><b>Tiago Altstadt</b></p>
+              </div>
+              <div class="email-footer">
+                  <p>&copy; 2024 Tiago Altstadt. All rights reserved.</p>
+                  <p>
+                      Visit me at <a href="https://www.tiagoaltstadt.com/" target="_blank">www.tiagoaltstadt.com</a>
+                  </p>
+              </div>
+          </div>
+      </body>
 
-</html>
+      </html>
 
       `,
     };
