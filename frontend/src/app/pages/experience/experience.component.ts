@@ -8,8 +8,17 @@ import { simpleTabInterface } from 'src/app/interfaces/simple-tabs';
 })
 export class ExperienceComponent {
   toggleDev: boolean = true;
-  toggleCook: boolean = false;
+  toggleCook: boolean = true;
   work: simpleTabInterface[] = [
+    {
+      tag: 'Burger Brothers Tarter',
+      link: 'http://www.burgerbrothersandorra.com/',
+      image: 'burger-brothers',
+      date: '2024-2025',
+      description: 'Cocinero.',
+      current: true,
+      category: 'cook',
+    },
     {
       tag: 'VML - ex Wunderman Thompson',
       link: 'https://www.wundermanthompson.com/es/argentina',
@@ -17,7 +26,7 @@ export class ExperienceComponent {
       date: '2023 - 2025',
       description:
         'Maquetado web con AEM, implementacion de GA4, accesibilidad y diseño. Correccion de errores y migraciones.',
-      current: true,
+      current: false,
       category: 'developer',
     },
     {
@@ -116,8 +125,7 @@ export class ExperienceComponent {
       link: 'https://www.instagram.com/chez_lucasylaety/',
       image: 'lucas-laety',
       date: '2018 (Invierno)',
-      description:
-        'Mesero. Atencion al cliente y servicio de mesa.',
+      description: 'Mesero. Atencion al cliente y servicio de mesa.',
       current: false,
       category: 'cook',
     },
@@ -135,7 +143,8 @@ export class ExperienceComponent {
       tag: 'Val-Bus',
       link: 'https://www.valbuscombis.com',
       image: 'valbus',
-      description: 'Valbus Transporte. Armado, produccion y diseño del sitio web de empresa transportista. SEO y mantenimiento.',
+      description:
+        'Valbus Transporte. Armado, produccion y diseño del sitio web de empresa transportista. SEO y mantenimiento.',
       date: '2024 - Hoy',
     },
   ];

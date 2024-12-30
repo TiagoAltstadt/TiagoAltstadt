@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { YomeService } from 'src/app/services/yome.service';
@@ -11,7 +11,7 @@ import { UserModel } from 'src/app/shared/models/User';
   templateUrl: './yome.component.html',
   styleUrls: ['./yome.component.scss'],
 })
-export class YomeComponent {
+export class YomeComponent implements OnInit {
   allGroups: GroupInterface[] = [];
   allExpenses: ExpenseInterface[] = [];
   createGroupForm: FormGroup;
@@ -37,14 +37,17 @@ export class YomeComponent {
       members: [],
     });
   }
+  ngOnInit() {
+    this.getGroups();
+    this.getExpenses();
+  }
 
   getExpenses() {
     this.yomeService
       .getUserExpenses(this.user.id)
       .subscribe((res: ExpenseInterface[]) => {
         this.allExpenses = res;
-        console.log(this.allExpenses);
-        
+        console.log(res);
       });
   }
   getGroups() {
@@ -55,10 +58,17 @@ export class YomeComponent {
   deleteGroup(groupId: string) {
     this.yomeService.deleteGroup(groupId).subscribe((res) => {
       console.log(res);
+      this.getGroups();
+    });
+  }
+  deleteExpense(expenseId: string) {
+    this.yomeService.deleteExpense(expenseId).subscribe((res) => {
+      console.log(res);
+      this.getExpenses();
     });
   }
 
-  send() {
+  createGroup() {
     if (this.isSubmitting || !this.isFormValid) {
       this.logFormStatus(); // Log form status before early return
       return;

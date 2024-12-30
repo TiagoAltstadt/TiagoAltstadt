@@ -26,8 +26,10 @@
             <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
             <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
-            <input [disabled]="!isFormValid || isSubmitting" type="submit" value="Enviar">
-            <input type="button" (click)="register()" class="button register-button" value="Registrate">
+
+            <input [disabled]="!isFormValid || isSubmitting" type="submit" value="Iniciar sesion">
+            <a (click)="register()" style="color: gray; width: fit-content; margin: auto; cursor: pointer;">Registrate</a>
+
             <div *ngIf="!isFormValid && !isSubmitting && this.showErrors" class="error-message">
                 {{ getGlobalErrorMessage() }}
             </div>

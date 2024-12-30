@@ -1,4 +1,5 @@
 <section id="yome-page">
+
     <div class="box hover blur">
         <div class="title">Que es Y-O-Me?</div>
         <div class="text">
@@ -20,7 +21,7 @@
                         <div>{{group.name}} </div>
                         <div style="color: gray;">{{group.description}}</div>
                     </div>
-                    <div class="button-danger" (click)="deleteGroup(group.id)">Eliminar grupo</div>
+                    <div class="button-danger" (click)="deleteGroup(group.id)">Eliminar</div>
                 </div>
                 <div class="dev_line" *ngIf="!allGroups">
                     No perteneces a ningun grupo
@@ -35,6 +36,8 @@
                         <div style="color: gray;" [ngStyle]="{'color':expense.amount>0 ? 'red' : 'green'}">
                             {{expense.amount > 0 ? '- '+expense.amount : expense.amount}}</div>
                     </div>
+                    <div class="button-danger" (click)="deleteExpense(expense.id)">Eliminar</div>
+
                 </div>
                 <div class="dev_line" *ngIf="!allExpenses">
                     No perteneces a ningun grupo
@@ -44,7 +47,7 @@
         <div class="row">
             <div class="box blur hover">
                 <div class="subtitle">Crear Grupo</div>
-                <form [formGroup]="createGroupForm" (ngSubmit)="send()">
+                <form [formGroup]="createGroupForm" (ngSubmit)="createGroup()">
                     <!-- Name Field -->
                     <div class="form-group">
                         <label for="text">Nombre de grupo</label>

@@ -3,4 +3,5 @@ export interface ExpenseInterface {
   paidBy: string;
   title: string;
   payers: string[];
+  id: string;
 }

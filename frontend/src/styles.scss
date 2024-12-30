@@ -242,8 +242,8 @@
       padding: 20px;
       max-width: $max-width;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-direction: column;
       gap: 20px;
 
       .form-group {

@@ -42,11 +42,12 @@ export class HeaderComponent implements OnInit {
       this.headerOptions = this.headerOptions.filter(
         (element) => element.link != 'login'
       );
-      // this.headerOptions.push({
-      //   tag: 'Y.O.ME',
-      //   link: 'yome',
-      // });
+      
       if (this.user.userTypeId === 'ADMIN') {
+        this.headerOptions.push({
+          tag: 'Y.O.ME',
+          link: 'yome',
+        });
         this.headerOptions.push({
           tag: 'Admin',
           link: 'dev',

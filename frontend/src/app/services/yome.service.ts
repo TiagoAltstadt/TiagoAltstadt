@@ -43,6 +43,11 @@ export class YomeService {
   deleteGroup(groupId: string): Observable<GroupInterface[]> {
     return this.http.delete<GroupInterface[]>(YOME_URL + '/group/' + groupId);
   }
+  deleteExpense(expenseId: string): Observable<ExpenseInterface[]> {
+    return this.http.delete<ExpenseInterface[]>(
+      YOME_URL + '/expense/' + expenseId
+    );
+  }
   getUserExpenses(userId: string) {
     return this.http.get<ExpenseInterface[]>(
       YOME_URL + '/expenses/user/' + userId

@@ -190,10 +190,26 @@ router.delete("/expense/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
+    // Find expense
     const expense = await ExpenseModel.findByIdAndDelete(id);
     if (!expense) {
       return res.status(404).json({ message: "Expense not found" });
     }
+
+    // Find payer
+    const payerId = await UserModel.findById(expense.paidBy);
+    if (!payerId) {
+      return res.status(404).json({ message: "No payerID found" });
+    }
+
+    // Sort trough all payers
+    expense.payers.forEach(async (payerID) => {
+      // Delete each payer
+      const payer = await UserModel.findById(expense.payers);
+      if (!payerId) {
+        return res.status(404).json({ message: "No payerID found" });
+      }
+    });
 
     return res.status(200).json({ message: "Expense deleted successfully" });
   } catch (err: unknown) {
@@ -296,9 +312,7 @@ router.get("/expenses/user/:userId", async (req, res) => {
     }).populate("paidBy payers");
 
     if (expenses.length === 0) {
-      return res
-        .status(404)
-        .json({ message: "No expenses found for this user" });
+      return 0;
     }
 
     return res.status(200).json(expenses);

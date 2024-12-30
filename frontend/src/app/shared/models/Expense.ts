@@ -3,4 +3,5 @@ export class ExpenseModel {
   paidBy!: string;
   title!: string;
   payers!: string[];
+  id!: string;
 }
