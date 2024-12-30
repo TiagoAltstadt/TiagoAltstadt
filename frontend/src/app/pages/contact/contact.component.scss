@@ -1,12 +1,34 @@
 #contact {
-  
-
-  .container{
+  .container {
     padding: var(--space-xs);
   }
 
+  .container-box {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    min-width: 300px;
+    .line {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .label {
+        width: fit-content;
+      }
+      .underline {
+        border-bottom: 1px dotted #6f6f6f;
+        width: 100%;
+      }
+      .data {
+        width: fit-content;
+        white-space: nowrap;
+      }
+    }
+  }
+
   ul {
-    margin: var(--space-40px) auto;
+    margin: auto;
     list-style-type: none;
     padding: 0px;
     display: flex;
@@ -37,18 +59,43 @@
 
 @media screen and (max-width: 812px) {
   #contact {
-   
-    .box{
+    .box {
       gap: 8px;
     }
-    .subtitle{
+    .subtitle {
       text-align: center;
     }
-  
-    .container{
+
+    .container {
       padding: var(--space-xs);
     }
-  
+
+    .container-box {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      min-width: 100%;
+
+      .line {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        min-width: 60px;
+
+        .label {
+          width: fit-content;
+        }
+        .underline {
+          border-bottom: 1px solid #6f6f6f;
+          width: 100%;
+        }
+        .data {
+          width: fit-content;
+          white-space: nowrap;
+        }
+      }
+    }
+
     ul {
       list-style-type: none;
       padding: 0px;
@@ -56,7 +103,7 @@
       flex-direction: column;
       margin: 0;
       gap: var(--space-8px);
-  
+
       li {
         margin: var(--space-8px);
         width: fit-content;
@@ -65,12 +112,11 @@
         flex-direction: row;
         justify-content: center;
         gap: var(--space-8px);
-  
+
         img {
           margin-right: var(--space-8px);
         }
       }
     }
   }
-  
 }

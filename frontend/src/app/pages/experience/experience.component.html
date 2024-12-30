@@ -1,12 +1,16 @@
 <section id="experience-page" class="page" #experience>
 
     <div class="box hover blur companies">
-        <p class="title">Experiencia</p>
+        <p class="title">EXPERIENCIA</p>
         <div class="buttons">
-            <button (click)="toggleDevFunc()">{{!toggleDev ? '❌ Ocultando' : '✅ Mostrando'}} Experiencia Programador
+            <button (click)="toggleDevFunc()">{{!toggleDev ? '❌ ' : '✅ '}}Programador
             </button>
-            <button (click)="toggleCookFunc()">{{!toggleCook ? '❌ Ocultando' : '✅ Mostrando'}} Experiencia
-                Cocinero</button>
+            <button (click)="toggleCookFunc()">{{!toggleCook ? '❌ ' : '✅ '}}Cocinero</button>
+            <div style="text-align: center; margin: auto 0; color: gray;">
+                Proximamente...
+            </div>
+            <button disabled style="color: gray;">Pais</button>
+            <button disabled style="color: gray;">Año</button>
         </div>
         <ng-container *ngFor="let job of work;  index as i">
             <div class="item"
@@ -26,8 +30,8 @@
 
     </div>
 
-    <div class="box hover blur companies">
-        <p class="subtitle">Como Desarrollador Freelance</p>
+    <div class="box hover blur companies" *ngIf="toggleDev">
+        <p class="subtitle">DESARROLLADOR FREELANCE</p>
         <div class="item" *ngFor="let job of freelance">
             <div class="image">
                 <img src="/assets/banners/{{job.image}}.png">
@@ -45,8 +49,8 @@
 
     </div>
 
-    <div class="box hover blur companies">
-        <p class="subtitle">Proyectos varios</p>
+    <div class="box hover blur companies" *ngIf="toggleDev">
+        <p class="subtitle">PROYECTOS</p>
         <div class="item" *ngFor="let job of projects">
             <div class="image">
 

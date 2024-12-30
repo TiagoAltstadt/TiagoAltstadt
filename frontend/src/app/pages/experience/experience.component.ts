@@ -16,7 +16,7 @@ export class ExperienceComponent {
       image: 'wunderman',
       date: '2023 - 2025',
       description:
-        'Maquetado web con AEM, Implementacion de GA4, Accesibilidad y diseño. Correccion de errores y migraciones.',
+        'Maquetado web con AEM, implementacion de GA4, accesibilidad y diseño. Correccion de errores y migraciones.',
       current: true,
       category: 'developer',
     },
@@ -26,7 +26,7 @@ export class ExperienceComponent {
       image: 'qr',
       date: '2022 - 2023',
       description:
-        'Fullstack dev, creación de módulos, actualización, migración de tecnologías, deploys y gestión de errores.',
+        'Fullstack developer, creación de módulos, actualización, migración de tecnologías, deploys y gestión de errores.',
       current: false,
       category: 'developer',
     },
@@ -36,7 +36,7 @@ export class ExperienceComponent {
       image: 'sevens',
       date: '2021 - 2022',
       description:
-        'Gerente de Restaurante - Responsable de supervisar las operaciones diarias, la gestión del equipo y el servicio al cliente en un entorno de comedor en la montaña.',
+        'Gerente de restaurant. Responsable de supervisar las operaciones diarias, la experiencia del cliente en un entorno de comedor en la montaña y gestionar negocios.',
       current: false,
       category: 'cook',
     },
@@ -46,7 +46,7 @@ export class ExperienceComponent {
       image: 'digital_house',
       date: 'Febrero 2020 - Junio 2020 ',
       description:
-        'Frontend Dev, Maquetado de playground digital para cursos de Latam.',
+        'Frontend developer, maquetado de playground digital para cursos de Latinoamerica.',
       current: false,
       category: 'developer',
     },
@@ -56,7 +56,7 @@ export class ExperienceComponent {
       image: 'tn',
       date: 'Marzo 2020 - Junio 2020 ',
       description:
-        'Fullstack dev, gestión de sistema de templates de noticias para redactores de diario digital, manejo de sprints, bases de datos, seguridad, front y back end.',
+        'Fullstack developer, gestión de templates de noticias para redactores. Manejo de sprints, bases de datos, seguridad, front y back end.',
       current: false,
       category: 'developer',
     },
@@ -66,7 +66,7 @@ export class ExperienceComponent {
       image: 'nybble',
       date: 'Febrero 2020 - Noviembre 2020 ',
       description:
-        'Fullstack dev, worked on front end development and after for an experimental branch testing different tools that suited our clients needs, including mobile development, VR, APIS , and web development.',
+        'Desarrollador fullstack (frontend; luego en una rama experimental probando diferentes herramientas que se adaptaran a las necesidades de nuestros clientes, incluyendo desarrollo móvil, realidad virtual, APIs y desarrollo web)',
       current: false,
       category: 'developer',
     },
@@ -77,7 +77,7 @@ export class ExperienceComponent {
       image: 'the-coop',
       date: '2019 - 2020',
       description:
-        'Líder de Equipo - Coordiné equipos para garantizar la eficiencia en la preparación de comidas y el servicio en un restaurante de alto volumen.',
+        'Líder de equipo. Garantia y control en procurar excelencia en la atencion de un restaurant de alto nivel, desde la produccion de alimentos hasta el final de la experiencia del cliente.',
       current: false,
       category: 'cook',
     },
@@ -87,7 +87,7 @@ export class ExperienceComponent {
       image: 'vista-haus',
       date: '2019 - 2020',
       description:
-        'Líder de Equipo - Dirigí al equipo de cocina y supervisé el servicio en un entorno de alta demanda.',
+        'Líder de equipo. Direccion y supervision de cocina en un entorno de alta demanda.',
       current: false,
       category: 'cook',
     },
@@ -97,7 +97,7 @@ export class ExperienceComponent {
       image: 'warehouse',
       date: '2019 - 2020',
       description:
-        'Encargado de Ubicación - Empleado a tiempo parcial en Warehouse y Limber Grove. Responsable de la gestión de inventario y la asistencia al cliente.',
+        'Encargado de Ubicación. Empleado a tiempo parcial en Warehouse y Limber Grove. Responsable de la produccion de inventarios y atencion al cliente.',
       current: false,
       category: 'other',
     },
@@ -107,7 +107,7 @@ export class ExperienceComponent {
       image: 'cefiro',
       date: '2018 (Verano)',
       description:
-        'Cocinero y Personal Temporal - Trabajo estacional en un restaurante conocido por su cocina de calidad y servicio al cliente.',
+        'Cocinero y encargado del servicio de mesa. Trabajo temporal, destacado por su cocina de calidad y excelente experiencia al consumidor.',
       current: false,
       category: 'cook',
     },
@@ -117,7 +117,7 @@ export class ExperienceComponent {
       image: 'lucas-laety',
       date: '2018 (Invierno)',
       description:
-        'Mesero - Servicio al cliente y responsabilidades como camarero en un entorno de restaurante.',
+        'Mesero. Atencion al cliente y servicio de mesa.',
       current: false,
       category: 'cook',
     },
@@ -128,14 +128,14 @@ export class ExperienceComponent {
       link: 'https://www.veterinarianuevaestrada.com',
       image: 'veterinaria',
       description:
-        'Veterinaria Nueva estrada, Inicia sesion para sacar tu turno!',
+        'Veterinaria Nueva Estrada. Sitio web de veterinaria en Mar del Plata. Diseño y desarrollo de la web, SEO y mantenimiento. Creacion de contenido y gestion de redes sociales.',
       date: '2021 - Hoy',
     },
     {
       tag: 'Val-Bus',
       link: 'https://www.valbuscombis.com',
       image: 'valbus',
-      description: 'Valbus Transporte, agenda tu proximo viaje!',
+      description: 'Valbus Transporte. Armado, produccion y diseño del sitio web de empresa transportista. SEO y mantenimiento.',
       date: '2024 - Hoy',
     },
   ];

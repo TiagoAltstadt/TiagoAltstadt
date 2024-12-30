@@ -228,10 +228,10 @@
       font-size: var(--font-32px);
     }
 
+    b {
+      color: var(--color-primary);
+    }
     .paragraph {
-      b {
-        color: var(--color-primary);
-      }
       margin: 0px auto;
       font-weight: 400;
       font-size: var(--font-m);
