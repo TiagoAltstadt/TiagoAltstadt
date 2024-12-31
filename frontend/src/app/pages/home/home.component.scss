@@ -1,12 +1,23 @@
 #presentation-container {
-  
-
+  img {
+    width: 200px;
+    margin: auto;
+    border-radius: 50%;
+  }
+  @media screen and (max-width: 812px) {
+    img {
+      width: 170px;
+    }
+  }
   .hero {
     border-radius: 16px;
     padding: var(--space-xs);
     position: relative; /* For positioning the cursor */
     @media screen and (max-width: 812px) {
       padding: var(--space-24px);
+      .logo {
+        width: 30px;
+      }
     }
     #typing-text {
       height: 64px;
