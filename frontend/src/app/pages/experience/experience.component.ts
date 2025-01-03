@@ -8,7 +8,7 @@ import { simpleTabInterface } from 'src/app/interfaces/simple-tabs';
 })
 export class ExperienceComponent {
   toggleDev: boolean = true;
-  toggleCook: boolean = true;
+  toggleCook: boolean = false;
   work: simpleTabInterface[] = [
     {
       tag: 'Burger Brothers Tarter',

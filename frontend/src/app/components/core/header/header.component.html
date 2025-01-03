@@ -7,7 +7,8 @@
             </li>
         </ul>
         <div id="phone-burguer" (click)="hamburguer()">
-            <img class="icon" src="/assets/icons/hamburger-menu.svg">
+            <!-- <img class="icon" src="/assets/icons/hamburger-menu.svg"> -->
+            <div class="page-location">{{pageLocation}}</div>
             <ul id="phone-options" class="column-options">
                 <li *ngFor="let option of headerOptions">
                     <a (click)="navigationFunction(option.link)"> {{option.tag}}</a>

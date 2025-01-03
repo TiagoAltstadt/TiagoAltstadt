@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
       this.user = newUser;
     });
   }
-
   @Output() menStatusChange: EventEmitter<any> = new EventEmitter<any>();
 
   headerOptions = [
@@ -33,16 +32,18 @@ export class HeaderComponent implements OnInit {
     // { tag: 'Tools', link: '#' },
     { tag: 'Iniciar Sesion', link: 'login' },
   ];
-
+  pageLocation: string = 'Home';
   menuStatus: boolean = false;
   user!: UserModel;
 
   ngOnInit(): void {
+    this.pageLocation = this.router.url.split('/')[1].toUpperCase() == '' ? 'HOME' : this.router.url.split('/')[1].toUpperCase();
+
     if (this.user.token) {
       this.headerOptions = this.headerOptions.filter(
         (element) => element.link != 'login'
       );
-      
+
       if (this.user.userTypeId === 'ADMIN') {
         this.headerOptions.push({
           tag: 'Y.O.ME',
