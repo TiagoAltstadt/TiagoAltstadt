@@ -26,9 +26,9 @@ app.use("/api/userTypes", userTypeRouter);
 app.use("/api/yome", yomeRouter);
 
 app.get("/api", (req, res) => {
-  res.send("Hello World!");
-  
+  res.json("Hello World!");
 });
+
 app.use(express.static("public"));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));

@@ -1,10 +1,12 @@
 <section id="experience-page" class="page" #experience>
 
-    <div class="box hover blur companies">
-        <p class="title">EXPERIENCIA</p>
+    <div class="box hover blur" style="padding-bottom: 8px; margin: 0 auto">
         <div class="buttons">
             <button (click)="toggleDevFunc()">{{!toggleDev ? '❌ ' : '✅ '}}Programador
             </button>
+            <button (click)="toggleStudiesFunc()">{{!toggleStudies ? '❌ ' : '✅ '}}Estudios/Cursos
+            </button>
+            <button (click)="toggleCoursesFunc()">{{!toggleCourses ? '❌ ' : '✅ '}}Cursos</button>
             <button (click)="toggleCookFunc()">{{!toggleCook ? '❌ ' : '✅ '}}Cocinero</button>
             <div style="text-align: center; margin: auto 0; color: gray;">
                 Proximamente...
@@ -12,17 +14,57 @@
             <button disabled style="color: gray;">Pais</button>
             <button disabled style="color: gray;">Año</button>
         </div>
+    </div>
+
+    <div class="box hover blur companies">
+        <p class="title">EXPERIENCIA</p>
         <ng-container *ngFor="let job of work;  index as i">
             <div class="item"
                 *ngIf="(job.category === 'developer' && toggleDev) || (job.category === 'cook' && toggleCook) ">
                 <div class="image"><img src="/assets/banners/{{job.image}}.png"></div>
                 <div>
-                    <a href="{{job.link}}">
+                    <a style="text-align: left;" href="{{job.link}}">
                         <p>{{job.tag}}</p>
                     </a>
                     <div class="date">{{job.date}}</div>
                     <div class="text">
                         {{job.description}}
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+    <div class="box hover blur companies" *ngIf="toggleStudies">
+        <p class="title">ESTUDIOS</p>
+        <ng-container *ngFor="let study of studies;  index as i">
+            <div class="item" *ngIf="study.category === 'studies' && toggleStudies ">
+                <div class="image"><img src="/assets/banners/{{study.image}}.png"></div>
+                <div>
+                    <a style="text-align: left;" href="{{study.link}}">
+                        <p>{{study.tag}}</p>
+                    </a>
+                    <div class="date">{{study.date}}</div>
+                    <div class="text">
+                        {{study.description}}
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+    <div class="box hover blur companies" *ngIf="toggleStudies">
+        <p class="title">CURSOS</p>
+        <ng-container *ngFor="let course of courses;  index as i">
+            <div class="item" *ngIf="course.category === 'studies' && toggleStudies ">
+                <div class="image"><img src="/assets/banners/{{course.image}}.png"></div>
+                <div>
+                    <a style="text-align: left;" href="{{course.link}}">
+                        <p>{{course.tag}}</p>
+                    </a>
+                    <div class="date">{{course.date}}</div>
+                    <div class="text">
+                        {{course.description}}
                     </div>
                 </div>
             </div>
@@ -37,7 +79,7 @@
                 <img src="/assets/banners/{{job.image}}.png">
             </div>
             <div>
-                <a href="{{job.link}}">
+                <a style="text-align: left;" href="{{job.link}}">
                     <p>{{job.tag}}</p>
                 </a>
                 <div class="date">{{job.date}}</div>
@@ -57,7 +99,7 @@
                 <img src="/assets/banners/{{job.image}}.png">
             </div>
             <div>
-                <a href="{{job.link}}">
+                <a style="text-align: left;" href="{{job.link}}">
                     <p>{{job.tag}}</p>
                 </a>
                 <div class="date">{{job.date}}</div>

@@ -63,6 +63,12 @@ const routes: Routes = [
       import('./pages/register/register.module').then((m) => m.RegisterModule),
   },
   {
+    path: 'shopping-list',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/shopping-list/shopping-list.module').then((m) => m.ShoppingListModule),
+  },
+  {
     path: 'login',
     component: MainLayoutComponent,
     loadChildren: () =>

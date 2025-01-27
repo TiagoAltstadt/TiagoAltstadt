@@ -50,6 +50,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border: none;
+        background-color: transparent;
         width: fit-content;
         padding: 4px 8px;
         float: left;
@@ -67,6 +69,9 @@
         a {
           width: fit-content;
         }
+      }
+      li:hover {
+        box-shadow: none;
       }
     }
 

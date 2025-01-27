@@ -1,6 +1,15 @@
 <section id="devPage" class="page">
     <div class="box hover blur">
         <div class="title">Developer Tools</div>
+        <div class="subtitle">Shortcuts</div>
+        <div class="group" style="flex-direction: row; justify-content: center;">
+            <button class="button" style="margin: 0;" (click)="goToYome()">
+                Y.O.ME
+            </button>
+            <button class="button" style="margin: 0;"(click)="goToShoppingList()">
+                Shopping List
+            </button>
+        </div>
 
         <div class="group">
             <div class="task button" (click)="getUsers()">All Users ({{allUsers ? allUsers.length : '-'}})</div>

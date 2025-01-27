@@ -45,10 +45,10 @@ export class HeaderComponent implements OnInit {
       );
 
       if (this.user.userTypeId === 'ADMIN') {
-        this.headerOptions.push({
-          tag: 'Y.O.ME',
-          link: 'yome',
-        });
+        // this.headerOptions.push({
+        //   tag: 'Y.O.ME',
+        //   link: 'yome',
+        // });
         this.headerOptions.push({
           tag: 'Admin',
           link: 'dev',

@@ -18,6 +18,7 @@ import { YomeComponent } from '../pages/yome/yome.component';
 import { DevComponent } from '../pages/dev/dev.component';
 import { RegisterComponent } from '../pages/register/register.component';
 import { CookComponent } from '../pages/cook/cook.component';
+import { ShoppingListComponent } from '../pages/shopping-list/shopping-list.component';
 
 const components: any[] = [
   //Components
@@ -29,6 +30,7 @@ const components: any[] = [
   ContactComponent,
   CookComponent,
   DevComponent,
+  ShoppingListComponent,
   ExperienceComponent,
   RegisterComponent,
   HomeComponent,

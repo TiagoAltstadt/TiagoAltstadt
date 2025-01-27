@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { YomeService } from 'src/app/services/yome.service';
 import { ExpenseInterface } from 'src/app/shared/interfaces/expenseInterface';
@@ -18,12 +19,19 @@ export class DevComponent implements OnInit {
 
   constructor(
     private yomeService: YomeService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
   ngOnInit() {
     this.getUsers();
     this.getExpenses();
     this.getGroups();
+  }
+  goToYome(){
+    this.router.navigate(['/yome']);
+  }
+  goToShoppingList(){
+    this.router.navigate(['/shopping-list']);
   }
 
   getGroups() {

@@ -9,13 +9,91 @@ import { simpleTabInterface } from 'src/app/interfaces/simple-tabs';
 export class ExperienceComponent {
   toggleDev: boolean = true;
   toggleCook: boolean = false;
+  toggleCourses: boolean = true;
+  toggleStudies: boolean = true;
+  studies: simpleTabInterface[] = [
+    {
+      tag: 'Ciencia de Datos e Inteligecia Artificial',
+      link: 'https://www.ifts18.edu.ar/carreras/ciencia-de-datos',
+      image: 'IFTSN18',
+      date: '2022 - 2024',
+      description: '',
+      current: false,
+      category: 'studies',
+    },
+    {
+      tag: 'Ingenieria en Sistemas de Informacion',
+      link: 'https://utn.edu.ar/es/federacion-universitaria-tecnologica/feria-de-carreras/sistemas-de-informacion',
+      image: 'utn',
+      date: '2018 - 2021',
+      description: '',
+      current: false,
+      category: 'studies',
+    },
+  ];
+  courses: simpleTabInterface[] = [
+    {
+      tag: 'AWS Cloud Practitioner',
+      link: 'https://credentials.itcollege.com.ar/e9e5e980-674d-41fe-aead-ac6100a0870c#acc.xydhXIVY',
+      image: 'itcollege',
+      date: '2022',
+      description: '',
+      current: false,
+      category: 'studies',
+    },
+    {
+      tag: 'Argentina Programa',
+      link: 'https://mumuki.io/argentina-programa/certificates/verify/8NsU1Yaq1p0msb2f',
+      image: 'argentina-programa',
+      date: '2021',
+      description: '',
+      current: false,
+      category: 'studies',
+    },
+    {
+      tag: 'Fullstack Developer -Digital House',
+      link: 'https://drive.google.com/file/d/1nzJOekb5n5t-aotsrA3TUekf6F9tU5tS/view?usp=sharing',
+      image: 'digital-house',
+      date: '2020',
+      description: '',
+      current: false,
+      category: 'studies',
+    },
+    {
+      tag: 'Master Hibernate and JPA with Spring Boot in 100 Steps',
+      link: 'https://www.udemy.com/certificate/UC-49ecfbc6-d8ec-448c-b355-640db81838df/',
+      image: 'hibernate',
+      date: '2021',
+      description: '',
+      current: false,
+      category: 'studies',
+    },
+    {
+      tag: 'Mercado Pago Certified Developer',
+      link: 'https://drive.google.com/file/d/1yUV09CIRpA46kT3WWYKV1HeWhdlaloSM/view?usp=sharing',
+      image: 'mercado-pago',
+      date: '2020',
+      description: '',
+      current: false,
+      category: 'studies',
+    },
+    {
+      tag: 'Learn and Understand AngularJS',
+      link: 'https://www.udemy.com/certificate/UC-MKQZNHH6/',
+      image: 'angularjs',
+      date: '2020',
+      description: '',
+      current: false,
+      category: 'studies',
+    },
+  ];
   work: simpleTabInterface[] = [
     {
       tag: 'Burger Brothers Tarter',
       link: 'http://www.burgerbrothersandorra.com/',
       image: 'burger-brothers',
       date: '2024-2025',
-      description: 'Cocinero.',
+      description: 'Jefe de cocina. Encargado de pedidos, produccion, horarios y eventos especiales.',
       current: true,
       category: 'cook',
     },
@@ -50,12 +128,12 @@ export class ExperienceComponent {
       category: 'cook',
     },
     {
-      tag: 'Digital House',
-      link: 'https://www.digitalhouse.com/ar',
-      image: 'digital_house',
-      date: 'Febrero 2020 - Junio 2020 ',
+      tag: 'Nybble',
+      link: 'https://www.nybblegroup.com/',
+      image: 'nybble',
+      date: 'Febrero 2020 - Noviembre 2020 ',
       description:
-        'Frontend developer, maquetado de playground digital para cursos de Latinoamerica.',
+        'Desarrollador fullstack (frontend; luego en una rama experimental probando diferentes herramientas que se adaptaran a las necesidades de nuestros clientes, incluyendo desarrollo móvil, realidad virtual, APIs y desarrollo web)',
       current: false,
       category: 'developer',
     },
@@ -70,16 +148,15 @@ export class ExperienceComponent {
       category: 'developer',
     },
     {
-      tag: 'Nybble',
-      link: 'https://www.nybblegroup.com/',
-      image: 'nybble',
-      date: 'Febrero 2020 - Noviembre 2020 ',
+      tag: 'Digital House',
+      link: 'https://www.digitalhouse.com/ar',
+      image: 'digital_house',
+      date: 'Febrero 2020 - Junio 2020 ',
       description:
-        'Desarrollador fullstack (frontend; luego en una rama experimental probando diferentes herramientas que se adaptaran a las necesidades de nuestros clientes, incluyendo desarrollo móvil, realidad virtual, APIs y desarrollo web)',
+        'Frontend developer, maquetado de playground digital para cursos de Latinoamerica.',
       current: false,
       category: 'developer',
     },
-
     {
       tag: 'The Coop',
       link: 'https://www.breckenridge.com/explore-the-resort/during-your-stay/dining/the-coop.aspx',
@@ -186,5 +263,11 @@ export class ExperienceComponent {
   }
   toggleCookFunc() {
     this.toggleCook = !this.toggleCook;
+  }
+  toggleStudiesFunc() {
+    this.toggleStudies = !this.toggleStudies;
+  }
+  toggleCoursesFunc() {
+    this.toggleCourses = !this.toggleCourses;
   }
 }

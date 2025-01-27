@@ -1,0 +1,84 @@
+<div class="page">
+    <div class="title">Shopping List</div>
+
+    <div class="box hover blur" style="width: fit-content;   gap: var(--space-24px);">
+        <div class="subtitle">
+            Mis Listas
+        </div>
+        <div class="list">
+            <div class="line" *ngFor="let item of shoppingLists"
+                style="width: 100%; display: flex; justify-content: space-between;">
+                <span style="margin-right: 12px;">{{item.name}}</span>
+                <div style="display: flex; gap: var(--space-12px);">
+                    <i>{{item.items.length}} 🥖</i>
+                    <i>{{item.participants.length }}👤 </i>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!creatingList" style="display: flex; flex-direction: row; justify-content: left; gap: 8px; ">
+            <div (click)="enableListCreation()" class="button"
+                style="color: whitesmoke; width: fit-content; margin: 0;">Crear Lista</div>
+        </div>
+        <form *ngIf="creatingList" [formGroup]="createListForm" (ngSubmit)="submitListForm()"
+            style="padding: 0%; margin: 0;">
+
+            <div class="list">
+                <div class="line form-group">
+                    <label for="password">Nombre:</label>
+                    <input formControlName="name" type="text">
+                </div>
+            </div>
+            <input type="submit" value="Crear">
+
+        </form>
+    </div>
+    <div class="box hover blur" style="width: fit-content;   gap: var(--space-24px);">
+        <div class="subtitle">
+            {{currentList.name}}
+        </div>
+        <div style="display: flex; flex-direction: row; justify-content: left; gap: 8px;">
+            <div *ngFor="let participant of currentList.participants; index as i" class="button"
+                style="color: whitesmoke; width: fit-content; margin: 0;">{{participant}}</div>
+        </div>
+        <div class="list">
+            <div *ngFor="let item of currentList.items" class="line"
+                style="width: 100%; display: flex; justify-content: space-between;">
+                <span>{{item.name}}</span> 
+                <div [ngSwitch]="item.category">
+                    <div *ngSwitchCase="'Limpieza'" style="color: yellow;">Limpieza</div>
+                    <div *ngSwitchCase="'Frutas y Verduras'" style="color: green;">Frutas y Verduras</div>
+                    <div *ngSwitchCase="'Alacena'" style="color: orange;">Alacena</div>
+                    <div *ngSwitchDefault style="color: red;">{{item.category}}</div>
+                </div>
+            </div>
+
+        </div>
+        <div style="display: flex; flex-direction: row; justify-content: left; gap: 8px; ">
+            <div class="button" style="color: whitesmoke; width: fit-content; margin: 0;">Agregar Item</div>
+        </div>
+        <form [formGroup]="createItemForm" (ngSubmit)="submitCategoryForm()" style="padding: 0%; margin: 0;">
+
+            <div class="list">
+                <div class="line form-group">
+                    <label for="name">Nombre:</label>
+                    <input id="name" formControlName="name" type="text">
+                </div>
+                <div class="line form-group">
+                    <label for="category">Categoria:</label>
+                    <select id="category" formControlName="category" class="form-control">
+                        <ng-container *ngFor="let category of categories; let index = index">
+                            <option [value]="category.id">
+                                {{ category.name }}
+                            </option>
+                        </ng-container>
+                    </select>
+                </div>
+            </div>
+            <input type="submit" value="Crear">
+
+        </form>
+    </div>
+
+
+
+</div>
