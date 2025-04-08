@@ -9,10 +9,17 @@ import userTypeRouter from "./routers/user-type.router";
 import { dbConnect } from "./configs/database.config";
 dbConnect();
 
+const schedule = require("node-schedule");
+
+const rule = new schedule.RecurrenceRule();
+rule.second = 5;
+// const job = schedule.scheduleJob(rule, () => {
+//   console.log('Holanda');
+// });
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 app.use(
   cors({
