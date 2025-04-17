@@ -1,11 +1,11 @@
 <section id="register-page">
     <div class=" register-box hover blur ">
-        <div class="title">Registrarse</div>
+        <div class="title">Register</div>
 
         <form [formGroup]="registerForm" (ngSubmit)="send()">
             <!-- Name Field -->
             <div class="form-group">
-                <label for="name">Nombre</label>
+                <label for="name">Name</label>
                 <input type="text" id="name" formControlName="name" autocomplete="name">
                 <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched"
                     class="error-message">
@@ -14,7 +14,7 @@
             </div>
             <!-- Surname Field -->
             <div class="form-group">
-                <label for="surname">Apellido</label>
+                <label for="surname">Surname</label>
                 <input type="text" id="surname" formControlName="surname" autocomplete="surname">
                 <div *ngIf="registerForm.get('surname')?.invalid && registerForm.get('surname')?.touched"
                     class="error-message">
@@ -32,7 +32,7 @@
             </div>
             <!-- Phone Field -->
             <div class="form-group">
-                <label for="phone">Telefono</label>
+                <label for="phone">Phone</label>
                 <input type="number" id="phone" formControlName="phone" autocomplete="phone">
                 <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched"
                     class="error-message">
@@ -41,7 +41,7 @@
             </div>
             <!-- Address Field -->
             <div class="form-group">
-                <label for="address">Direccion</label>
+                <label for="address">Address</label>
                 <input type="text" id="address" formControlName="address" autocomplete="address">
                 <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched"
                     class="error-message">
@@ -50,7 +50,7 @@
             </div>
             <!-- Password Field -->
             <div class="form-group">
-                <label for="password">Contraseña</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" formControlName="password" autocomplete="current-password">
                 <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
                     class="error-message">

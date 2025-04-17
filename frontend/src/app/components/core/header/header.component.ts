@@ -25,12 +25,12 @@ export class HeaderComponent implements OnInit {
   @Output() menStatusChange: EventEmitter<any> = new EventEmitter<any>();
 
   headerOptions = [
-    { tag: 'Inicio', link: '' },
-    { tag: 'Experiencia', link: 'experience' }, // Will have Work, Studies and Projects
+    { tag: 'Home', link: '' },
+    { tag: 'Experience', link: 'experience' }, // Will have Work, Studies and Projects
     { tag: 'Bio.', link: 'bio' },
-    { tag: 'Contacto', link: 'contact' },
+    { tag: 'Contact', link: 'contact' },
     // { tag: 'Tools', link: '#' },
-    { tag: 'Iniciar Sesion', link: 'login' },
+    { tag: 'Login', link: 'login' },
   ];
   pageLocation: string = 'Home';
   menuStatus: boolean = false;
@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit {
         });
       }
       this.headerOptions.push({
-        tag: 'Hola ' + this.user.name,
+        tag: 'Hello ' + this.user.name,
         link: 'profile',
       });
     }

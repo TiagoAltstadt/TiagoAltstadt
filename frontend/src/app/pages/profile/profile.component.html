@@ -5,19 +5,19 @@
 
         <div class="container-box" *ngIf="user && !editInterface">
 
-            <div class="line"><span class="label">Nombre:</span>
+            <div class="line"><span class="label">Name:</span>
                 <div class="underline"></div> <span class="data">{{user.name}}</span>
             </div>
-            <div class="line"><span class="label">Apellido:</span>
+            <div class="line"><span class="label">Surname:</span>
                 <div class="underline"></div><span class="data">{{user.surname}}</span>
             </div>
             <div class="line"><span class="label">Email:</span>
                 <div class="underline"></div> <span class="data">{{user.email}}</span>
             </div>
-            <div class="line"><span class="label">Telefono:</span>
+            <div class="line"><span class="label">Phone:</span>
                 <div class="underline"></div><span class="data">{{user.phone}}</span>
             </div>
-            <div class="line"><span class="label">Direccion:</span>
+            <div class="line"><span class="label">Address:</span>
                 <div class="underline"></div><span class="data">{{user.address}}</span>
             </div>
         </div>
@@ -77,9 +77,9 @@
         </form>
 
         <div class="button-container">
-            <button (click)="enableEditInterface()" *ngIf="!editInterface" class="edit">Editar Perfil</button>
-            <button (click)="enableEditInterface()" *ngIf="editInterface" class="edit">Cancelar</button>
-            <button (click)="logout()" class="logout">Cerrar Sesion</button>
+            <button (click)="enableEditInterface()" *ngIf="!editInterface" class="edit">Edit profile</button>
+            <button (click)="enableEditInterface()" *ngIf="editInterface" class="edit">Cancel</button>
+            <button (click)="logout()" class="logout">Log out</button>
         </div>
     </div>
 </div>

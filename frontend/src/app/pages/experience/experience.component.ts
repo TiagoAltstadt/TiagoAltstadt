@@ -13,7 +13,7 @@ export class ExperienceComponent {
   toggleStudies: boolean = true;
   studies: simpleTabInterface[] = [
     {
-      tag: 'Ciencia de Datos e Inteligecia Artificial',
+      tag: 'Data Science & Artificial Intelligence',
       link: 'https://www.ifts18.edu.ar/carreras/ciencia-de-datos',
       image: 'IFTSN18',
       date: '2022 - 2024',
@@ -22,7 +22,7 @@ export class ExperienceComponent {
       category: 'studies',
     },
     {
-      tag: 'Ingenieria en Sistemas de Informacion',
+      tag: 'Data Systems Engineering',
       link: 'https://utn.edu.ar/es/federacion-universitaria-tecnologica/feria-de-carreras/sistemas-de-informacion',
       image: 'utn',
       date: '2018 - 2021',
@@ -93,7 +93,8 @@ export class ExperienceComponent {
       link: 'http://www.burgerbrothersandorra.com/',
       image: 'burger-brothers',
       date: '2024-2025',
-      description: 'Jefe de cocina. Encargado de pedidos, produccion, horarios y eventos especiales.',
+      description:
+        'Head chef. In charge of orders, production, scheduling, and special events.',
       current: true,
       category: 'cook',
     },
@@ -103,7 +104,7 @@ export class ExperienceComponent {
       image: 'wunderman',
       date: '2023 - 2025',
       description:
-        'Maquetado web con AEM, implementacion de GA4, accesibilidad y diseño. Correccion de errores y migraciones.',
+        'Maintained and authored web content using AEM. Implemented analytics tracking with Google Analytics 4 (GA4). Led front-end content updates and handled bug tracking and resolution. Supported platform migrations and tech stack upgrades for high-traffic websites.',
       current: false,
       category: 'developer',
     },
@@ -113,7 +114,7 @@ export class ExperienceComponent {
       image: 'qr',
       date: '2022 - 2023',
       description:
-        'Fullstack developer, creación de módulos, actualización, migración de tecnologías, deploys y gestión de errores.',
+        'Developed and deployed scalable UI components using Angular and modern JavaScript frameworks. Executed code migrations and version control using Git and Bitbucket. Diagnosed and resolved application bugs and deployment issues.',
       current: false,
       category: 'developer',
     },
@@ -123,7 +124,7 @@ export class ExperienceComponent {
       image: 'sevens',
       date: '2021 - 2022',
       description:
-        'Gerente de restaurant. Responsable de supervisar las operaciones diarias, la experiencia del cliente en un entorno de comedor en la montaña y gestionar negocios.',
+        'Restaurant Manager. Responsible for overseeing daily operations, customer experience in a mountain dining environment, and business management.',
       current: false,
       category: 'cook',
     },
@@ -133,7 +134,7 @@ export class ExperienceComponent {
       image: 'nybble',
       date: 'Febrero 2020 - Noviembre 2020 ',
       description:
-        'Desarrollador fullstack (frontend; luego en una rama experimental probando diferentes herramientas que se adaptaran a las necesidades de nuestros clientes, incluyendo desarrollo móvil, realidad virtual, APIs y desarrollo web)',
+        'Contributed to full-cycle software development, from prototyping to deployment across multiple client projects. Experimented with new tools including VR, APIs, and cross-platform solutions to fit client needs.',
       current: false,
       category: 'developer',
     },
@@ -143,7 +144,7 @@ export class ExperienceComponent {
       image: 'tn',
       date: 'Marzo 2020 - Junio 2020 ',
       description:
-        'Fullstack developer, gestión de templates de noticias para redactores. Manejo de sprints, bases de datos, seguridad, front y back end.',
+        'Developed and maintained a digital news system, improving workflow and security. Managed database integration and led sprint planning for team coordination. Implemented secure data handling practices for high-volume news content. ',
       current: false,
       category: 'developer',
     },
@@ -153,7 +154,7 @@ export class ExperienceComponent {
       image: 'digital_house',
       date: 'Febrero 2020 - Junio 2020 ',
       description:
-        'Frontend developer, maquetado de playground digital para cursos de Latinoamerica.',
+        'Designed and implemented UI components for an educational platform. ',
       current: false,
       category: 'developer',
     },
@@ -163,7 +164,7 @@ export class ExperienceComponent {
       image: 'the-coop',
       date: '2019 - 2020',
       description:
-        'Líder de equipo. Garantia y control en procurar excelencia en la atencion de un restaurant de alto nivel, desde la produccion de alimentos hasta el final de la experiencia del cliente.',
+        'Team Leader. Ensures and controls excellence in the service of a high-end restaurant, from food production to the end of the customer experience.',
       current: false,
       category: 'cook',
     },
@@ -173,7 +174,7 @@ export class ExperienceComponent {
       image: 'vista-haus',
       date: '2019 - 2020',
       description:
-        'Líder de equipo. Direccion y supervision de cocina en un entorno de alta demanda.',
+        'Team Leader. Kitchen management and supervision in a high-demand environment.',
       current: false,
       category: 'cook',
     },
@@ -183,7 +184,7 @@ export class ExperienceComponent {
       image: 'warehouse',
       date: '2019 - 2020',
       description:
-        'Encargado de Ubicación. Empleado a tiempo parcial en Warehouse y Limber Grove. Responsable de la produccion de inventarios y atencion al cliente.',
+        'Location Manager. Part-time employee at Warehouse and Limber Grove. Responsible for inventory production and customer service.',
       current: false,
       category: 'other',
     },
@@ -193,7 +194,7 @@ export class ExperienceComponent {
       image: 'cefiro',
       date: '2018 (Verano)',
       description:
-        'Cocinero y encargado del servicio de mesa. Trabajo temporal, destacado por su cocina de calidad y excelente experiencia al consumidor.',
+        'Cook and table service manager. Seasonal position, recognized for its quality cuisine and excellent customer experience.',
       current: false,
       category: 'cook',
     },
@@ -202,7 +203,7 @@ export class ExperienceComponent {
       link: 'https://www.instagram.com/chez_lucasylaety/',
       image: 'lucas-laety',
       date: '2018 (Invierno)',
-      description: 'Mesero. Atencion al cliente y servicio de mesa.',
+      description: 'Waiter. Customer service and table service.',
       current: false,
       category: 'cook',
     },
@@ -213,7 +214,7 @@ export class ExperienceComponent {
       link: 'https://www.veterinarianuevaestrada.com',
       image: 'veterinaria',
       description:
-        'Veterinaria Nueva Estrada. Sitio web de veterinaria en Mar del Plata. Diseño y desarrollo de la web, SEO y mantenimiento. Creacion de contenido y gestion de redes sociales.',
+        'Designed the full architecture of a veterinary management system from concept to delivery. Implemented appointment scheduling features and developed a responsive, user-friendly UI. Coordinated directly with stakeholders for ongoing improvements and scalability. ',
       date: '2021 - Hoy',
     },
     {
@@ -221,7 +222,7 @@ export class ExperienceComponent {
       link: 'https://www.valbuscombis.com',
       image: 'valbus',
       description:
-        'Valbus Transporte. Armado, produccion y diseño del sitio web de empresa transportista. SEO y mantenimiento.',
+        'Sole developer responsible for the full lifecycle of a transportation booking system using the MEAN stack. Conducted continuous deployment, feature expansion, and server maintenance. ',
       date: '2024 - Hoy',
     },
   ];
@@ -231,14 +232,14 @@ export class ExperienceComponent {
       link: 'https://github.com/TiagoAltstadt/Baggu-ecommerce/tree/master',
       image: 'baggu',
       description:
-        'Proyecto integrador del curso de Programacion Web Full Stack de Digital House.',
+        'Integrating project for the Digital House Full Stack Web Programming course.',
       date: '2020',
     },
     {
       tag: 'Snake (C++)',
       link: 'https://github.com/TiagoAltstadt/Snake_cpp',
       image: 'snake',
-      description: 'El clasico snake, pero con C++ y casero',
+      description: 'The classic Snake, but with C++.',
       date: '2019',
     },
     {
@@ -246,14 +247,14 @@ export class ExperienceComponent {
       link: 'https://github.com/TiagoAltstadt/file-sorter  ',
       image: 'file-sorter',
       description:
-        'Pequeño proyecto hecho con python para organizar, modificar y estandarizar grandes cantidades de fotos y videos en una computadora',
+        'Small project made with Python to organize, modify and standardize large amounts of photos and videos on a computer.',
       date: '2023',
     },
     {
       tag: 'Calculator (JavaScript)',
       link: 'https://github.com/TiagoAltstadt/Calculator  ',
       image: 'calculator',
-      description: 'Calculadora con JS',
+      description: 'Calculator with JS',
       date: '2018',
     },
   ];
