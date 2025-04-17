@@ -132,7 +132,7 @@ export class ExperienceComponent {
       tag: 'Nybble',
       link: 'https://www.nybblegroup.com/',
       image: 'nybble',
-      date: 'Febrero 2020 - Noviembre 2020 ',
+      date: 'February 2020 - November 2020 ',
       description:
         'Contributed to full-cycle software development, from prototyping to deployment across multiple client projects. Experimented with new tools including VR, APIs, and cross-platform solutions to fit client needs.',
       current: false,
@@ -142,7 +142,7 @@ export class ExperienceComponent {
       tag: 'Todo Noticias - Artear',
       link: 'https://tn.com.ar/?gclid=CjwKCAjwo9unBhBTEiwAipC11yPdNv-NnOkUbIjxoy0pPg17-b0QMN7dma1qzbIXPHwWVw18bXijHhoC46cQAvD_BwE',
       image: 'tn',
-      date: 'Marzo 2020 - Junio 2020 ',
+      date: 'March 2020 - June 2020 ',
       description:
         'Developed and maintained a digital news system, improving workflow and security. Managed database integration and led sprint planning for team coordination. Implemented secure data handling practices for high-volume news content. ',
       current: false,
@@ -152,7 +152,7 @@ export class ExperienceComponent {
       tag: 'Digital House',
       link: 'https://www.digitalhouse.com/ar',
       image: 'digital_house',
-      date: 'Febrero 2020 - Junio 2020 ',
+      date: 'February 2020 - June 2020 ',
       description:
         'Designed and implemented UI components for an educational platform. ',
       current: false,
@@ -192,7 +192,7 @@ export class ExperienceComponent {
       tag: 'Cefiro',
       link: 'https://lamejorpizzeria.com/pizzerias/cefiro/',
       image: 'cefiro',
-      date: '2018 (Verano)',
+      date: '2018 (Summer)',
       description:
         'Cook and table service manager. Seasonal position, recognized for its quality cuisine and excellent customer experience.',
       current: false,
@@ -202,7 +202,7 @@ export class ExperienceComponent {
       tag: 'Lucas & Laety',
       link: 'https://www.instagram.com/chez_lucasylaety/',
       image: 'lucas-laety',
-      date: '2018 (Invierno)',
+      date: '2018 (Winter)',
       description: 'Waiter. Customer service and table service.',
       current: false,
       category: 'cook',
@@ -215,7 +215,7 @@ export class ExperienceComponent {
       image: 'veterinaria',
       description:
         'Designed the full architecture of a veterinary management system from concept to delivery. Implemented appointment scheduling features and developed a responsive, user-friendly UI. Coordinated directly with stakeholders for ongoing improvements and scalability. ',
-      date: '2021 - Hoy',
+      date: '2021 - Present',
     },
     {
       tag: 'Val-Bus',
@@ -223,7 +223,7 @@ export class ExperienceComponent {
       image: 'valbus',
       description:
         'Sole developer responsible for the full lifecycle of a transportation booking system using the MEAN stack. Conducted continuous deployment, feature expansion, and server maintenance. ',
-      date: '2024 - Hoy',
+      date: '2024 - Present',
     },
   ];
   projects: simpleTabInterface[] = [

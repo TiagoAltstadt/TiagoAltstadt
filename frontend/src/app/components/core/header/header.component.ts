@@ -37,7 +37,10 @@ export class HeaderComponent implements OnInit {
   user!: UserModel;
 
   ngOnInit(): void {
-    this.pageLocation = this.router.url.split('/')[1].toUpperCase() == '' ? 'HOME' : this.router.url.split('/')[1].toUpperCase();
+    this.pageLocation =
+      this.router.url.split('/')[1].toUpperCase() == ''
+        ? 'HOME'
+        : this.router.url.split('/')[1].toUpperCase();
 
     if (this.user.token) {
       this.headerOptions = this.headerOptions.filter(
