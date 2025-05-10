@@ -33,6 +33,9 @@ export class DevComponent implements OnInit {
   goToShoppingList(){
     this.router.navigate(['/shopping-list']);
   }
+  goToFamilyTree(){
+    this.router.navigate(['/family-tree']);
+  }
 
   getGroups() {
     this.yomeService.getGroups().subscribe((res: GroupInterface[]) => {

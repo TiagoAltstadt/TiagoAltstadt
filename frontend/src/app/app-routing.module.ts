@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { AdminGuard } from './guards/admin.guard';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -45,6 +44,14 @@ const routes: Routes = [
       import('./pages/test/test.module').then((m) => m.TestModule),
   },
   {
+    path: 'family-tree',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/family-tree/family-tree.module').then(
+        (m) => m.FamilyTreeModule
+      ),
+  },
+  {
     path: 'yome',
     component: MainLayoutComponent,
     loadChildren: () =>
@@ -66,7 +73,9 @@ const routes: Routes = [
     path: 'shopping-list',
     component: MainLayoutComponent,
     loadChildren: () =>
-      import('./pages/shopping-list/shopping-list.module').then((m) => m.ShoppingListModule),
+      import('./pages/shopping-list/shopping-list.module').then(
+        (m) => m.ShoppingListModule
+      ),
   },
   {
     path: 'login',

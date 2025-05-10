@@ -25,6 +25,29 @@
         white-space: nowrap;
       }
     }
+    .cv-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      .cv-box {
+        width: 150px;
+        padding: 6px;
+        height: 60px;
+        border: 1px solid var(--color-primary);
+        border-radius: var(--border-radius);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        &:hover {
+          cursor: pointer;
+          background-color: var(--color-primary);
+          color: var(--color-black);
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
   }
 
   ul {

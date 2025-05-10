@@ -7,3 +7,5 @@ const BASE_URL = environment.production
 export const USERS_URL = BASE_URL + '/api/users';
 
 export const YOME_URL = BASE_URL + '/api/yome';
+
+export const FAMILY_TREE_URL = BASE_URL + '/api/familyTree';

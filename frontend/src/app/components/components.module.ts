@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+
 import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +20,8 @@ import { DevComponent } from '../pages/dev/dev.component';
 import { RegisterComponent } from '../pages/register/register.component';
 import { CookComponent } from '../pages/cook/cook.component';
 import { ShoppingListComponent } from '../pages/shopping-list/shopping-list.component';
+import { FamilyTreeComponent } from '../pages/family-tree/family-tree.component';
+
 
 const components: any[] = [
   //Components
@@ -28,6 +31,7 @@ const components: any[] = [
   YomeComponent,
   BioComponent,
   ContactComponent,
+  FamilyTreeComponent,
   CookComponent,
   DevComponent,
   ShoppingListComponent,
