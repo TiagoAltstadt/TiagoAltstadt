@@ -11,6 +11,7 @@ export class ConfirmationComponent implements OnInit {
   email: string | null = '';
   confirmationCode: string | null = '';
   error: boolean = false;
+  success: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,7 +31,10 @@ export class ConfirmationComponent implements OnInit {
         .subscribe({
           next: (response) => {
             // Assuming success means the response has a message or something valid
-            this.router.navigate(['/login']);
+            this.success = true;
+            setTimeout(() => {
+              this.router.navigate(['/login']);
+            }, 5000);
           },
           error: (err) => {
             this.error = true;

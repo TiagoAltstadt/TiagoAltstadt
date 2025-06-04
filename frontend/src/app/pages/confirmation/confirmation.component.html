@@ -1,4 +1,10 @@
 <div class="confirmation-container">
+    <div class="register-box hover blur" *ngIf="!error && success">
+      <div class="title">Perfect!</div>
+      <p>
+        Your account has been <b>successfully verified</b>. You can now log in and start using the app.
+      </p>
+    </div>
     <div class="register-box hover blur" *ngIf="!error">
       <div class="title">Hang tight!</div>
       <p>

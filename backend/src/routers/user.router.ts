@@ -346,16 +346,16 @@ router.post(
                     New User Created
                 </div>
                 <div class="email-body">
-                    <p>A new user has been created on <a href="https://www.tiagoaltstadt.com/"
+                    <p>A new user has been created at <a href="https://www.tiagoaltstadt.com/"
                             target="_blank">www.tiagoaltstadt.com</a>.</p>
                     <p>
-                        <b>Nombre:</b> ${user.name}<br>
-                        <b>Apellido:</b> ${user.surname}<br>
+                        <b>Name:</b> ${user.name}<br>
+                        <b>Surname:</b> ${user.surname}<br>
                         <b>Email:</b> ${user.email}<br>
                         <b>Telefono:</b> ${user.phone}<br>
-                        <b>Direccion:</b> ${user.address}
+                        <b>Address:</b> ${user.address}
                     </p>
-                    <p>Best regards,<br><b>Tiago Altstadt</b></p>
+                    <p>Doing good,<br><b>Boss</b></p>
                 </div>
                 <div class="email-footer">
                     <p>&copy; 2024 Tiago Altstadt. All rights reserved.</p>
@@ -460,15 +460,11 @@ router.post(
         </div>
         <div class="email-body">
             <p>Welcome to <a href="https://www.tiagoaltstadt.com/" target="_blank">www.tiagoaltstadt.com</a>!</p>
-            <p>Your account has been successfully created</p>
+            <p>Your account has been successfully confirmed</p>
             <p>
-                <b>Name:</b> ${user.name}<br>
-                <b>Surname:</b> ${user.surname}<br>
-                <b>Email:</b> ${user.email}<br>
-                <b>Phone:</b> ${user.phone}<br>
-                <b>Address:</b> ${user.address}
+                Thanks for registering with us, ${user.name}!<br>
             </p>
-            <p>Exitos,<br><b>Tiago Altstadt</b></p>
+            <p>Gool luck,<br><b>Tiago Altstadt</b></p>
         </div>
         <div class="email-footer">
             <p>&copy; 2024 Tiago Altstadt. All rights reserved.</p>
