@@ -462,9 +462,9 @@ router.post(
             <p>Welcome to <a href="https://www.tiagoaltstadt.com/" target="_blank">www.tiagoaltstadt.com</a>!</p>
             <p>Your account has been successfully confirmed</p>
             <p>
-                Thanks for registering with us, ${user.name}!<br>
+                Thanks for joining, <b>${user.name}</b>!<br>
             </p>
-            <p>Gool luck,<br><b>Tiago Altstadt</b></p>
+            <p>Good luck,<br><b>Tiago Altstadt</b></p>
         </div>
         <div class="email-footer">
             <p>&copy; 2024 Tiago Altstadt. All rights reserved.</p>
