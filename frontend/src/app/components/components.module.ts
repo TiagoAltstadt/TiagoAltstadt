@@ -21,6 +21,7 @@ import { RegisterComponent } from '../pages/register/register.component';
 import { CookComponent } from '../pages/cook/cook.component';
 import { ShoppingListComponent } from '../pages/shopping-list/shopping-list.component';
 import { FamilyTreeComponent } from '../pages/family-tree/family-tree.component';
+import { ConfirmationComponent } from '../pages/confirmation/confirmation.component';
 
 
 const components: any[] = [
@@ -42,6 +43,7 @@ const components: any[] = [
   NotFoundComponent,
   ProfileComponent,
   TestComponent,
+  ConfirmationComponent
 ];
 const modules: any[] = [
   RouterModule,

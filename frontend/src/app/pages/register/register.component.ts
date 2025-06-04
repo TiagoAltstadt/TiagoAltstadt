@@ -11,6 +11,7 @@ import { UserModel } from 'src/app/shared/models/User';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  emailConfirmationMessage: boolean = false;
 
   user!: UserModel;
 
@@ -49,7 +50,6 @@ export class RegisterComponent implements OnInit {
 
     this.isSubmitting = true; // Disable the button
     this.sendingMessage = 'Guardando datos...'; // Show sending message
-    console.log('this.registerForm.value', this.registerForm.value);
   }
 
   send() {
@@ -66,9 +66,10 @@ export class RegisterComponent implements OnInit {
         this.sendingMessage = ''; // Clear sending message
         this.successMessage = 'Usuario registrado correctamente!'; // Show success message
         this.errorMessage = ''; // Clear any previous error messages
+        this.emailConfirmationMessage = true
         setTimeout(() => {
           this.router.navigate(['/login']);
-        }, 2000);
+        }, 5000);
       },
       error: (error) => {
         this.sendingMessage = ''; // Clear sending message

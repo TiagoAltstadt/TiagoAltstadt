@@ -152,4 +152,25 @@ export class UserService {
     window.location.reload();
     return;
   }
+  confirmEmail(email: string, confirmationCode: string): Observable<any> {
+    return this.http
+      .post<any>(
+        USERS_URL + '/confirmation',
+        { email, confirmationCode },
+        { observe: 'response' } // This lets you access `status`, headers, etc.
+      )
+      .pipe(
+        tap({
+          next: (res) => {
+            console.log('Confirmation success:', res);
+            // no return needed
+          }
+        }),
+        catchError((error) => {
+          console.error('Error confirming email:', error);
+          throw error; // this keeps the observable throwing so `subscribe({ error })` works
+        })
+      );
+  }
+  
 }

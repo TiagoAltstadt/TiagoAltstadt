@@ -84,6 +84,12 @@ const routes: Routes = [
       import('./pages/login/login.module').then((m) => m.LoginModule),
   },
   {
+    path: 'confirmation/:email/:confirmationCode',
+    component: MainLayoutComponent,
+    loadChildren: () =>
+      import('./pages/confirmation/confirmation.module').then((m) => m.ConfirmationModule),
+  },
+  {
     path: 'contact',
     component: MainLayoutComponent,
     loadChildren: () =>

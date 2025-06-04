@@ -1,0 +1,16 @@
+<div class="confirmation-container">
+    <div class="register-box hover blur" *ngIf="!error">
+      <div class="title">Hang tight!</div>
+      <p>
+        We're just <b>verifying</b> your account — this won't take long.
+      </p>
+    </div>
+  
+    <div class="register-box hover blur" *ngIf="error">
+      <div class="title">Oops!</div>
+      <p>
+        <b>Something went wrong</b> while verifying your account. Please try again or <b>contact support</b>. <br><i>(that would be me, contact page)</i>
+      </p>
+    </div>
+  </div>
+  

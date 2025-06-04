@@ -1,5 +1,5 @@
 <section id="register-page">
-    <div class=" register-box hover blur ">
+    <div class=" register-box hover blur " *ngIf="!emailConfirmationMessage">
         <div class="title">Register</div>
 
         <form [formGroup]="registerForm" (ngSubmit)="send()">
@@ -69,6 +69,13 @@
             </div>
         </form>
 
+    </div>
+    <div class=" register-box hover blur " *ngIf="emailConfirmationMessage">
+        <div class="title">User created</div>
+        <p>You'll receive a confirmation email — please <b>check your inbox</b>.
+
+        </p>
+        
     </div>
 
 </section>

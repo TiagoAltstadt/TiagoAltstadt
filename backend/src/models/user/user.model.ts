@@ -29,6 +29,8 @@ export interface User {
   balanceSheet: BalanceSheetEntry[]; // Array of balance sheet entries
   groups: Schema.Types.ObjectId[];
   token?: string;
+  confirmationCode?: string;
+  enabled?: boolean;
 }
 
 // Define the main User schema
@@ -44,6 +46,8 @@ const UserSchema = new Schema<User>(
     token: { type: String, required: false },
     balanceSheet: { type: [balanceSheetSchema], default: [] },
     groups: { type: [Schema.Types.ObjectId], ref: "Group", default: [] },
+    confirmationCode: { type: String, required: true },
+    enabled: { type: Boolean, default: false },
   },
   {
     toJSON: { virtuals: true },
