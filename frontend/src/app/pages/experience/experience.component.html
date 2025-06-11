@@ -27,9 +27,8 @@
                         <p>{{job.tag}}</p>
                     </a>
                     <div class="date">{{job.date}}</div>
-                    <div class="text">
-                        {{job.description}}
-                    </div>
+                    <div class="text" [innerHTML]="job.description"></div>
+
                 </div>
             </div>
         </ng-container>

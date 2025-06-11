@@ -16,9 +16,9 @@ export class ExperienceComponent {
       tag: 'Data Science & Artificial Intelligence',
       link: 'https://www.ifts18.edu.ar/carreras/ciencia-de-datos',
       image: 'IFTSN18',
-      date: '2022 - 2024',
-      description: '',
-      current: false,
+      date: '2022 - Today',
+      description: 'Currently studying topics like machine learning, data analysis, and AI systems. My goal with this program is to strengthen my understanding of data-driven technologies and how to apply them in real-world applications.',
+      current: true,
       category: 'studies',
     },
     {
@@ -26,10 +26,11 @@ export class ExperienceComponent {
       link: 'https://utn.edu.ar/es/federacion-universitaria-tecnologica/feria-de-carreras/sistemas-de-informacion',
       image: 'utn',
       date: '2018 - 2021',
-      description: '',
+      description: 'Studied two years of computer systems engineering, where I built a foundation in programming, systems design, and database management. This experience helped confirm my interest in software development and technology.',
       current: false,
       category: 'studies',
     },
+    
   ];
   courses: simpleTabInterface[] = [
     {
@@ -37,7 +38,7 @@ export class ExperienceComponent {
       link: 'https://credentials.itcollege.com.ar/e9e5e980-674d-41fe-aead-ac6100a0870c#acc.xydhXIVY',
       image: 'itcollege',
       date: '2022',
-      description: '',
+      description: 'Gained a solid understanding of cloud computing concepts and AWS services. This certification helped me work with cloud-based architectures and collaborate better on cloud-native projects.',
       current: false,
       category: 'studies',
     },
@@ -46,16 +47,16 @@ export class ExperienceComponent {
       link: 'https://mumuki.io/argentina-programa/certificates/verify/8NsU1Yaq1p0msb2f',
       image: 'argentina-programa',
       date: '2021',
-      description: '',
+      description: 'Completed this national program focused on software development fundamentals. It sharpened my coding logic and introduced me to industry best practices.',
       current: false,
       category: 'studies',
     },
     {
-      tag: 'Fullstack Developer -Digital House',
+      tag: 'Fullstack Developer - Digital House',
       link: 'https://drive.google.com/file/d/1nzJOekb5n5t-aotsrA3TUekf6F9tU5tS/view?usp=sharing',
       image: 'digital-house',
       date: '2020',
-      description: '',
+      description: 'Trained in full-stack development with hands-on projects using modern web technologies. Built complete web apps using front-end and back-end tools.',
       current: false,
       category: 'studies',
     },
@@ -64,7 +65,7 @@ export class ExperienceComponent {
       link: 'https://www.udemy.com/certificate/UC-49ecfbc6-d8ec-448c-b355-640db81838df/',
       image: 'hibernate',
       date: '2021',
-      description: '',
+      description: 'Learned to integrate Java applications with databases using Hibernate and JPA. Strengthened my ability to manage persistent data in Spring Boot projects.',
       current: false,
       category: 'studies',
     },
@@ -73,7 +74,7 @@ export class ExperienceComponent {
       link: 'https://drive.google.com/file/d/1yUV09CIRpA46kT3WWYKV1HeWhdlaloSM/view?usp=sharing',
       image: 'mercado-pago',
       date: '2020',
-      description: '',
+      description: 'Got certified in integrating Mercado Pago APIs for online payments. Learned to handle e-commerce transactions and improve user payment flows.',
       current: false,
       category: 'studies',
     },
@@ -82,10 +83,11 @@ export class ExperienceComponent {
       link: 'https://www.udemy.com/certificate/UC-MKQZNHH6/',
       image: 'angularjs',
       date: '2020',
-      description: '',
+      description: 'Took a deep dive into AngularJS, learning how to build dynamic single-page apps. It laid the foundation for my later work with modern Angular.',
       current: false,
       category: 'studies',
     },
+    
   ];
   work: simpleTabInterface[] = [
     {
@@ -104,7 +106,7 @@ export class ExperienceComponent {
       image: 'wunderman',
       date: '2023 - 2025',
       description:
-        'Maintained and authored web content using AEM. Implemented analytics tracking with Google Analytics 4 (GA4). Led front-end content updates and handled bug tracking and resolution. Supported platform migrations and tech stack upgrades for high-traffic websites.',
+        'At VML I worked mainly as a front-end developer, collaborating closely with UX and UI designers to bring designs to life for major clients like Colgate. I was responsible for building and updating pages using Adobe Experience Manager (AEM), often working with Vanilla JavaScript to get the functionality just right.<br><br> One of my key responsibilities was handling content implementation and migrations, especially during platform upgrades. I also helped integrate and validate tracking using Google Analytics 4 (GA4), making sure that what we built could actually be measured and optimized.<br><br> A lot of my day-to-day involved maintaining large-scale websites, fixing bugs, and making sure everything ran smoothly on the front end — from layout to performance. It was a role that required both attention to detail and collaboration across design and tech teams.',
       current: false,
       category: 'developer',
     },
@@ -114,7 +116,7 @@ export class ExperienceComponent {
       image: 'qr',
       date: '2022 - 2023',
       description:
-        'Developed and deployed scalable UI components using Angular and modern JavaScript frameworks. Executed code migrations and version control using Git and Bitbucket. Diagnosed and resolved application bugs and deployment issues.',
+        'At Q&R I worked mainly as a front-end developer, but I also got involved in some back-end tasks from time to time. My day-to-day involved creating and updating Angular components, fixing bugs, and building new sections of the website from scratch.<br><br>I collaborated closely with both designers and back-end developers, often working on experimental features or branches that required a bit of creative problem-solving. I used Jenkins for deployments and testing, and was also responsible for diagnosing issues that came up during builds or in production.<br><br>A big part of my role was making sure the UI stayed clean, responsive, and scalable — whether that meant refactoring existing code or building something new to fit the needs of the project.',
       current: false,
       category: 'developer',
     },
@@ -134,7 +136,7 @@ export class ExperienceComponent {
       image: 'nybble',
       date: 'February 2020 - November 2020 ',
       description:
-        'Contributed to full-cycle software development, from prototyping to deployment across multiple client projects. Experimented with new tools including VR, APIs, and cross-platform solutions to fit client needs.',
+        'At Nybble Group I started in a more experimental team, where we worked closely with clients who had very open-ended needs. Our job was to explore the latest technologies and help shape a stack that actually fit their goals — even when those goals weren’t fully clear at the start.<br><br> In that phase, I got to work across the full stack: back-end, databases, front-end (mostly with React and Angular), mobile development, and even some VR and cross-platform tools. It was a very creative and hands-on environment where we were expected to research, test, and build prototypes quickly.<br><br>Later on, I moved to a more stable front-end-focused team, working on an insurance platform for a U.S. client. There I focused on developing and updating Angular components, maintaining UI consistency, and contributing to the general upkeep of the site.',
       current: false,
       category: 'developer',
     },
@@ -144,7 +146,7 @@ export class ExperienceComponent {
       image: 'tn',
       date: 'March 2020 - June 2020 ',
       description:
-        'Developed and maintained a digital news system, improving workflow and security. Managed database integration and led sprint planning for team coordination. Implemented secure data handling practices for high-volume news content. ',
+        'At Todo Noticias, I was brought in to kick off the first internal development team for the journalism department. At first, the role wasn’t clearly defined, but after talking with the journalists, I started identifying key needs for tools that would make their day-to-day work easier.<br><br>I ended up designing and building several custom web tools tailored to specific editorial use cases — for example, an app that let them dynamically create player lists for sports coverage (like FIFA rosters) and embed them on the website via iframe. These tools were built to be reused, adapted, and updated by the team without needing technical help.<br><br>This was my first full-stack project built entirely from scratch — I handled the front-end, back-end, database integration, user permissions, and overall security. It was a great opportunity to learn how to develop complete solutions that solve real-world editorial problems.',
       current: false,
       category: 'developer',
     },
@@ -154,7 +156,7 @@ export class ExperienceComponent {
       image: 'digital_house',
       date: 'February 2020 - June 2020 ',
       description:
-        'Designed and implemented UI components for an educational platform. ',
+        'This was my first role as a web programmer, working closely with teachers, professors, and UX/UI designers to build an educational platform for Digital House’s digital playground across Latin America.<br><br>My main responsibility was to turn their designs and course plans into fully functional web components using HTML, CSS, and JavaScript. Every day I’d log in, review their requirements, and develop the different stages and exam phases they needed.<br><br>Once the components were ready, we tested them with the teachers to ensure everything worked smoothly. When approved, my work became part of the platform used by thousands of students across the region.<br><br>This job gave me valuable experience working in a collaborative environment and delivering production-ready web features.',
       current: false,
       category: 'developer',
     },
@@ -213,18 +215,17 @@ export class ExperienceComponent {
       tag: 'Veterinaria Nueva Estrada',
       link: 'https://www.veterinarianuevaestrada.com',
       image: 'veterinaria',
-      description:
-        'Designed the full architecture of a veterinary management system from concept to delivery. Implemented appointment scheduling features and developed a responsive, user-friendly UI. Coordinated directly with stakeholders for ongoing improvements and scalability. ',
       date: '2021 - Present',
+      description: 'Led the digital transformation of a traditional veterinary practice in Mar del Plata. Designed and developed their official website and created a custom management system for client records, pet histories, stock control, and online appointment scheduling. Provided ongoing support and feature improvements tailored to their workflow.',
     },
     {
       tag: 'Val-Bus',
       link: 'https://www.valbuscombis.com',
       image: 'valbus',
-      description:
-        'Sole developer responsible for the full lifecycle of a transportation booking system using the MEAN stack. Conducted continuous deployment, feature expansion, and server maintenance. ',
       date: '2024 - Present',
+      description: 'Currently working as the sole developer for a national transportation company. Built and deployed a responsive landing page with all essential service information. Collaborating directly with stakeholders to scale the platform and integrate future booking and scheduling features.',
     },
+    
   ];
   projects: simpleTabInterface[] = [
     {
